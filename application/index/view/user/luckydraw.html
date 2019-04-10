@@ -1,0 +1,206 @@
+<div data-page="luckydraw" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner" style="background: #fff">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">幸运抽奖</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .turntableBig {
+            width: 310px;
+            height: 310px;
+            position: relative;
+            margin: 0px auto 0;
+            text-align: center;
+            background: url(/assets/img/usercenter/turntable-bg.png) no-repeat;
+            background-size: 100%;
+        }
+
+        #turntable {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 280px;
+            height: 280px;
+            background: url(/assets/img/usercenter/turntable.png) no-repeat;
+            background-size: 100%;
+        }
+
+        .turntableBig #pointer {
+            position: absolute;
+            top: 86px;
+            left: 119px;
+        }
+
+        .turntableBig #pointer img {
+            height: 100px;
+        }
+
+        .playnum {
+            font-weight: 600;
+            color: #f4ee02;
+            font-size: 17px;
+        }
+
+        .coinshow {
+            text-align: center;
+        }
+
+        .coinshow p {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 3px 15px;
+            background: url("/assets/img/usercenter/coin-bg.png") no-repeat;
+            background-size: 100% 100%;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .coinshow span {
+            display: block;
+            margin-top: 3px;
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .record-rule {
+            width: 94%;
+            margin: 10px auto;
+            padding: 0 13% 20px;
+            background: url(/assets/img/usercenter/record-rules.png) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .recordList {
+            color: #ed453c;
+        }
+
+        .recordList .title {
+            border-bottom: 1px solid #ed453c;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .recordList .title span {
+            color: #ed453c;
+            background: #ffefef;
+            position: relative;
+            top: 15px;
+            padding: 0 6px;
+        }
+
+        .recordList ul {
+            padding: 10px 5px;
+            height: 100px;
+            overflow-y: auto;
+            background-color: transparent !important;
+        }
+
+        .recordList ul li {
+            font-size: 14px;
+            line-height: 23px;
+        }
+
+        .recordList ul li a {
+            float: right;
+            color: #ed453c;
+        }
+
+        .recordList button {
+            width: auto;
+            display: block;
+            background: #ffbe04;
+            color: #FFF;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 0 auto;
+        }
+
+        .rules {
+            color: #f1f002;
+            margin: 10px 0;
+        }
+
+        .rules .title {
+            border-bottom: 1px solid #f1f002;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .rules .title span {
+            color: #f1f002;
+            background: #eb3d34;
+            position: relative;
+            top: 15px;
+            padding: 0 6px;
+        }
+
+        .rules ul li {
+            line-height: 25px;
+        }
+
+    </style>
+    <div class="page-content" style="padding-bottom: 0">
+        <form action="{:url('Index/User/luckydraw')}" method="post" class="ajax-submit-onchange">
+        <div style="padding-top:152px;width: 100%;background: url('/assets/img/usercenter/lucky-bg.png') no-repeat;background-size: 100%;">
+
+            <div class="turntableBig">
+                <div id="turntable"></div>
+                <div id="pointer">
+                    <img src="/assets/img/usercenter/pointer.png" alt="">
+                </div>
+            </div>
+
+            <h2 style="letter-spacing:1px;font-size: 14px;color: #Fff;font-weight:600;text-align: center;line-height: 50px">您有 <span class="playnum">{$num}</span>次抽奖机会</h2>
+            <div class="coinshow">
+                <p>LMC币：{$hyrs['wall2']}</p>
+                <a href="{:url('index/User/sendlink')}"><span>分享成功获得一次抽奖机会</span></a>
+            </div>
+
+            <div class="record-rule">
+                <div class="recordList">
+                    <div class="title">
+                        <span>我的中奖记录</span>
+                    </div>
+
+                    <ul>
+                        {volist name="luck" id = "vo"}
+
+                        <li>
+                            <p>{$vo.prize_name} <span style="float: right">{$vo.time|date='Y-m-d H:i:s',###}</span></p>
+                        </li>
+                        {/volist}
+
+                    </ul>
+
+
+
+
+                    <div class="rules">
+                        <div class="title">
+                            <span>活动规则</span>
+                        </div>
+                        <ul>
+                            <li>1.成功分享一名志愿者获得一次抽奖机会。</li>
+                            <li>2.每日仅限一次使用3枚LMC参与幸运抽奖活动。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </form>
+    </div>
+</div>

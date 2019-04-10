@@ -1,0 +1,552 @@
+<div data-page="tradeindex" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">交易中心</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .numShow {
+            overflow: hidden;
+            margin: 10px;
+            background: url("/assets/img/trade/tradetop-bg.png") no-repeat;
+            background-size: 100% 100%;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .numShow img {
+            display: inline-block;
+            height: 12px;
+            margin: 0 3px 0 8px;
+            position: relative;
+            top: 2px
+        }
+
+        .numShow .meijin {
+            padding-left: 15px;
+            font-size: 15px;
+            line-height: 45px;
+            position: relative;
+        }
+
+        .numShow .meijin span {
+            position: absolute;
+            top: 10px;
+            right: 1px;
+            height: 23px;
+            line-height: 23px;
+            background: #155ddc;
+            font-size: 12px;
+            border-radius: 10px 0 0 10px;
+            padding-right: 10px;
+        }
+
+        .numShow ul {
+            overflow: hidden;
+            background-color: transparent !important;
+        }
+
+        .numShow ul li {
+            float: left;
+            width: 49.33%;
+            margin: 15px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .numShow li div {
+            height: 30px;
+            line-height: 30px;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+
+        .numShow li span {
+            display: block;
+            font-size: 13px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .numShow .zichan {
+            line-height: 36px;
+            height: 36px;
+            overflow: hidden;
+        }
+
+        .numShow .zichan span {
+            float: left;
+            width: 50%;
+            line-height: 36px;
+            height: 36px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .searchBox {
+            background: #e8eceb;
+            padding: 10px;
+            position: relative;
+            /*margin-top: 10px;*/
+        }
+
+        .searchBox img {
+            position: absolute;
+            top: 21px;
+            left: 20px;
+            height: 15px;
+        }
+
+        .searchBox input {
+            width: 100%;
+            background: #FFF;
+            border: none;
+            border-radius: 5px;
+            height: 35px;
+            line-height: 35px;
+            padding-left: 40px;
+            font-size: 14px;
+            margin: 0;
+            font-family: "Microsoft YaHei";
+        }
+
+        .trade-tab ul {
+            overflow: hidden;
+        }
+
+        .trade-tab ul li {
+            float: left;
+            width: 25%;
+            border-bottom: 2px solid #e5e5e5;
+        }
+
+        .trade-tab ul li.active {
+            border-bottom: 2px solid #007aff;
+        }
+
+        .trade-tab ul li a {
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .trade-tab ul li.active a {
+            color: #007aff;
+        }
+
+        .showNum {
+            overflow: hidden;
+        }
+
+        .showNum li {
+            float: left;
+            width: 25%;
+            padding-bottom: 5px;
+        }
+
+        .showNum li p {
+            font-size: 14px;
+            color: #777;
+            line-height: 25px;
+        }
+
+        .showNum li p:nth-of-type(2) {
+            color: #333;
+        }
+
+        .tradeList > div {
+            display: none;
+        }
+
+        .tradeList > div.active {
+            display: block;
+        }
+
+        .tradeList > div > ul > li {
+            border-bottom: 5px solid #f4f4f4;
+        }
+
+        .list-block ul:after {
+            background-color: transparent;
+        }
+        .qglb-title{
+            /*line-height: 50px;*/
+            font-size: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #fff;
+            line-height: 42px;
+            margin-bottom: 15px;
+            background: #0fc0ef;
+        }
+    </style>
+    <div class="page-content  infinite-scroll infinite-scroll-bottom" style="background: #fff">
+
+        <div class="numShow">
+            <div class="meijin">
+                美金汇率: $1:￥{$site.usd2cny}
+                <span>
+                    <img src="/assets/img/trade/icon-csts.png" alt="">
+                    {$hyrs['level_text']}
+                </span>
+            </div>
+            <ul>
+                <li>
+
+                    <div><b>{$buytotal}</b></div>
+                    <span>求购总量</span>
+                </li>
+                <li>
+
+                    <div>$<b  id="yestprice">0</b></div>
+                    <span>昨日价格</span>
+                </li>
+                <!--<li>-->
+                <!--<div id="nowprice">268</div>-->
+                <!--<span>今日价格</span>-->
+                <!--</li>-->
+            </ul>
+            <div class="zichan">
+                <span>
+                    <img src="/assets/img/trade/icon-lmczc.png" alt="">
+                    {$site['walltype']['wall7']}资产:{$hyrs['wall7'] ? $hyrs['wall7'] : 0}
+                </span>
+                <span>
+                    <img src="/assets/img/trade/icon-ybzc.png" alt="">
+                    {$site['walltype']['wall2']}资产:{$hyrs['wall2'] ? $hyrs['wall2'] : 0}
+                </span>
+            </div>
+
+        </div>
+
+        <div class="kline">
+            <div id="main-container" style="width: 100%;height:360px;"></div>
+        </div>
+
+        <!--买入，进行中，已完成，我的求购-->
+        <div class="trade-tab">
+            <ul>
+                <li class="active">
+                    <a href="#trade01">买入</a>
+                </li>
+                <li>
+                    <a href="#trade02">进行中</a>
+                </li>
+                <li>
+                    <a href="#trade03">已完成</a>
+                </li>
+                <li>
+                    <a href="#trade04">我的求购</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tradeList">
+            <div id="trade01" class="active">
+                <form action="{:url('api/trade/buy')}" method="post" class="ajax-submit">
+                    <!--<div class="content-block-title" style="margin-top: 10px;">{$site['walltype']['wall3']}:{$hyrs['wall3'] ? $hyrs['wall3'] : 0} {$site['cny']}</div>-->
+                    <div class="list-block inset">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">交易单价</div>
+                                        <div class="item-input">
+                                            <input id="buyprice" readonly type="text" name="cny" autocomplete="off" placeholder="请输入交易单价">
+                                        </div>
+                                        <div class="item-after">
+                                            {$site['cny']}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">交易数量</div>
+                                        <div class="item-input">
+                                            <input id="buynumber" onchange="MY.suanfee('{:url('api/user/getfee')}',{number:$$('#buynumber').val(),price:$$('#buyprice').val(),type:'buy'},'#buymax','#buytrade','#buyfee','#buys')"
+                                                   type="number" min="0" step="1" name="btc" autocomplete="off" value="1">
+                                        </div>
+                                        <div class="item-after">
+                                            {$site['btc']}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">最大买入</div>
+                                        <div class="item-input" id="buymax">
+                                            0
+                                        </div>
+                                        <div class="item-after">
+                                            {$site['btc']}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">兑换额</div>
+                                        <div class="item-input" id="buytrade">
+                                            0
+                                        </div>
+                                        <div class="item-after">
+                                            {$site['cny']}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">手续费</div>
+                                        <div class="item-input">
+                                            <input type="number" id="buyfee" name="fee" value="0" readonly>
+                                        </div>
+                                        <div class="item-after">
+                                            {$site['buyfee']}% {$site['cny']}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <p>
+                            <button id="buys" type="submit" class="button button-fill button-round  ">买入</button>
+                        </p>
+                    </div>
+                </form>
+                <div class="qglb-title">求购列表</div>
+                <div class="searchBox">
+                    <img src="/assets/img/trade/icon-tradesearch.png" alt="">
+                    <input type="text" placeholder="请输入对方手机号或ID" onchange="MY.searchsale(this,'#salelist')">
+                </div>
+
+                <ul id="salelist" class=" infinite-scroll">
+                    
+
+                </ul>
+            </div>
+
+            <div id="trade02">
+                <div class="list-block media-list">
+                <ul>
+                    {volist name="buytrade" id="vo" }
+                    <li class=" item-content">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">订单编号</div>
+                                <div class="item-after">{$vo.ppsn}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">数量</div>
+                                <div class="item-after">{$vo.number}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">单价</div>
+                                <div class="item-after">{$vo.price}/$</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">合计金额</div>
+                                <div class="item-after">{$vo['total']*$site['usd2cny']}￥</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">匹配时间</div>
+                                <div class="item-after">{$vo.addtime}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">收款会员</div>
+                                <div class="item-after">{$vo.username}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">订单状态</div>
+                            </div>
+                            <div class="item-subtitle">{$vo.endtime}</div>
+                            <div class="item-title-row" style="margin-top: 8px;">
+                                <div class="item-title">付款操作</div>
+                                <div class="item-after">{$vo.status}</div>
+                            </div>
+                        </div>
+
+                    </li>
+                    {/volist}
+
+                    {volist name="saletrade" id="vo" }
+                    <li class=" item-content">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">订单编号</div>
+                                <div class="item-after">{$vo.ppsn}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">数量</div>
+                                <div class="item-after">{$vo.number}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">单价</div>
+                                <div class="item-after">{$vo.price}/$</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">合计金额</div>
+                                <div class="item-after">{$vo['total']*$site['usd2cny']}￥</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">匹配时间</div>
+                                <div class="item-after">{$vo.addtime}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">付款会员</div>
+                                <div class="item-after">{$vo.username}</div>
+                            </div>
+                            <div class="item-title-row">
+                                <div class="item-title">订单状态</div>
+                            </div>
+                            <div class="item-subtitle">{$vo.endtime}</div>
+                            <div class="item-title-row" style="margin-top: 8px;">
+                                <div class="item-title">付款操作</div>
+                                <div class="item-after">{$vo.status}</div>
+                            </div>
+                        </div>
+
+                    </li>
+                    {/volist}
+
+                </ul>
+                </div>
+            </div>
+            <div id="trade03">
+                <ul>
+                    {volist name="completeorder" id="vo" }
+                    <li style="margin: 10px auto;background: #fff">
+                        <div class="list-block media-list" style="margin: 5px 0">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            {notempty name="vo.avatar"}<img style="width: 40px;height: 40px;border-radius: 40px" src="{$vo.avatar}">
+                                            {else/}
+                                            <img style="width: 40px;height: 40px;border-radius: 40px" src="{$site.logo}">
+                                            {/notempty}
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">
+                                                    {$hyrs.username} <span style="font-size: 12px;color: #999"></span>
+                                                    <div style="font-size: 12px;">
+
+                                                    </div>
+                                                </div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="showNum">
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>单价</p>
+                                <p>${$vo.price}</p>
+                            </li>
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>成交数量</p>
+                                <p>{$vo.number}</p>
+                            </li>
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>合计</p>
+                                <p>${$vo.total}</p>
+                            </li>
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>状态</p>
+                                <p>已完成</p>
+                            </li>
+                        </ul>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+            <div id="trade04">
+                <ul>
+                    {volist name="buyorder" id="vo" }
+                    <li style="margin: 10px auto;background: #fff">
+                        <div class="list-block media-list" style="margin: 5px 0">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            {notempty name="vo.avatar"}<img style="width: 40px;height: 40px;border-radius: 40px" src="{$vo.avatar}">
+                                            {else/}
+                                            <img style="width: 40px;height: 40px;border-radius: 40px" src="{$site.logo}">
+                                            {/notempty}
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">
+                                                    {$vo.account}
+                                                    <!--<span style="font-size: 12px;color: #999">成交：0单</span>-->
+                                                    <div style="font-size: 12px;">
+                                                        支付方式
+                                                        <i class="iconfont icon-unie654 color-lightblue" style="font-size: 20px;"></i>
+                                                        <i class="iconfont icon-weixin-copy color-green" style="font-size: 20px;"></i>
+                                                        <img src="" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="showNum">
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>单价</p>
+                                <p>${$vo.price}</p>
+                            </li>
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>{$site['walltype']['wall2']}数量</p>
+                                <p>{$vo.number}</p>
+                            </li>
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>合计</p>
+                                <p>${$vo.total}</p>
+                            </li>
+                            <li style="text-align: center;padding-left: 15px">
+                                <p>状态</p>
+                                <!--<p>等待中</p>-->
+                                <p><a class="button button-round button-fill" onclick="MY.cancelBuyOrder('{$vo.tgid}')">撤销</a></p>
+                            </li>
+                        </ul>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+
+        <div style="width: 100%;height: 50px"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

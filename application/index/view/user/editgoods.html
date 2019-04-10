@@ -1,0 +1,90 @@
+<div data-page="editgoods" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">编辑商品</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+        <form action="{:url('api/user/editgoods')}" method="post" class="ajax-submit">
+            <div class="list-block inset">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">商品名称</div>
+                                <div class="item-input">
+                                    <input  type="text" name="goods_name" value="{$list.goods_name}">
+                                    <input  type="hidden" name="goods_id" value="{$list.goods_id}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">商品价格</div>
+                                <div class="item-input">
+                                    <input value="{$list.shop_price}" type="number" name="shop_price">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">商品库存</div>
+                                <div class="item-input">
+                                    <input value="{$list.store_count}" type="number" name="store_count">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">商品图片</div>
+                                <div class="item-input">
+                                    <input placeholder="请输入商品名称" type="file" name="file" onchange="MY.showimg(this,'image')" >
+                                    <img src="{$list.image}" alt="" id="image">
+                                    <input  type="hidden" name="shop_id" value="{$hyrs.id}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">商品描述</div>
+                                <div class="item-input">
+                                    <textarea name="goods_content">{$list.goods_content}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <li>
+                        <p class="content-block">
+                        </p>
+                    </li>
+                </ul>
+                <button type="submit" class="button button-fill button-round bg-green">修改</button>
+            </div>
+        </form>
+        <div class="row" style="height: 50px;"></div>
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,47 @@
+<div data-page="collection" class="page ">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">我的收藏</div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content" style="background: white;">
+        <div class="list-block media-list">
+            <ul>
+                {volist name="list" id="vo"  }
+
+
+                <li>
+                    <a href="{:url('Mobile/Goods/goodsInfo',array('id'=>$vo['goods_id']))}" class="item-link item-content">
+
+                        <div class="item-media">
+                            <img src="{$vo.image}" width="80">
+                        </div>
+
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-text" style="color: #000">{$vo.goods_name}</div>
+                                <div class="item-after"></div>
+                            </div>
+                            <div class="item-subtitle">
+                                ￥{$vo.shop_price}
+                                <input type="hidden" min="1" id="goods_num" name="goods_num" value="1">
+                                <input name="gid" type="hidden" id="goods_id" value="{$vo['goods_id']}">
+                            </div>
+                        </div>
+
+                    </a>
+                </li>
+
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

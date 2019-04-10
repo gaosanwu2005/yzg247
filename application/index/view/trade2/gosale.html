@@ -1,0 +1,76 @@
+<div data-page="gosale" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">获得帮助</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content  infinite-scroll infinite-scroll-bottom" style="background:  white;">
+
+        <form action="{:url('api/trade2/gosale')}" method="post" class="ajax-submit">
+            <div class="list-block ">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">{$site['walltype']['wall3']}</div>
+                                <div class="item-input">
+                                    <input type="text" id="wall3" name="wall3" placeholder="可用{$hyrs['wall3'] ? $hyrs['wall3'] : 0}" onchange="MY.sum('#wall3','#wall6','#total')">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">{$site['walltype']['wall6']}</div>
+                                <div class="item-input">
+                                    <input type="text" id="wall6" name="wall6" placeholder="可用{$hyrs['wall6'] ? $hyrs['wall6'] : 0}"  onchange="MY.sum('#wall3','#wall6','#total')">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">合计</div>
+                                <div class="item-input">
+                                    <input type="text" name="total" id="total" value="0" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">交易密码</div>
+                                <div class="item-input">
+                                    <input type="password" name="password2" placeholder="请输入交易密码">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                        </div>
+                    </li>
+                </ul>
+                <button type="submit" class="button button-fill button-round">转出</button>
+            </div>
+        </form>
+        <div class="content-block">
+            <p>{$site.txinfo}</p>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

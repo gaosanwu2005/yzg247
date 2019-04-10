@@ -1,0 +1,28 @@
+<div class="com_top">
+	<h2></h2>
+	<!--<h2><a href="{:U('Mobile/User/userinfo')}">设置</a></h2>-->
+	<p class="tuij_cas">
+		{$user['account']} {$user['nickname']}
+		<span></span>
+    </p>
+	<dl>
+		<dt>
+		<!--<img src='{$user[head_pic]|default="__STATIC__/images/user68.jpg"}' />-->
+
+			<notempty name="user.headimg"><img src="http://xhz.water-wa.com/Uploads{$user['headimg']}"   alt="用户名" >
+				<else/>
+				<img src="__STATIC__/images/user68.jpg"    alt="用户名"  >
+			</notempty>
+
+
+		<dd>{$level_name}</dd>
+		</dt>
+	</dl>
+</div>
+<div class="uer_topnav">
+	<ul>
+		<li class="bain"><a href="{:U('Mobile/User/order_list')}" ><span>{$order_count}</span>我的订单</a></li>
+		<li class="bain"><a href="{:U('Mobile/User/collect_list')}"><span>{$goods_collect_count}</span>我的收藏</a></li>
+		<li><a href="{:U('Mobile/User/comment')}"><span>{$comment_count}</span>我的评价</a></li>
+	</ul>
+</div>

@@ -1,0 +1,86 @@
+
+<div data-page="newinfo" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class=" back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">{if condition="$type eq 1"}历史公告{else/}新闻资讯{/if}</div>
+            <div class="right">
+                <!--<a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>-->
+            </div>
+        </div>
+    </div>
+    <style>
+        /*新闻动态*/
+        .newsList{
+            background: #fff;
+        }
+        .newsList .title img{
+            height: 14px;
+            display: inline-block;
+        }
+        .newsList ul{
+            padding: 15px;
+        }
+        .newsList ul li{
+            border-bottom: 1px solid #efeff4;
+        }
+        .newsList ul li a{
+            display: block;
+            padding: 10px 0;
+            overflow: hidden;
+            color: #434343;
+        }
+        .newsList ul li a img{
+            float: left;
+            width: 26%;
+            height: 60px;
+        }
+        .newsList ul li a .newsDesc{
+            width: 71%;
+            float: right;
+        }
+        .newsList ul li a .newsDesc h3{
+            font-size: 16px;
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+        .newsList ul li a .newsDesc div{
+            font-size: 13px;
+            line-height: 20px;
+            color: #8e8e8e;
+            height: 40px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            display:-webkit-box;
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+        }
+    </style>
+    <!--顶部导航-->
+    <div class="page-content  infinite-scroll infinite-scroll-bottom" style="background: white;">
+        <div class="newsList">
+
+            <ul id="newslist2" class=" infinite-scroll">
+                {foreach $list as $vo}
+                <li>
+                    <a href="{:url('index/Announce/xwmb',array('id'=>$vo['id']))}">
+                        <img src="{$vo.image}" alt="">
+                        <div class="newsDesc">
+                            <h3>{$vo.title}</h3>
+                            <div>{$vo.subtitle}</div>
+                        </div>
+                    </a>
+                </li>
+                {/foreach}
+
+            </ul>
+        </div>
+        <div class="row" style="height: 50px;"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<div data-page="withdraw" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner" style="background: #fff">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">币币闪兑</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+            <!--<div class="subnavbar">-->
+                <!--<div class="buttons-row">-->
+                    <!--<a href="#tab1" class="button tab-link active">提现</a>-->
+                    <!--<a href="#tab2" class="button tab-link ">充值</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        #form-group,#form-group1{
+            padding: 10px;
+            background: #fff;
+        }
+        .input-group{
+            position: relative;
+        }
+        .input-group label{
+            font-size: 13px;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+        }
+        .input-group input{
+            display: block;
+            height: 30px;
+            width: 100%;
+            font-size: 14px;
+            padding: 0;
+            border: none;
+            font-family: "Microsoft YaHei", 微软雅黑;
+            border-bottom: 1px solid #ddd;
+        }
+        .input-group select{
+            background: #f5f5f5;
+            height: 35px;
+            width: 100%;
+            font-size: 14px;
+            border: none;
+            padding:0 0 0 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            font-family: "Microsoft YaHei", 微软雅黑;
+        }
+
+        .input-group span{
+            position: absolute;
+            top:48px;
+            right: 5px;
+            color: #999;
+        }
+        .input-group span.sjx {
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 17px;
+            right: 10px;
+        }
+        .input-group span b{
+            color: #333;
+        }
+        .submit-group{
+            margin-top: 25px;
+        }
+        .submit-group input{
+            width: 100%;
+            background: #258be0;
+            height: 40px;
+            border-radius: 5px;
+            color: #fff;
+            font-family: "Microsoft YaHei", 微软雅黑;
+            font-size: 16px;
+        }
+        .tip{
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+        .tipBox{
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-indent: 2em;
+            padding: 5px;
+            line-height: 20px;
+            margin: 20px auto;
+            color: #999;
+
+        }
+        .popover-angle:after{
+            background: transparent;
+        }
+    </style>
+    <div class="page-content">
+
+        <div class="tabs" >
+            <div id="tab1" class="tab active">
+                <h3 style="padding: 10px;background: #fff;line-height: 20px;font-size: 17px;font-family: 'Microsoft YaHei'">币币交易</h3>
+
+                <form id="form-group" action="{:url('api/trade/bbsd')}" method="post" class="ajax-submit">
+                    <input type="hidden" name="type" value="{$type}">
+                    <div class="input-group">
+                        <select name="walltype" id="">
+                            <option value="p1">LMC交易购买{$bname}</option>
+                            <option value="p2">{$bname}交易购买LMC</option>
+                        </select>
+                        <span class="sjx"></span>
+                    </div>
+                    <div class="input-group">
+                        <label>当前LMC汇率</label>
+                        <input type="text" value="1{$bname}={$hl}lmc" readonly="readonly">
+                        <input value="1" type="hidden" name="paytype">
+                        <input value="{$hl}" type="hidden" name="hl">
+                    </div>
+                    <div class="input-group">
+                        <!--<label>数量</label>-->
+                        <input type="text" value="" name="number"  placeholder="请输入您要交易的数量">
+                        <span>
+                    LMC
+                </span>
+                    </div>
+                    <div class="tip">可用{$hyrs.wall2} LMC</div>
+                    <!--<div class="input-group">-->
+                        <!--<label>收款人钱包地址</label>-->
+                        <!--<input type="text" value="" name="userwallet">-->
+                    <!--</div>-->
+                    <!--<div class="input-group">-->
+                        <!--<label>手续费</label>-->
+                        <!--<input type="text" value="{$site.service}%" placeholder="" readonly="readonly">-->
+                        <!--<span>-->
+                    <!--<b>LMC</b>-->
+                <!--</span>-->
+                    <!--</div>-->
+                    <div class="input-group">
+                        <label>手机号</label>
+                        <input type="text" value="" id="phone" name="phone">
+                    </div>
+                    <!--<div class="item-after open-popover" data-popover=".popover-about"  >-->
+                        <!--发送动态码-->
+                    <!--</div>-->
+                    <div class="input-group">
+                        <label>验证码</label>
+                        <input type="text" value="" name="captcha">
+                        <span  class="item-after open-popover" data-popover=".popover-about">发送动态码</span>
+                    </div>
+                    <!--<p style="color: #b6bec3;font-size: 15px">交易成功后到账数量 <span style="float: right;color: #333">0.000 BTC</span></p>-->
+
+                    <!--<div class="tipBox">-->
+                        <!--提示语：LMC兑换ETH及其他主流币，要求10的整数倍起兑（算力达到10G）扣{$site.service}%LMC。时间限制（10 : 00 : 00）-->
+                    <!--</div>-->
+
+
+                    <div class="submit-group">
+                        <input type="submit" value="进行兑换">
+                    </div>
+
+                </form>
+                <div class="popover popover-about" id="popover">
+                    <div class="popover-angle"></div>
+                    <div class="popover-inner">
+                        <form action="" method="post" class="ajax-submit">
+                            <div class="content-block">
+                                <div class="item-media"  style="padding: 0;font-size:13px;padding-left: 5px;width: 100%;font-size:16px;text-align:center;margin-top:-20px;margin-bottom:10px">
+                                    验证码
+                                </div>
+                                <div class="item-input" style="position: relative;">
+                                    <input name="captcha" id="captcha" type="text" placeholder="请输入验证码"  style="padding:6px;color: ;">
+                                    <img src="{:captcha_src()}"  onclick="this.src = '{:captcha_src()}?r=' + Math.random();" style="position: absolute;right: 0;top: 0;width: 100px;height: 35px;"/>
+                                </div>
+
+                                <button onclick="MY.ajax('{:url('api/sms/send')}',{mobile:$$('#phone').val(),captcha:$$('#captcha').val(),event:'bbsd'});" class="button button-fill button-round bg-green" style="width:40%;margin:15px auto">确定</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--<div id="tab2" class="tab">-->
+                <!--<h3 style="padding: 10px;background: #fff;line-height: 20px;font-size: 17px;font-family: 'Microsoft YaHei'">币币交易</h3>-->
+
+                <!--<form id="form-group1" action="{:url('api/trade/etc2lmc')}" method="post" class="ajax-submit">-->
+                    <!--<div class="input-group">-->
+                        <!--<select name="" id="">-->
+                            <!--&lt;!&ndash;<option value="1">LMC交易购买BTC</option>&ndash;&gt;-->
+                            <!--<option value="2">1交易购买LMC</option>-->
+                        <!--</select>-->
+                        <!--<span class="sjx"></span>-->
+                    <!--</div>-->
+                    <!--<div class="input-group">-->
+                        <!--<label>当前汇率</label>-->
+                        <!--<input type="text" value="{$site.etc2lmc}lmc" readonly="readonly">-->
+                        <!--<input value="1" type="hidden" name="paytype" >-->
+                    <!--</div>-->
+                    <!--<div class="input-group">-->
+                        <!--<label>数量</label>-->
+                        <!--<input type="text" value="" placeholder="请输入您要交易的数量" name="number">-->
+                        <!--<span>-->
+                    <!--<b>LMC</b> | 全部-->
+                <!--</span>-->
+                    <!--</div>-->
+                    <!--<div class="tip">可用{$hyrs.wall2} LMC</div>-->
+                    <!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<label>收款人钱包地址</label>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="text" value="">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!---->
+                    <!--<p style="color: #b6bec3;font-size: 15px">交易成功后到账数量 <span style="float: right;color: #333">0.000 BTC</span></p>-->
+
+                    <!--<div class="tipBox">-->
+                        <!--提示语：LMC兑换ETH及其他主流币，要求10的整数倍起兑（算力达到10G）扣{$site.service}%LMC。时间限制（10 : 00 : 00）-->
+                    <!--</div>-->
+
+
+                    <!--<div class="submit-group">-->
+                        <!--<input type="submit" value="提交委托交易">-->
+                    <!--</div>-->
+
+                <!--</form>-->
+
+
+            <!--</div>-->
+        </div>
+
+
+
+
+    </div>
+</div>

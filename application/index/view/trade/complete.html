@@ -1,0 +1,57 @@
+
+<div data-page="complete" class="page finance">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="link  back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">交易记录</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+        <!--<div class="content-block-title">奖金明细</div>-->
+        {if condition="$list"}
+        <div class="list-block  media-list">
+
+            <ul>
+                {volist name="list" id="vo"}
+                <li>
+                    <a href="{$vo.aa}" class=" item-link" style="width: 100%;">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title" style="margin-left: 15px;">交易金额:{$vo.total}$</div>
+                                <div class="item-after" >{$vo.addtime}</div>
+                            </div>
+
+                            <div class="item-subtitle"  style="margin-left: 15px;">{$vo.type} <span style="float: right">{$vo.status}</span></div>
+                        </div>
+                    </a>
+                </li>
+
+                {/volist}
+
+            </ul>
+        </div>
+        <style>
+            /*分页*/
+            .pagination {text-align: center;}
+            .pagination li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;}
+            .pagination li.active {background: #007aff;color: #fff;border: 1px solid #007aff;}
+            .pagination li a { display: block; }
+
+        </style>
+        {$page}
+        {else/}
+        <div class="content-block-title">没有更多了</div>
+        {/if}
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,81 @@
+<div data-page="wdzt" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">我的直推</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchbar-overlay"></div>
+    <!--搜索栏end-->
+    <div class="page-content">
+
+	{if condition="empty($list)"}
+	    <div class="content-block-title">
+		  没有更多了
+		</div>
+		{else/}
+        <div class="list-block media-list">
+            <ul>
+               {volist name="list" id="vo"}
+                <li >
+                    <a
+                    {if condition="$vo['jointime'] eq 0 AND $site['leaderjh'] eq 1"}
+                    href="javascript:myApp.confirm('您确定要激活该会员吗?<br/>将消耗您<span class=color-red >{$site['jhprice']}</span>个激活码!',function(){MY.ajax('{:url('api/User/jihuo')}',{id:{$vo.id}})})"
+                         {else/}
+                    href="javascript:void(0);"
+                         {/if}
+                    class="item-content " style="color: black">
+                    <div class="item-media">
+                        {notempty name="vo.avatar"}
+                        <img src="{$vo['avatar']}"   alt="用户名"  style="padding:2px;border:none;margin-right: auto;margin-left: auto;width: 87px;border-radius: 50%;">
+                        {else/}
+                        <img src="{$site.logo}" alt="用户名" style="padding:2px;border:none;margin-right: auto;margin-left: auto;width: 87px;border-radius: 50%;">
+                        {/notempty}
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">
+                            账号：&nbsp;{$vo.username}<br>
+                            手机号:{$vo.mobile}<br>
+                            注册日期：{$vo['createtime']|date="Y-m-d H:i",###}
+                        </div>
+                        <div class="item-title item-after">
+                            {if condition="$vo['jointime'] gt 1"}
+                                <span class="color-green"> 已激活</span>
+                                {else/}
+                                <span class="color-red"> 未激活</span>
+                            {/if}
+                        </div>
+                    </div>
+                    </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+
+
+		{/if}
+        <div class="row" style="height: 50px;"></div>
+        <style>
+            /*分页*/
+            .pagination {text-align: center;}
+            .pagination li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;}
+            .pagination li.active {background: #007aff;color: #fff;border: 1px solid #007aff;}
+            .pagination li a { display: block; }
+
+        </style>
+        {$page}
+    </div>
+
+
+
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,156 @@
+<div data-page="traintickets" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">火车票</div>
+            <div class="right">
+
+            </div>
+
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .form-row{
+            background: #fff;
+            padding: 5px;
+        }
+        .form-row .input-group{
+            padding: 5px 10px;
+        }
+        .form-row .input-group input{
+            height: 35px;
+            width: 100%;
+            padding-left: 5px;
+            box-sizing: border-box;
+            border: 1px solid #eaeaea;
+            border-radius: 3px;
+            font-size: 15px;
+            font-family: "Microsoft YaHei";
+        }
+        .form-row .input-group input[type="submit"]{
+            background: #0f7bd7;
+            border: 1px solid #0f7bd7;
+            color: #fff;
+            width: 96%;
+            display: block;
+            margin: 20px auto;
+        }
+        .button{
+            height: 35px;
+            line-height: 35px;
+        }
+        .tipBox{
+            background: #fff;
+            padding: 0 5% 20px;
+        }
+        .tipBox p{
+            font-size: 12px;
+            color: #999;
+            line-height: 25px;
+        }
+        .tipBox p:nth-of-type(1){
+            font-size: 14px;
+        }
+        .recharge-list{
+            background: #fff;
+            padding:10px;
+        }
+        .recharge-list li{
+            line-height: 30px;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #eaeaea;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .recharge-list li span{
+            float: right;
+            font-size: 15px;
+        }
+        .banner img{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+    <div class="page-content">
+
+        <div class="banner">
+            <img src="/assets/img/recharge-hcp-bg.jpg" alt="">
+        </div>
+
+        <!--<div class="subnavbar">-->
+        <div class="buttons-row">
+            <a href="#tab1" class="button tab-link active">购买火车票</a>
+            <a href="#tab2" class="button tab-link ">购买记录</a>
+        </div>
+
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <form action="/api/recharge/ticketsAvailable" method="post" class="form-row ajax-submit">
+
+                    <div class="input-group">
+                        <input type="text" placeholder="出发地" name="from_station" value="郑州">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" placeholder="目的地" name="to_station" value="开封">
+                    </div>
+                    <div class="input-group">
+                        <input type="date" name="train_date" value="2018-11-24">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="submit" value="查询">
+                    </div>
+
+                    <!--<a href="{:url('mobile/index/ticketlist')}">列表</a>-->
+
+                </form>
+
+                <div class="tipBox">
+                    <p>流程:</p>
+                    <p>1.购买火车票提示，需要算力10G才有资格。</p>
+                    <p>2.等待充值成功，2小时左右。</p>
+                    <p>3.客服邮箱hust2018@163.com，处理问题指导使用。</p>
+                    <p>4.充值时间: 周一到周五10:00-17:00。</p>
+                    <p>5.一天一次</p>
+                    <p>6.当月兑换必须使用完，不累计下个月，大家谨记。最好月初兑换，当月消费完成。</p>
+                </div>
+
+
+
+            </div>
+
+            <div id="tab2" class="tab">
+                <ul class="recharge-list">
+                    {volist name='tickets_order_list' id='item'}
+                    <li>
+                        <p>
+                            车次 <span>{$item.train_code}</span>
+                        </p>
+                        <p>
+                            时间 <span>{$item.train_date|date="Y-m-d", ###}</span>
+                        </p>
+                        <p>
+                            状态 <span style="color: #007aff;">{$item.remarks}</span>
+                        </p>
+                    </li>
+                    {/volist}
+
+                </ul>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
+

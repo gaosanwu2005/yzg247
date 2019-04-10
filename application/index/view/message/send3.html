@@ -1,0 +1,64 @@
+<div data-page="send3" class="page form">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">申请代理</div>
+			<div class="right">
+				<a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<div class="page-content" style=" background: white;">
+		<div class="content-block-title">
+			官方账号
+		</div>
+		<div class="list-block media-list">
+			<ul>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<img src="{$site.logo}" width="80">
+						</div>
+						<div class="item-inner">
+							<div class="item-subtitle">支付宝：{$site.palipay}</div>
+							<div class="item-subtitle">微信：{$site.pweixin}</div>
+							<div class="item-subtitle">银行卡：{$site.pbank}</div>
+							<!--<div class="item-after"><a class="button button-round " onclick="MY.copywww('1')">复制账号</a></div> -->
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="content-block">
+			<p>	{$site.shopdai}</p>
+		</div>
+		<form action="{:url('Message/send3')}" method="post" class="ajax-submit">
+			<div class="list-block ">
+				<!--<ul>-->
+
+					<!--<li class=" item-content">-->
+						<!--<div class="item-inner">-->
+							<!--<div class="item-title label">上传转账截图</div>-->
+							<!--<div class="item-input">-->
+								<!--<input type="file" name="pimg">-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="content-block">-->
+
+						<!--</div>-->
+					<!--</li>-->
+				<!--</ul>-->
+				<button type="submit" class="button button-fill button-round ">申请代理</button>
+			</div>
+		</form>
+
+		<div class="row" style="height: 50px;"></div>
+	</div>
+
+</div>

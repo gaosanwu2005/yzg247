@@ -1,0 +1,288 @@
+<div data-page="xuelitisheng2" class="page form">
+
+    <style>
+
+        .navbar {
+
+            color: #fff;
+
+            background: -webkit-linear-gradient(left, #3e77f2 , #43aff6);
+
+            background: -o-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: -moz-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: linear-gradient(to right, #3e77f2 , #43aff6);
+
+        }
+
+        .gs-zz-cl{
+
+            padding: 10px 0;
+
+        }
+
+        .gs-zz-cl ul li {
+            width: 20%;
+        }
+    </style>
+
+    <!--顶部导航-->
+
+    <div class="navbar">
+
+        <div class="navbar-inner">
+
+            <div class="left">
+
+                <a href="" class="back">
+
+                    <img src="/assets/img/icon-back.png" alt="">
+
+                </a>
+
+            </div>
+
+            <div class="center sliding" style="text-align: center;width: 100%;">{if $bureau_type eq 1}安监局{elseif $bureau_type eq 2}质监局{else}人保部{/if}网上报名-考点科目选择</div>
+
+        </div>
+
+    </div>
+
+    <!--顶部导航-->
+
+    <div class="page-content" style="background: #fff">
+
+        <!---->
+
+        <div class="zxbm">
+
+            <div class="zxbm-title">考点科目选择</div>
+
+            <form action="{:addon_url('bureau/ajax/sendinfo2')}" method="post" class="store-data ajax-submit form-input">
+                <div class="input-group">
+                    <label>省：</label>
+
+                    <select name='province' id="province" onchange="MY.union('{:addon_url('bureau/index/soncategory')}',{province:$$('#province').val(), type:1},'#city')">
+
+                        <option>请选择省份</option>
+
+                        {volist name="province" id="vo" empty="暂时没有数据" }
+
+                        <option value="{$vo.name}" {eq name="info.province" value="$vo.name"}selected = "selected"{/eq}>{$vo.name}</option>
+
+                        {/volist}
+
+                    </select>
+
+                    <label>市：</label>
+
+                    <select name='city' id="city">
+
+                        <option>请选择城市</option>
+
+                        {volist name="city" id="vo" empty="暂时没有数据" }
+
+                        <option value="{$vo.name}" {eq name="info.city" value="$vo.name"}selected = "selected"{/eq}>{$vo.name}</option>
+
+                        {/volist}
+
+                    </select>
+
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>考点：</label>
+
+                    <input type="text" name="school" value="{$info.school}"/>
+
+                </div>
+
+                <div class="input-group">
+                    <label>科目1：</label>
+                    <select id="subject" onchange="MY.union('{:addon_url('bureau/index/soncategory')}',{subject:$$('#subject').val(),type:2},'#category2')" name="category">
+
+                        <option>请选择</option>
+
+                        {volist name="subject" id="vo" empty="暂时没有数据" }
+
+                        <option value="{$vo.name}" {eq name="info.category" value="$vo.name"}selected = "selected"{/eq}>{$vo.name}</option>
+
+                        {/volist}
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>科目2：</label>
+
+                    <select id="category2" onchange="MY.union('{:addon_url('bureau/index/soncategory')}',{subject:$$('#category2').val(),type:3},'#grade')" name="category2">
+
+                        <option>请选择</option>
+                        {volist name="category2" id="vo" empty="暂时没有数据" }
+
+                        <option value="{$vo.name}" {eq name="info.category2" value="$vo.name"}selected = "selected"{/eq}>{$vo.name}</option>
+
+                        {/volist}
+
+
+                    </select>
+
+                </div>
+
+                {if $bureau_type eq 3}
+                <div class="input-group">
+
+                    <label>职称：</label>
+
+                    <select id="grade" onchange="MY.btnChange(this)" name="grade">
+
+                        <option>请选择</option>
+                        {volist name="grade" id="vo" empty="暂时没有数据" }
+
+                        <option value="{$vo.name}" {eq name="info.grade" value="$vo.name"}selected = "selected"{/eq}>{$vo.name}</option>
+
+                        {/volist}
+
+
+                    </select>
+
+                </div>
+
+                <div class="input-group" style="{if $info.grade == '中' || $info.grade == '高'}display: block;{else}display: none;{/if}" id="appdown">
+                    <label><a href = '/file/职业技能鉴定报名资格审查表.docx' target="_blank" class="external" download="download">申请表下载</a>
+                        <!--<a href = "{:addon_url('bureau/ajax/download?type=1')}" target="_blank" download="download">申请表下载</a>-->
+                    </label>
+                </div>
+
+                <div class="input-filegroup" style="{if $info.grade == '中' || $info.grade == '高'}display: block;{else}display: none;{/if}" id="application">
+
+                    <label>申请表提交：<span>（拍照或扫描）</span></label>
+
+                    <div class="file-box">
+
+                        <input type="file" name="applicationimg" onchange="MY.showimg(this,'applicationimg')" accept="image/*" capture="camera">
+
+                        <img {notempty name="info.applicationimg"}src="{$info.applicationimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="applicationimg">
+
+                    </div>
+
+                </div>
+
+                <div class="input-group" style="{if $info.grade == '中' || $info.grade == '高'}display: block;{else}display: none;{/if}" id="commdown">
+
+                    <label><a href = '/file/承诺书.docx' target="_blank" class="external" download="download">承诺书下载</a></label>
+
+                </div>
+
+                <div class="input-filegroup" style="{if $info.grade == '中' || $info.grade == '高'}display: block;{else}display: none;{/if}" id="commitment">
+
+                    <label>承诺书填写：<span>（拍照或扫描）</span></label>
+
+                    <div class="file-box">
+
+                        <input type="file" name="commitmentimg" onchange="MY.showimg(this,'commitmentimg')" accept="image/*" capture="camera">
+
+                        <img {notempty name="info.commitmentimg"}src="{$info.commitmentimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="commitmentimg">
+
+                    </div>
+
+                </div>
+
+                <div class="input-filegroup" style="{if $info.grade == '高技' || $info.grade == '一级'}display: block;{else}display: none;{/if}" id="highlight">
+
+                    <label>高级证书：<span>（拍照或扫描）</span></label>
+
+                    <div class="file-box">
+
+                        <input type="file" name="highlightimg" onchange="MY.showimg(this,'highlightimg')" accept="image/*" capture="camera">
+
+                        <img {notempty name="info.highlightimg"}src="{$info.highlightimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="highlightimg">
+
+                    </div>
+                </div>
+                <div class="tip" id="tip" style="{if $info.grade == '高技' || $info.grade == '一级'}display: block;{else}display: none;{/if}color: #fd5950;">
+                    须知：（报考高技需要高级证书满三年，报考一级需要二级证书满三年）
+                </div>
+                {/if}
+
+                {if $info.category2}
+                <div class="input-group">
+
+                    已选条件：（{$info.school}考点、{$info.school}学校、{$info.category2}科目)
+
+                </div>
+
+                <div class="gs-zz-cl">
+
+                    <ul>
+
+                        <li>
+
+                                <p>科目</p>
+
+                                <p>{$info.category2}</p>
+
+
+                        </li>
+
+                        <li >
+
+                                <p>考点</p>
+
+                                <p>{$info.school}</p>
+
+                        </li>
+
+                        <li >
+
+                                <p>开考日期</p>
+
+                                <p>{$info.exam_dt}</p>
+
+
+                        </li>
+
+                        <li >
+
+                            <p>状态 </p>
+
+                            <p>{$info.status==1? '未审核' : '已审核'}</p>
+
+
+                        </li>
+
+                        <li >
+
+                            <p>价格</p>
+
+                            <p>{$info.price|default="600"}</p>
+
+
+                        </li>
+
+                    </ul>
+
+                </div>
+                {/if}
+
+                <div class="input-submit">
+
+                    <input type="submit" value="确认报名">
+                    <input type="hidden" name="bureau_type" value="{$bureau_type}">
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+

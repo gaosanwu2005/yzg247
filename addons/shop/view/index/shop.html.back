@@ -1,0 +1,545 @@
+<div data-page="shop" class="page no-navbar">
+
+    <style>
+
+        .navbar {
+            background: #fff;
+        }
+
+        .navbar .center img {
+            height: 21px;
+        }
+
+        .navbar .center i {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            position: relative;
+            top: 3px;
+            border-top: 5px solid #000;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        .navbar .left img, .navbar .right img {
+            height: 18px;
+        }
+
+        /*动态*/
+        .gg {
+            background: #fff;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 15px;
+            margin: 10px auto;
+        }
+
+        .gg a {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .gg img {
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            top: 5px;
+        }
+
+        /*链接*/
+        .link-row ul {
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .link-row ul li {
+            float: left;
+            width: 20%;
+        }
+
+        .link-row ul li a {
+            display: block;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .link-row ul li a img {
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .link-row ul li a p {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            color: #000;
+        }
+
+        .money {
+            background: #fff;
+            padding-top: 0;
+            padding-bottom: 7px;
+        }
+
+        .money img {
+            width: 93%;
+            margin: 0 auto;
+        }
+
+        /*宣传视频*/
+        .xcVideo {
+            background: #fff;
+            margin-top: 10px;
+        }
+
+        .xcVideo .title, .newsList .title {
+            font-size: 15px;
+            line-height: 40px;
+            height: 40px;
+            padding: 0 15px;
+            margin-left: 0;
+            border-bottom: 1px solid #efeff4;
+        }
+
+        .xcVideo .title i, .newsList .title i {
+            display: inline-block;
+            height: 16px;
+            width: 3px;
+            border-radius: 8px;
+            background: #3285ff;
+            position: relative;
+            top: 2px;
+            margin-right: 5px;
+        }
+
+        .videoBox {
+            padding: 15px 12px 8px;
+        }
+
+        .videoBox img {
+            width: 100%;
+        }
+
+        /*新闻动态*/
+        .newsList {
+            background: #fff;
+        }
+
+        .newsList .title img {
+            height: 14px;
+            display: inline-block;
+        }
+
+        .newsList ul {
+            padding: 15px;
+        }
+
+        .newsList ul li {
+            border-bottom: 1px solid #efeff4;
+        }
+
+        .newsList ul li a {
+            display: block;
+            padding: 10px 0;
+            overflow: hidden;
+            color: #434343;
+        }
+
+        .newsList ul li a img {
+            float: left;
+            width: 26%;
+            height: 60px;
+        }
+
+        .newsList ul li a .newsDesc {
+            width: 71%;
+            float: right;
+        }
+
+        .newsList ul li a .newsDesc h3 {
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .newsList ul li a .newsDesc div {
+            font-size: 13px;
+            line-height: 20px;
+            color: #8e8e8e;
+            height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .schbox {
+            overflow: hidden;
+            padding: .1rem;
+            line-height: .3rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff
+        }
+
+        .schbox span {
+            float: left;
+            font-size: .14rem;
+            color: #333;
+            width: .8rem;
+            text-align: right;
+            margin-right: .05rem;
+            line-height: .3rem
+        }
+
+        .schbox input {
+            float: left;
+            width: calc(100% - 1.05rem);
+            border: 1px solid #ccc;
+            line-height: .3rem;
+            text-indent: .1rem;
+            font-size: .14rem;
+            color: #333
+        }
+
+        .touchcity {
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 14px;
+            background: #fff;
+            min-height: 100%;
+            z-index: 1111;
+        }
+
+        .citybox {
+            padding-top: .6rem
+        }
+
+        .cityindex {
+            background: #bebebe;
+            line-height: .26rem;
+            font-size: .15rem;
+            color: #fff;
+            font-weight: 400;
+            text-indent: .1rem
+        }
+
+        .cityper {
+            font-size: .26rem;
+            color: #333;
+            line-height: 0.5rem;
+            margin: 0 .25rem;
+            text-indent: .1rem;
+        }
+
+        .cityper + .cityper {
+            border-top: 1px solid #dadada
+        }
+
+        .indexBar {
+            position: fixed;
+            right: 0;
+            top: .8rem;
+            bottom: 0;
+            width: .25rem
+        }
+
+        .indexBar.active a {
+            background: rgba(0, 0, 0, .3);
+            color: #fff
+        }
+
+        .indexBar a {
+            display: flex;
+            font-size: .12rem;
+            color: #666;
+            height: 4.4%;
+            justify-content: center;
+            align-items: center
+        }
+
+        .indexBar a:hover {
+            border: 1px solid #dbdbdb;
+            cursor: pointer
+        }
+
+        .indexBar a:first-child {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px
+        }
+
+        .indexBar a:last-child {
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px
+        }
+
+        .locate {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: .4rem;
+            height: .4rem;
+            background: rgba(0, 0, 0, .3);
+            font-size: .16rem;
+            color: #fff;
+            border-radius: 50%;
+            z-index: 99;
+            text-align: center;
+            line-height: .4rem;
+            display: none
+        }
+
+    </style>
+    <div class="page-content">
+
+        <section id="index">
+            <div class="scroll-box">
+                <!-- 轮播图 -->
+                <style>
+                    .swiper-slide {
+                        background: #fff;
+                        box-sizing: border-box;
+                        border: 1px solid #ccc;
+                    }
+
+                    .swiper-slide span {
+                        text-align: center;
+                        display: block;
+                        font-size: 21px;
+                    }
+
+                    .searchBox {
+                        background: #fff;
+                        width: 100%;
+                        padding: 10px 0;
+                        text-align: center;
+                        position: relative;
+                    }
+
+                    .searchBox a {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                    }
+
+                    .searchBox input {
+                        width: 90%;
+                        background: #efeef3;
+                        border-radius: 20px;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+
+                    .searchBox img {
+                        position: absolute;
+                        top: 19px;
+                        right: 10%;
+                        height: 18px;
+                    }
+
+                    .index-link-row ul {
+                        width: 100%;
+                        overflow: hidden;
+                        background: #fff;
+                    }
+
+                    .index-link-row ul li {
+                        float: left;
+                        width: 25%;
+                    }
+
+                    .index-link-row ul li a {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        padding-bottom: 10px;
+                    }
+
+                    .index-link-row ul li a img {
+                        height: 40px;
+                        margin: 0 auto;
+                    }
+
+                    .index-link-row ul li a p {
+                        font-size: 14px;
+                        line-height: 25px;
+                        color: #333;
+                    }
+
+                    #index .nav-box {
+                        display: flex;
+                        background: #fff;
+                        border-radius: 10px;
+                        padding: 15px 0;
+                        width: 94%;
+                        position: relative;
+                        top: 0px !important;
+                        z-index: 1111;
+                        margin: 17px auto !important;
+                        box-shadow: 0 0 2px 1px #eee;
+                    }
+                </style>
+                <div class="swiper-container swiper-vertical">
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-wrapper">
+                        {volist name="site.shopslides" id="vo"}
+                        <div class="swiper-slide"><span><img width="100%" src="{$vo}" alt=""></span></div>
+                        {/volist}
+                    </div>
+                </div>
+
+                <!--搜索-->
+                <div class="searchBox">
+                    <a href="{:addon_url('shop/goods/search')}">
+                        <input type="text" readonly>
+                        <img src="/mobile/img/icon-search.png" alt="搜索">
+                    </a>
+
+                </div>
+                <!--选项-->
+                <div class="index-link-row">
+                    <ul>
+                        <li>
+                            <a href="{:addon_url('shop/index/recharge_hf')}" onclick="">
+                                <img src="/assets/img/mall-icon/mall-hfcz.png" alt="">
+                                <p>话费充值</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:addon_url('shop/index/recharge_ll')}" onclick="">
+                                <img src="/assets/img/mall-icon/mall-llcz.png" alt="">
+                                <p>流量充值</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:addon_url('shop/index/recharge_yk')}" onclick="">
+                                <img src="/assets/img/mall-icon/mall-ykcz.png" alt="">
+                                <p>油卡充值</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:addon_url('shop/index/recharge_sf')}">
+
+                                <img src="/assets/img/mall-icon/mall-sfjn.png" alt="">
+                                <p>水费缴纳</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:addon_url('shop/index/recharge_df')}">
+                                <img src="/assets/img/mall-icon/mall-dfjn.png" alt="">
+                                <p>电费缴纳</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" {:addon_url('shop/index/recharge_rq')}">
+                                <img src="/assets/img/mall-icon/mall-rqjn.png" alt="">
+                                <p>燃气缴纳</p>
+                            </a>
+                        </li>  
+                        <li>
+                            <a href="{:addon_url('shop/index/appcenter')}">
+                                <img src="/assets/img/mall-icon/mall-yyzx.png" alt="">
+                                <p>应用中心</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{:addon_url('shop/user/openshop')}">
+                                <img src="/assets/img/mall-icon/mall-sjrz.png" alt="">
+                                <p>商家入驻</p>
+                            </a>
+                        </li>
+                    
+                    </ul>
+                </div>
+                <!-- 选项 -->
+
+                <!--城市选择-->
+                <div class="touchcity">
+                    <div class="schbox">
+                        <span>搜索城市:</span><input id="cityipt" type="text"/>
+                    </div>
+                    <div class="citybox"></div>
+                    <div class="indexBar"></div>
+                    <a class="locate"></a>
+                </div>
+
+                <div id="bdMapBox" style="display:none;"></div>
+                <!-- 选项 -->
+              
+                <!-- 新品首发 -->
+                <div class="hots-box">
+                    <div class="host-tit">新品首发</div>
+                    <div class="shop-row">
+                        {volist name="newgoods" id="v"}
+                        <a href="{:addon_url('shop/Goods/goodsInfo',array('id'=>$v['goods_id']))}" class="shop-item">
+                            <div class="top">
+                                <img data-src="{$v.image}" class="lazy lazy-fadein">
+                            </div>
+                            <div class="cent">
+                                {:substr($v.goods_name,0,12)}
+                            </div>
+                            <div class="bottom">
+                                ￥{$v.shop_price}
+                                <br><span style="font-size: xx-small;"> 积分 {:lmc($v['shop_price'])}</span>
+                            </div>
+                        </a>
+                        {/volist}
+                    </div>
+                </div>
+                <!-- 精品推荐 -->
+                <div class="hots-box" style="margin-top:-5px ;">
+                    <div class="host-tit">精品推荐</div>
+                    <div class="shop-row">
+                        {volist name="favourite_goods" id="v"}
+                        <a href="{:addon_url('shop/Goods/goodsInfo',array('id'=>$v['goods_id']))}" class="shop-item">
+                            <div class="top">
+                                <img data-src="{$v.image}" class="lazy lazy-fadein">
+                            </div>
+                            <div class="cent">
+                                {:substr($v.goods_name,0,12)}
+                            </div>
+                            <div class="bottom">
+                                ￥{$v.shop_price}
+                                <br><span style="font-size: xx-small;"> 积分 {:lmc($v['shop_price'])}</span>
+                            </div>
+                        </a>
+                        {/volist}
+                    </div>
+                </div>
+
+                <!-- 热门推荐 -->
+                <div class="recom-box">
+                    <div class="recom-tit">热门推荐</div>
+                    <div class="recom-content">
+                        {volist name="hot_goods" id="v"}
+                        <a href="{:addon_url('shop/Goods/goodsInfo',array('id'=>$v['goods_id']))}" class="recom-item">
+                            <div class="top">
+                                <img data-src="{$v.image}" class="lazy lazy-fadein">
+                            </div>
+                            <div class="name">
+                                {$v.goods_name}
+                            </div>
+                            <div class="price">
+                                ￥{$v.shop_price}
+                                <br><span style="font-size: xx-small;"> 积分 {:lmc($v['shop_price'])}</span>
+                            </div>
+                        </a>
+                        {/volist}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!--底部开始-->
+    {include file="Public/footer_shop"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" class="jsx-2559917061 next-head">-->
+    <title>{$site.name}</title>
+    <link rel="stylesheet" href="/assets/F7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="/assets/F7/css/framework7.ios.colors.css">
+    <link rel="stylesheet" href=" /assets/css/iconfont.css?v={$site.version}">
+    <link rel="stylesheet" href=" /assets/css/style.css?v={$site.version}">
+    <!--<link rel="stylesheet" href="/mobile/static/css/public.css">-->
+    <link rel="stylesheet" href="/mobile/static/css/user.css">
+    <link rel="stylesheet" href="/mobile/lib/ydui.min.css">
+    <link rel="stylesheet" href="/mobile/css/app.min.css">
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_846861_qsztxz1v28d.css">-->
+    <link rel="stylesheet" href="/mobile/css/base.css">
+    <link rel="stylesheet" href="/mobile/css/mall.css">
+    <link rel="stylesheet" href="/mobile/css/main-gxf.css">
+    <!--<link rel="stylesheet" href=" /assets/css/mui.min.css">-->
+    <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=pHU9tIK6aGVfRQi7D2yHBVkDIvr2HKxh&services=&t=20181016102824"></script> 
+    <!--<link rel="icon" href="/assets/F7/img/icon.png">-->
+</head>
+<body class="theme-blue">
+
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+<!--左侧模态框-->
+<div class="panel panel-left panel-reveal">
+    <div class="content-block">
+        <p>Left panel content goes here</p>
+    </div>
+</div>
+<!--左侧模态框结束-->
+
+<!--右侧模态框开始-->
+<div class="panel panel-right panel-cover">
+    <div class="content-block">
+        <p>Left panel content goes here</p>
+    </div>
+</div>
+<!--右侧模态框开始-->
+
+<!--视图开始-->
+<div class="views">
+    <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center"></div>
+            </div>
+        </div>
+        <!--页面开始-->
+        <div class="pages  navbar-through toolbar-through" style="background: url('/assets/img/bgg.min.jpg') no-repeat;background-size: 100% 100%">
+            <p style="color:white;padding-top: 50%;text-align: center;font-size: larger">加载中……</p>
+        </div>
+        <!--页面结束-->
+    </div>
+</div>
+<!--视图结束-->
+<script type='text/javascript' src='/assets/js/index/jquery-1.11.1.min.js'></script>
+<script type="text/javascript" src="/assets/F7/js/framework7.min.js"></script>
+<!-- <script type="text/javascript" src="/assets/js/index/jquery.downcount.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/index/jquery.countdown.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/index/countdown.js"></script> -->
+<script type="text/javascript" src="/assets/js/index/Eleditor.min.js"></script>
+<script type="text/javascript" src="/assets/js/index/webuploader.min.js"></script> 
+<!--<script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>-->
+<script type="text/javascript" src="/assets/js/index/mui.min.js"></script>
+<script type="text/javascript" src="/assets/js/index/all.js"></script>
+<script type="text/javascript" src="/assets/js/gt.js"></script>
+<script type="text/javascript" src="/assets/js/index/dat.gui.min.js"></script>
+<script type="text/javascript" src="/assets/js/index/echarts.min.js"></script>
+<!-- <script type="text/javascript" src="/assets/js/index/ecStat.min.js"></script> -->
+<!--<script type="text/javascript" src="/assets/js/jquery.ztree.core.js"></script>-->  
+<script type="text/javascript" src="/assets/js/index/jquery.rotate.min.js"></script>
+<script type='text/javascript' src='/assets/js/index/jquery.particleground.min.js'></script>
+<!--<script type='text/javascript' src='/assets/js/index/Circle1.0.js'></script>-->
+<script type="text/javascript" src="/assets/js/index/exif.js"></script>  
+<script type="text/javascript" src="/assets/js/index/LAreaData1.js"></script>
+<script type="text/javascript" src="/assets/js/index/citypickerhc.js"></script> 
+<!--<script src="/assets/js/index/main.js"></script>-->  
+<script type='text/javascript' src='/assets/js/index/demo.js'></script>
+
+ {eq name='debug' value='true'} 
+<script type="text/javascript" src="/assets/js/index/my-app.js?v={$site.version}"></script>
+<script type="text/javascript" src="/assets/js/index/fun.js?v={$site.version}"></script>
+<script type="text/javascript" src="/assets/js/index/shop.js?v={$site.version}"></script>
+{else/} 
+<script type="text/javascript" src="/assets/js/index/my-app.min.js?v={$site.version}"></script>
+<script type="text/javascript" src="/assets/js/index/fun.min.js?v={$site.version}"></script>
+<script type="text/javascript" src="/assets/js/index/shop.min.js?v={$site.version}"></script>
+{/eq}
+<script type="text/javascript">
+    myApp.showIndicator();
+    //所有准备完毕之后获取首页信息
+    mainView.router.load({
+        url: "{$url}"
+    });
+    myApp.hideIndicator();
+    myApp.onPageInit('webindex', function () {
+        $countdown = "{$site.kai}";
+        setCountdown($countdown);
+    });
+</script>
+
+</body>
+</html>

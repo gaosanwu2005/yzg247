@@ -1,0 +1,42 @@
+<div data-page="Quotation" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">我的矿机</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+
+    <div class="page-content  infinite-scroll infinite-scroll-bottom" style="background:  white;">
+        <div class="list-block media-list ">
+            <ul >
+                {foreach name="list" item="vo"}
+                    <li>
+                        <div class=" item-content">
+                            <div class="item-media"><img src="{$vo.originalimage}" width="88"></div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title"> {$vo.gname}</div>
+                                </div>
+                                <div class="item-subtitle">矿机编号：{$vo.order_sn}</div>
+                                <div class="item-subtitle">运行周期：{$vo.yxzq}小时</div>
+                                <div class="item-subtitle">矿机收益：{$vo.yfprice}枚</div>
+                                <div class="item-subtitle">矿机状态：{$vo.status|kjstate}
+                                    <a href="{:url('User/mymill')}?oid={$vo['id']}" class="external button button-round button-fill" style=" width:  64px;float: right;">{if condition="$vo.status eq 0"}运行{else/}查看{/if} </a>
+                                 </div>
+
+                             </div>
+                        </div>
+                    </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+</div>
+

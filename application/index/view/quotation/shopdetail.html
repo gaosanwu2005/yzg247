@@ -1,0 +1,99 @@
+<div data-page="Quotation" class="page no-navbar">
+    <!--顶部导航-->
+    <!--<div class="navbar">-->
+    <!--<div class="navbar-inner">-->
+    <!--<div class="left">-->
+    <!--<a href="" class="back"><i class="icon icon-back"></i></a>-->
+    <!--</div>-->
+    <!--<div class="center sliding" style="text-align: center;width: 100%;">矿机详情</div>-->
+    <!--<div class="right">-->
+    <!--<a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="page-content" style="background:  white;">
+        <div class="left" style="position: absolute;padding: 18px;">
+            <a href="" class="back"><i class="icon icon-back"></i></a>
+        </div>
+        <div class="list-block" style="margin-top: 0">
+
+
+            <img src="{$info.originalimage}" style="width: 100%;">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">{$info.goods_name}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">价格：<span style="color: red;">{$info.xian_price} </span></div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">矿机产力：{$info.sybl}枚/小时</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">运行周期：{$info.yxzq}小时</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">库存：{$info.store_count}台</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">限购数量：{$info.xg}/人</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="content-block-title">商品详情</div>
+            <div class="content-block">
+                <p>{$info.goods_content|html_entity_decode}</p>
+            </div>
+            <form action="{:url('api/trade/gmkj')}" method="POST" class="ajax-submit">
+
+                <div class="content-block-title">请选择支付方式</div>
+                <div class="list-block inset">
+                    <ul>
+                        <li>
+                            <label class="label-checkbox item-content">
+                                <input type="radio" name="ptype" value="wall1" checked="checked">
+                                <div class="item-media">
+                                    <i class="icon icon-form-checkbox"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">{$site['walltype']['wall1']}</div>
+                                    <div class="item-after">{$hyrs['wall1']}</div>
+                                </div>
+                            </label>
+                        </li>
+
+                        <li>
+                            <label class="label-checkbox item-content">
+                                <input type="radio" name="ptype" value="wall2" >
+                                <div class="item-media">
+                                    <i class="icon icon-form-checkbox"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">{$site['walltype']['wall2']}</div>
+                                    <div class="item-after">{$hyrs['wall2']}</div>
+                                </div>
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+                <div style="padding:0 15px;">
+                    <input name="gid" type="hidden" value="{$info.goods_id}">
+                    <button type="submit" class="button button-fill button-round bg-red">立即购买</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

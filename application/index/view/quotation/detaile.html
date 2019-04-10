@@ -1,0 +1,355 @@
+<include file="Tpl/head" />
+<style>
+    .lists{
+        padding-bottom:20px;
+        display: flex;
+        justify-content: space-between;
+        background: #252525;
+    }
+    .lists ul{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .red{
+        color: red;
+    }
+    .green{
+        color: green;
+    }
+
+    .lists ul .title{
+        color: #999;
+        line-height:26px;
+    }
+    #container #content{
+        background: #252525;
+    }
+
+
+/*-------k线图---------*/
+    #chartNav {
+        width: 100%;
+        height: 30px;
+        background: #EFEFF4;
+    }
+
+    #chartNav a {
+        float: left;
+        width: 50%;
+        line-height: 30px;
+        -ms-text-align-last: center;
+        text-align-last: center;
+        text-align: center;
+        color: #666666;
+    }
+
+    #chartNav a:hover, #chartNav a.active {
+        background: #425b93;
+        color: #fff;
+        -webkit-transform: all 0.3s;
+        -moz-transform: all 0.3s;
+        -ms-transform: all 0.3s;
+        -o-transform: all 0.3s;
+        transform: all 0.3s;
+    }
+
+    #myhend {
+        width: 100%;
+        height: 25px;
+        line-height: 25px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #myhend span {
+        float: left;
+        width: calc(20% - 10px);
+        border-right: 1px solid #ddd;
+        text-align: center;
+    }
+
+    #myhend span:last-child {
+        border: none;
+    }
+
+    .myBox {
+        width: 100%;
+        border-bottom: 1px solid #3e3e3e;
+        padding: 5px 10px;
+        margin-left: -10px;
+    }
+
+    .myBox > div {
+        padding: 5px 10px;
+    }
+    .weui-flex__item{
+        color: #bab5b5;
+    }
+
+    .myBox > div:first-child {
+        border-right: 1px solid #3e3e3e;
+    }
+
+    #price {
+        color: #00b0ff;
+    }
+    /*#price:after{*/
+    /*content: '∫';*/
+    /*}*/
+    #price.up {
+        color: #F44336;
+    }
+
+    #price.up:after {
+        content: ' ↑';
+    }
+
+    #price.down {
+        color: #00c853;
+    }
+
+    #price.down:after {
+        content: ' ↓';
+    }
+    tr{
+        border-bottom: 1px solid #fff;
+    }
+    .weui-flex__item:nth-of-type(2) .weui-btn{
+        background: red;
+    }
+    .weui-btn{
+        line-height: 36px;
+        border-radius: 0;
+        font-size: 14px;
+    }
+</style>
+<div id="container">
+    <div id="header">
+        <p class="iconfont icon-fanhui back"></p>
+        <p>k线图</p>
+        <p></p>
+    </div>
+    <div id="content">
+        <div class="box" style="padding: 0;">
+            <div class="echart">
+                <div id="chart" style="width:100%; height: 200px;margin-bottom: 10px;"></div>
+                <div id="chartNav">
+                    <a class="active">{$Think.lang._Time-sharing line}</a>
+                    <a>{$Think.lang._Day} k</a>
+                </div>
+                <div style="padding: 15px 10px;font-size: 15px;color: greenyellow;"><i class="iconfont icon-hangqing" style="margin-right: 5px;"></i>当前行情</div>
+                <div class="weui-flex myBox">
+                    <div class="weui-flex__item">{$Think.lang._Highest}:&nbsp;<span id="max">{$config['ntbmax']}</span></div>
+                    <div class="weui-flex__item">{$Think.lang._Lowest}:&nbsp;<span id="min">{$config['ntbmin']}</span></div>
+                </div>
+                <div class="weui-flex myBox"><div class="weui-flex__item">{$Think.lang._Now open}:&nbsp;{$jk|default='--'}</div>
+                    <div class="weui-flex__item">{$Think.lang._Yesterday closed}:&nbsp;{$zs}</div>
+                </div>
+                <div class="weui-flex myBox" style="margin-bottom: 10px;text-align: center;">
+                    <div class="weui-flex__item" style="border: none;font-size: 14px;font-weight: 600;color: #a1a0a0;">
+                        {$Think.lang._Current price}:&nbsp;&nbsp;
+                        <span id="price">{$Think.lang._Retrieving}...</span></div>
+                </div>
+            </div>
+            <div class="weui-flex" style="padding: 30px 0;background: #252525;">
+                <div class="weui-flex__item" style="padding: 0 5px">
+                    <a href="{:url('Business/index')}" class="weui-btn weui-btn_primary ">购买</a>
+                </div>
+                <div class="weui-flex__item" style="padding: 0 5px">
+                    <a href="{:url('Business/index',array('type'=>1))}" class="weui-btn weui-btn_primary ">卖出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<include file="Tpl/script" />
+<script src="/Public/home/js/echarts.min.js"></script>
+<script src="/Public/home/js/chartfun.js"></script>
+<script>
+    //保存全局变量定时器
+    var timeOut = [];
+    var upColor = '#00da3c';
+    var downColor = '#ec0000';
+    //获取画布
+    var mychart = echarts.init(document.getElementById('chart'));
+    //配置option信息
+    var option = {
+        //背景颜色
+        backgroundColor: '#252525',
+        //提示框设置
+        grid: {
+            top: '15px;',
+            left: '40px',
+            right: '10px;',
+            bottom: '70px'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'line',
+                axis: 'x',
+                lineStyle: {
+                    color: '#FF9800',
+                    width: 1,
+                    opacity: 1
+                },
+            }
+        },
+        //数据轴设置
+        xAxis: {
+            type: 'category',
+            data: [],
+            boundaryGap: true,
+            axisLine: {lineStyle: {color: '#8392A5'}}
+        },
+        //坐标轴设置
+        yAxis: {
+            scale: true,
+            boundaryGap: ["10%", "10%"],
+            axisLine: {lineStyle: {color: '#8392A5'}},
+            splitLine: {show: false},
+            min:0
+        },
+        //图表类型设置
+        series: {
+            name: "QKB",
+            type: 'line',
+            data: [],
+            itemStyle: {
+                normal: {
+                    color: upColor,
+                    color0: downColor,
+                    borderColor: null,
+                    borderColor0: null
+                }
+            }
+        },
+        //缩放设置
+        dataZoom: [
+            {
+                type: 'slider',
+                show: true,
+                xAxisIndex: [0],
+                start: 0,
+                end: 100
+            },
+            {
+                type: 'inside',
+                xAxisIndex: [0],
+                start: 0,
+                end: 100
+            }
+        ]
+    };
+    function getData(type, callback) {
+        $.ajax({
+            url: "{:url('ajax/getgp')}",
+            type: "get",
+            data: {type: type},
+            dataType: "json",
+            success: function (data) {
+                callback(data);
+            }, error: function () {
+                console.log('{$Think.lang._Failed to get data}');
+            }, complete: function () {
+                $.hideLoading();
+            }
+        })
+    };
+    //获取实时数据函数
+    //初始化数据
+    var max = $("#max");
+    var min = $("#min");
+    var nowPrice = $("#price");
+    //获取实时最高，最低 当前价格函数
+    var nowTime = setInterval(function () {
+        getData(0, function (data) {
+            //max.html(data.info.max);
+            //min.html(data.info.min);
+            //0涨1跌
+            if (data.info.price.state==0) {
+                nowPrice.removeClass('down');
+                nowPrice.addClass('up');
+            } else if (data.info.price.state==1){
+                nowPrice.removeClass('up');
+                nowPrice.addClass('down');
+            }else{
+                nowPrice.removeClass();
+            }
+            nowPrice.html(data.info.price.data);
+        })
+    }, 1000);
+    //分时线数据函数
+    function kLine(data) {
+        //设置表类型
+        option.series.type = 'line';
+        //设置x轴数据
+        option.xAxis.data = data.info.time;
+        //设置y轴数据
+        option.series.data = data.info.data;
+        mychart.setOption(option);
+    };
+    function kDay(data) {
+        //设置表类型
+        option.series.type = 'candlestick';
+        //设置x轴数据
+        option.xAxis.data = data.info.time;
+        //设置y轴数据
+        option.series.data = data.info.data;
+        mychart.setOption(option);
+    }
+    $("#chartNav a").bind('click', function () {
+        $.showLoading();
+        //获取当前下标
+        var index = $(this).index();
+        //判断是否为分时线
+        if (!index) {
+            //清除全局定时器
+            clearTime();
+            //先请求一下数据
+            getData(1, function (data) {
+                return kLine(data)
+            });
+            timeOut.push(setInterval(function () {
+                getData(1, function (data) {
+                    return kLine(data)
+                });
+            }, 30000));
+            $("#chartNav a").removeClass('active');
+            $(this).addClass('active');
+        } else {
+            clearTime();
+            var _this=this;
+            getData(2, function (data) {
+                if (data.status) {
+                    $("#chartNav a").removeClass('active');
+                    $(_this).addClass('active');
+                    return kDay(data);
+                } else {
+                    $.alert(data.info);
+                }
+            });
+        }
+    });
+    //清空全局定时器函数
+    function clearTime() {
+        for (var i = 0; i < timeOut.length; i++) {
+            clearInterval(timeOut[i]);
+        }
+    };
+    //默认开启分时线数据请求
+    timeOut.push(setInterval(function () {
+        getData(1, function (data) {
+            return kLine(data)
+        });
+    }, 30000));
+    //获取首次分时线数据
+    getData(1, function (data) {
+        return kLine(data)
+    });
+
+</script>

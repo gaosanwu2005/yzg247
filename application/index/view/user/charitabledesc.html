@@ -1,0 +1,155 @@
+<div data-page="charitabledesc" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">详情</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+       .bigImg img{
+           width: 100%;
+       }
+       .progress-content{
+           background: #fff;
+
+       }
+       .progress-content>p{
+           padding-left: 15px;
+           font-size: 16px;
+           color: #333;
+           line-height: 50px;
+       }
+       .progress-content .progress{
+           width: 90%;
+           margin: 0 auto;
+           height: 7px;
+           background: #e0e3ec;
+           border-radius: 7px;
+           position: relative;
+       }
+       .progress-content .progress span{
+           position: absolute;
+           top:0;
+           left: 0;
+           height: 7px;
+           background:#e03046 ;
+           border-radius: 7px;
+       }
+        .numShow{
+            overflow: hidden;
+        }
+        .numShow li{
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            padding: 10px 0;
+            letter-spacing: 1px;
+        }
+        .numShow li p{
+            height: 25px;
+            line-height: 25px;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        .numShow li p:nth-of-type(1){
+            color: #333;
+
+        }
+        .charitable-intro{
+            background: #fff;
+            padding: 0 15px;
+            margin-top: 10px;
+            padding-bottom: 50px;
+        }
+       .charitable-intro>p{
+           font-size: 16px;
+           color: #333;
+           line-height: 50px;
+       }
+       .charitable-intro .title{
+           font-size: 15px;
+           padding:0 40px;
+           line-height: 25px;
+           color: #333;
+           margin: 0 0 10px 0;
+           text-align: center;
+       }
+       .charitable-intro .content img{
+           width: 100%;
+       }
+       .charitable-intro .content p{
+           text-indent: 2em;
+           font-size: 13px;
+           color: #444;
+           line-height: 25px;
+       }
+    </style>
+    <div class="page-content">
+
+        <div class="bigImg">
+            <img src="/assets/img/charitable/giving.png">
+        </div>
+        <div class="progress-content">
+            <p>筹款进度</p>
+            <div class="progress">
+                <span style="width: 30%"></span>
+            </div>
+            <ul class="numShow">
+                <li>
+                    <p>175</p>
+                    <p>参与者</p>
+                </li>
+                <li>
+                    <p>57174.0</p>
+                    <p>已捐金额</p>
+                </li>
+                <li>
+                    <p>9000000.00</p>
+                    <p>目标金额</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="charitable-intro">
+            <p>项目说明：</p>
+            <div class="title">
+                带上红手套，今天我手红”为中国城市环卫者公益发声！
+            </div>
+            <div class="content">
+                <img src="/assets/img/charitable/giving-content.jpg" alt="">
+                <p>拂晓，当你还在睡梦中时，这座城跟你一样还
+                    未醒来。可是他们早已经换好这身醒目的黄色环卫
+                    服，在位这座城市扫净最后一片树叶、最后一粒尘
+                    土。因为有这群人，我们也跟兴怀感激。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="popup popup-about">
+        <div class="content-block" style="margin: 0">
+            <p style="text-align: right;font-size: 20px;line-height: 50px"><a href="#" class="close-popup">×</a></p>
+            <form  method="post" class="ajax-submit">
+                <input type="text" placeholder="请输入您要资助的金额">
+                <input style="width: 100%;font-family: 'Microsoft YaHei'" type="submit" value="我要捐助">
+            </form>
+
+        </div>
+    </div>
+
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner" style="padding: 0">
+            <a href="#" data-popup=".popup-about" class="open-popup" style="width: 100%;height: 50px;line-height:50px;text-align:center;background: #1161bb;color: #fff;font-family: 'Microsoft YaHei'">捐助</a>
+
+
+        </div>
+    </div>
+
+</div>

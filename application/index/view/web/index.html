@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" class="jsx-2559917061 next-head">-->
+    <title>{$site.name}</title>
+
+
+    <style type="text/css">
+        body {
+            background: url('/assets/img/bgg.min.jpg') no-repeat;
+            background-size: 100% 100%;
+            /* background: #363f48; */
+            color: white;
+            font: normal 12px 'Open Sans', sans-serif;
+            margin-top: 60px;
+        }
+        ul.countdown {
+            list-style: none;
+            margin: 75px 0;
+            padding: 0;
+            display: block;
+            text-align: center;
+        }
+        ul.countdown li {
+            display: inline-block;
+        }
+        ul.countdown li span {
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 80px;
+        }
+        ul.countdown li.seperator {
+            font-size: 53px;
+            line-height: 70px;
+            vertical-align: top;
+        }
+        ul.countdown li p {
+            color: #a7abb1;
+            font-size: 21px;
+        }
+        a {
+            color: #76949F;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .source {
+            width: 405px;
+            margin: 0 auto;
+            background: #4f5861;
+            color: #a7abb1;
+            font-weight: bold;
+            display: block;
+            white-space: pre;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+        .btn {
+            background: #f56c4c;
+            margin: 40px auto;
+            padding: 12px;
+            display: block;
+            width: 100px;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+        }
+        .btn:hover {
+            text-decoration: none;
+            opacity: .7;
+        }
+        .big {
+            font-size: -webkit-xxx-large;
+        }
+    </style>
+
+    <style type="text/css" adt="123"></style>
+    <style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head>
+</head>
+<body>
+
+<div style="text-align: center">
+    <img src="{$site.logo}" style="padding:2px;border:none;margin-top: 33px;margin-right: auto;margin-left: auto;width: 147px;border-radius: 50px;" alt="用户名" >
+    <h3 style="text-align: center;line-height: 50px;font-size: xx-large;color: #fff;">{$site.name}</h3>
+</div>
+
+<h1 align="center"  >我们将尽快恢复正常访问,敬请期待</h1>
+<h2 align="center"  >目前正在维护！请各位会员稍后~~</h2>
+<ul class="countdown">
+    <li>
+        <span class="days big">00</span>
+        <p class="days_ref big">天</p>
+    </li>
+    <li class="seperator">.</li>
+    <li>
+        <span class="hours big">00</span>
+        <p class="hours_ref big">时</p>
+    </li>
+    <li class="seperator big">:</li>
+    <li>
+        <span class="minutes big">00</span>
+        <p class="minutes_ref big">分</p>
+    </li>
+    <li class="seperator big">:</li>
+    <li>
+        <span class="seconds big">00</span>
+        <p class="seconds_ref big">秒</p>
+    </li>
+</ul>
+
+<script type="text/javascript" src="/assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.downCount.js"></script>
+<script class="text/javascript" type="text/javascript">
+    $('.countdown').downCount({
+        date: '{$opentime}',
+        offset: +10
+    }, function () {
+        window.location.href='/';
+    });
+</script>
+
+
+</body></html>

@@ -1,0 +1,128 @@
+<div data-page="editinfo" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">账户认证</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+        <form action="{:url('api/user/profile')}" method="post" class="ajax-submit">
+            <div class="list-block">
+                <ul>
+
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">真实姓名</div>
+                                <div class="item-input">
+
+                                    <input placeholder="请输入您的真实姓名" id="p1" type="text" name="realname" value="{$hyrs['realname']}" onchange="MY.same('#p1','#p2')" >
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">支付宝账号</div>
+                                <div class="item-input">
+
+                                    <input type="text" name="alipay" placeholder="请输入您的支付宝账号" value="{$hyrs['alipay']}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">微信号</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="请输入您的微信号"  name="weixin" value="{$hyrs['weixin']}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">身份证号</div>
+                                <div class="item-input">
+
+                                    <input type="text" name="idcard" placeholder="请输入您的身份证号" value="{$hyrs['idcard']}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">开户银行</div>
+                                <div class="item-input">
+                                    <input type="text" name="bankname" placeholder="请输入您的开户银行" value="{$hyrs['bankname']}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">开户名</div>
+                                <div class="item-input">
+                                    <input placeholder="请输入开户名" type="text" id="p2" name="bankusename" value="{$hyrs['bankusename']}" onchange="MY.same('#p2','#p1')">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">银行卡号</div>
+                                <div class="item-input">
+
+                                    <input type="text" name="banknum" placeholder="请输入您的银行卡号" value="{$hyrs['banknum']}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">交易密码</div>
+                                <div class="item-input">
+                                    <input type="password" name="password" placeholder="请输入您的交易密码">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="content-block">
+
+                        </p>
+                    </li>
+                </ul>
+                <button type="submit" class="button button-fill button-round bg-green">身份认证</button>
+            </div>
+            <div class="content-block">
+                <p>	{$site.userinfots}</p>
+            </div>
+
+        </form>
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,49 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<form action="/mobile/index/upload" enctype="multipart/form-data" method="post">-->
+    <!--<input type="file" name="image" /> <br>-->
+    <!--<input type="submit" value="上传" />-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<html>
+<head>
+    <title>demo</title>
+</head>
+<body>
+<img src="http://qr.topscan.com/api.php?text={$list['url']}" width="250px" />
+<input hidden="hidden" type="text" id="randnumber" value="{$list['randnumber']}"/>
+</body>
+<script>
+    function polling() {
+        //执行轮询操作
+        var xmlHttp;
+        console.log(window.XMLHttpRequest)
+        if(window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        } else {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        console.log(xmlHttp)
+        xmlHttp.onreadystatechange = function() {
+            if(xmlHttp.status == 200 && xmlHttp.readyState == 4) {
+                var result = xmlHttp.responseText;//再获得login所返回的数据，判断后跳转相应页面
+                if(true){
+                    //跳转相应页面
+                }
+            }
+        }
+        var randnumber = document.getElementById("randnumber").value;
+        xmlHttp.open("GET", "/login?username=&password=", true);//先去login中拿数据
+        xmlHttp.send();
+    }
+    setInterval("polling()", 1000);
+</script>
+</html>

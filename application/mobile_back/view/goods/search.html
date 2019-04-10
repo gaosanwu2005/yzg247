@@ -1,0 +1,51 @@
+<div data-page="search" class="page">
+
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">商品搜索</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<style>
+		.searchbar input[type=search] {
+			background-size: 22px 19px;
+			padding: 0 35px;
+		}
+	</style>
+
+	<!-- Search bar -->
+	<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init" style="height: 60px">
+		<div class="searchbar-input" style="height: 40px">
+			<input type="search" placeholder="请输入商品名称" id="find"  >
+			<a onclick="SHOP.find('#find')" class="button" style="width: 51px;position: absolute;right: 15px;top: 6px;">搜索</a><a href="#" class="searchbar-clear"></a>
+		</div><a href="#" class="searchbar-cancel">Cancel</a>
+	</form>
+
+	<!-- Search bar overlay -->
+	<div class="searchbar-overlay"></div>
+
+	<div class="page-content">
+		<!-- This block will be displayed if nothing found -->
+		<!--<div class="content-block searchbar-not-found">-->
+			<!--<div class="content-block-inner"></div>-->
+		<!--</div>-->
+
+		<!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+		<div class="list-block list-block-search searchbar-found">
+			<ul>
+				{volist name="goods" id="vo"  }
+				<li class="item-content">
+					<div class="item-inner">
+						<div class="item-title" onclick="SHOP.find2(this)">{$vo.goods_name}</div>
+					</div>
+				</li>
+				{/volist}
+
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,64 @@
+
+<div class="wrapper">
+    <link rel="stylesheet" href="/assets/css/zTreeStyle.css" type="text/css">
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+
+                            <div class="form-group">
+                                <label class="control-label" for="input-email">个人团队：</label>
+                                <div class="input-group">
+                                    <input type="text" name="userinfo" value="" placeholder="用户id/账号/手机号" id="input-email" class="form-control">
+                                    <!--<span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span>-->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" onclick="ajax_get_tree()" id="button-filter search-order" class="btn btn-primary pull-right"><i class="fa fa-search"></i> 查询</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="zTreeDemoBackground left">
+                                    <ul id="treeDemo" class="ztree"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+        </div>
+    </section>
+
+</div>
+<script>
+
+
+    // ajax 抓取页面
+    function ajax_get_tree(){
+
+        $.ajax({
+            type : "POST",
+            url:"user/tree/mytree",
+            data : $('#search-form2').serialize(),// 你的formid
+            success: function(e){
+                $("#treeDemo").html('');
+                var setting = {};
+                var zNodes = e;
+                jQuery.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                jQuery.fn.zTree.getZTreeObj("treeDemo").expandAll(true);
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

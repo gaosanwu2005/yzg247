@@ -1,0 +1,134 @@
+<div data-page="skdetail" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">互助订单详情</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content ddxq">
+        <div class="list-block inset">
+            <ul>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">金额</div>
+                        <div class="item-after">￥{$list['total']}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">收款账号</div>
+                        <div class="item-after">{$rsuser.username}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">真实姓名</div>
+                        <div class="item-after">{$rsuser['realname']}</div>
+                    </div>
+                </li>
+                <!--<li class=" item-content">-->
+                <!--<div class="item-inner">-->
+                <!--<div class="item-title">推荐人账号</div>-->
+                <!--<div class="item-after">{$rsuser['tjuser']} ({$tjuser['mobile']})</div>-->
+                <!--</div>-->
+                <!--</li>-->
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">手机号</div>
+                        <div class="item-after">{$rsuser['mobile']}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">支付宝</div>
+                        <div class="item-title">{$rsuser['alipay']}</div>
+                        <div class="item-after">{empty name="rsuser.alipayimage" }
+                            {else/}
+                            <img src="{$rsuser.alipayimage}" width="24" alt="">
+                            {/empty}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">微信</div>
+                        <div class="item-title">{$rsuser['weixin']}</div>
+                        <div class="item-after">{empty name="rsuser.weixinimgage" }
+                            {else/}
+                            <img src="{$rsuser.weixinimgage}" width="24" alt="">
+                            {/empty}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">开户行</div>
+                        <div class="item-after">{$rsuser['bankname']}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">开户名</div>
+                        <div class="item-after">{$rsuser['bankusename']}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">银行卡号</div>
+                        <div class="item-after">{$rsuser['banknum']}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">匹配时间</div>
+                        <div class="item-after">{$list.addtime|date="Y-m-d H:i",###}</div>
+                    </div>
+                </li>
+                <li class=" item-content">
+                    <div class="item-inner">
+                        <div class="item-title">状态</div>
+                        <div class="item-after">
+                            {$list['status_text']}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="row" style="height: 10px;"></div>
+            {eq name="list.status" value="0"}
+            <ul>
+                <li>
+                    <a href="{:url('Business2/pay')}?ppid={$list['ppid']}" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">上传凭证</div>
+                            <div class="item-after">
+                                点击上传打款凭证
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {/eq}
+                {eq name="list.status" value="1"}
+                <li>
+                    <a href="{:url('Business2/payinfo')}?ppid={$list['ppid']}" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">打款凭证</div>
+                            <div class="item-after"><img src="{$list['pimg']}" alt="打款凭证" style="height: 30px;"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            {/eq}
+
+        </div>
+
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

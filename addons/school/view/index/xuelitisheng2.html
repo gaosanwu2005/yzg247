@@ -1,0 +1,105 @@
+<div data-page="xuelitisheng2" class="page form">
+    <style>
+        .navbar {
+            color: #fff;
+            background: -webkit-linear-gradient(left, #3e77f2 , #43aff6);
+            background: -o-linear-gradient(right, #3e77f2, #43aff6);
+            background: -moz-linear-gradient(right, #3e77f2, #43aff6);
+            background: linear-gradient(to right, #3e77f2 , #43aff6);
+        }
+
+    </style>
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back">
+                    <img src="/assets/img/icon-back.png" alt="">
+                </a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">学历提升-院校专业选择</div>
+            <!-- <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right">修改</a>
+            </div> -->
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content" style="background: #fff">
+        <!--报名流程-->
+        <div class="bmlc">
+            <div class="bmlc-title">报名流程</div>
+            <div class="bmlc-box">
+                <p>
+                    <a class="button color-blue" href="">在线报名</a>
+                    <img src="/assets/img/school-img/icon-yjt02.png" alt="">
+                    <a class="button  color-gray" href="">准考证下载</a>
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+                    <a class="button  color-gray" href="">录取成绩公布</a>
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+                    <a class="button  color-gray" href="">考试通告</a>
+                </p>
+                <p style="text-align: right;overflow: hidden;height: 19px">
+                    <img style="float: right;height: 15px;top:0px;left: -50px" src="/assets/img/school-img/icon-xjt01.png" alt="">
+                </p>
+
+                <p style="text-align: right">
+                    <a class="button  color-gray" href="">单位录取</a>
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+                    <a class="button  color-gray" href="">信息发布</a>
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+                    <a class="button  color-gray" href="">进入人才中心</a>
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+                    <a class="button  color-gray" href="">毕业</a>
+                </p>
+            </div>
+        </div>
+
+        <!---->
+        <div class="zxbm">
+            <div class="zxbm-title">在线报名</div>
+            <form action="{:addon_url('school/ajax/sendinfo2')}" method="post" class="store-data ajax-submit form-input">
+                <!-- <div class="input-group">
+                    <label>选择省：</label>
+                    <input type="text">
+                </div> -->
+                <div class="input-group">
+                    <label>报考院校：</label> 
+                    <select name='school'>
+                        {volist name="school" id="vo" empty="暂时没有数据" } 
+                        <option value="{$vo.name}" {eq name="info.school" value="$vo.name"}selected = "selected"{/eq}>{$vo.name}</option>
+                        {/volist} 
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>报考专业：</label>
+                <select name='professional' >
+                    {volist name="professional" id="vo" empty="暂时没有数据" }
+                    <option value="{$vo.name}">{$vo.name}</option>
+                    {/volist}
+                </select>
+                </div> 
+                <div class="input-group">
+                    <label>提升层次：</label>
+                    <select name='record'>
+                      {volist name="record" id="vo" empty="暂时没有数据" }
+                    <option value="{$vo.name}">{$vo.name}</option>
+                    {/volist}
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>上课类型：</label>
+                    <select name='classtype'>
+                        {volist name="classtype" id="vo" empty="暂时没有数据" }
+                        <option value="{$vo.name}">{$vo.name}</option>
+                        {/volist}
+                    </select>
+                </div>
+                
+                <div class="tip">须知：（专科学历需上传，高中或者中专毕业证，必须真实有效，如有虚假，后果自行承担。本科学历需上传学信网电子备案表截图，学信网下载网址：www.chsi.com.cn）</div>
+                <div class="input-submit">
+                    <input type="submit" value="确认保存">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

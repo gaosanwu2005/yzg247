@@ -1,0 +1,354 @@
+<div data-page="c2c" class="page myMain ">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">C2C交易</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+            <!-- Sub navbar -->
+            <div class="subnavbar">
+                <div class="buttons-row">
+                    <a href="#tab1" class="button tab-link active">买入</a>
+                    <a href="#tab6" class="button tab-link ">卖出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content  infinite-scroll infinite-scroll-bottom" style="background:  white;">
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div style="width: 90%;margin-left: auto;margin-right: auto;margin-top: 15%;">
+                    <div class="buttons-row">
+                        <a href="#tab5" class="button tab-link active">创建订单</a>
+                        <a href="#tab3" class="button tab-link">未完成订单</a>
+                        <a href="#tab4" class="button tab-link">确认打款</a>
+                    </div>
+                    <div class="buttons-row" style="margin-top: 10px;">
+                        <a href="{:url('Trade2/complete')}" class="button ">已完成订单</a>
+                        <a href="{:url('Trade2/complete')}" class="button">买入记录</a>
+                        <a href="#tab2" class="button tab-link ">买入中心</a>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <div id="tab5" class="tab active">
+                        <form id="buyform">
+                            <div class="list-block inset">
+                                <ul>
+                                    <a href="#" class="item-link smart-select" data-open-in="popup" data-searchbar="false" data-back-on-select="true">
+                                        <!-- select -->
+                                        <select name="btc">
+                                            {volist name="price" id="vo"}
+                                            <option value="{$vo.rid}">{$vo.rprice}</option>
+                                            {/volist}
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <!-- Select label -->
+                                                <div class="item-title">交易金额</div>
+                                                <!-- Selected value, not required -->
+                                                <div class="item-after" >1000</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner" style="margin-left: 0;">
+                                                <div class="item-title label">交易密码</div>
+                                                <div class="item-input">
+                                                    <input type="password" name="password2" autocomplete="off" placeholder="请输入交易密码">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>
+                                <a onclick="MY.ajaxform('{:url('api/trade2/buy')}','#buyform')"   class="button button-fill button-round bg-red">买入</a>
+                            </p>
+                        </form>
+                    </div>
+                    <style>
+                        .buycenter {
+                            float: left;
+                            width: 31%;
+                            margin-left: 2%;
+                            margin-top: 7px;
+                        }
+                    </style>
+                    <!--买家中心-->
+                    <div id="tab2" class="tab">
+                        <div style="height: 127px;padding-top: 10px;" >
+                            <ul>
+                                {volist name="price" id="vo"}
+                                <li class="buycenter" >
+                                    <a onclick="MY.chosebuy(this,'#buylist')" class="button">{$vo.rprice}</a>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+
+                        <div class="list-block media-list">
+                            <ul id="buylist">
+                                {volist name="salelist" id="vo" }
+                                <li class=" item-content">
+
+                                    <div class="item-media"><img src="{$vo.avatar}" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">交易金额</div>
+                                            <div class="item-after">{$vo.num}</div>
+                                        </div>
+                                        <div class="item-subtitle">{$vo.account}</div>
+                                        <div class="item-subtitle">信用： <span style="display: inline-block;width: 75px;"><i
+                                                style=" background: url(/assets/img/star7.png) -{$vo['star']*(-15)+150}px 0 no-repeat;height: 12px;width: 100%; display: block;"></i></span></div>
+                                        <div class="item-text" style="display: flex;">实付金额：{$vo['num']} <a onclick="MY.buy({$vo.xyid},{$vo.num})" class="button" style="width: 59px;right: 2px;top: 2px;position: absolute;">买入</a></div>
+
+                                    </div>
+
+                                </li>
+                                {/volist}
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!--我的挂单-->
+                    <div id="tab3" class="tab">
+                        <div style="height: 20px"></div>
+                        <div class="list-block media-list">
+                            <ul>
+                                {volist name="buyorder" id="vo" }
+                                <li class=" item-content">
+
+                                    <div class="item-media"><img src="{$vo.avatar}" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">交易金额</div>
+                                            <div class="item-after">{$vo.number}</div>
+                                        </div>
+                                        <div class="item-subtitle">{$vo.realname}</div>
+                                        <div class="item-subtitle">信用： <span style="display: inline-block;width: 75px;"><i
+                                                style=" background: url(/assets/img/star7.png) -{$vo['star']*(-15)+150}px 0 no-repeat;height: 12px;width: 100%; display: block;"></i></span></div>
+
+                                    </div>
+
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                    <!--交易中-->
+                    <div id="tab4" class="tab">
+                        <div class="list-block media-list">
+                            <ul>
+                                {volist name="buytrade" id="vo" }
+                                <li class=" item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">订单编号</div>
+                                            <div class="item-after">{$vo.ppsn}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">交易果实</div>
+                                            <div class="item-after">{$vo.number}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">实付金额</div>
+                                            <div class="item-after">￥{$vo['number']}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">匹配时间</div>
+                                            <div class="item-after">{$vo.addtime}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">收款会员</div>
+                                            <div class="item-after">{$vo.username}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">订单状态</div>
+                                        </div>
+                                        <div class="item-subtitle">{$vo.endtime}</div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">付款操作</div>
+                                            <div class="item-after">{$vo.status}</div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab6" class="tab ">
+                <div style="width: 90%;margin-left: auto;margin-right: auto;margin-top: 15%;">
+                    <div class="buttons-row">
+                        <a href="#tab7" class="button tab-link active">创建订单</a>
+                        <a href="#tab8" class="button tab-link">未完成订单</a>
+                        <a href="#tab9" class="button tab-link">确认收款</a>
+                    </div>
+                    <div class="buttons-row" style="margin-top: 10px;">
+                        <a href="{:url('Trade2/complete2')}" class="button ">已完成订单</a>
+                        <a href="{:url('Trade2/complete2')}" class="button">卖出记录</a>
+                        <a href="#tab10" class="button tab-link ">卖出中心</a>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <div id="tab7" class="tab active">
+                        <form id="saleform"  >
+                            <div class="content-block-title" style="margin-top: 10px;">{$site['walltype']['wall2']}:{$hyrs['wall2'] ? $hyrs['wall2'] : 0} {$site['btc']}</div>
+
+                            <div class="list-block inset">
+                                <ul>
+                                    <a href="#" class="item-link smart-select" data-open-in="popup" data-searchbar="false" data-back-on-select="true">
+                                        <!-- select -->
+                                        <select name="btc">
+                                            {volist name="price" id="vo"}
+                                            <option value="{$vo.rid}">{$vo.rprice}</option>
+                                            {/volist}
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <!-- Select label -->
+                                                <div class="item-title">交易金额</div>
+                                                <!-- Selected value, not required -->
+                                                <div class="item-after">1000</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner" style="margin-left: 0;">
+                                                <div class="item-title label">交易密码</div>
+                                                <div class="item-input">
+                                                    <input type="password" name="password2" autocomplete="off" placeholder="请输入交易密码">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <p>
+                                <a onclick="MY.ajaxform('{:url('api/trade2/sale')}','#saleform')"   class="button button-fill button-round bg-green">卖出</a>
+                            </p>
+                        </form>
+                    </div>
+                    <!--卖家中心-->
+                    <div id="tab10" class="tab">
+                        <div style="height: 127px;padding-top: 10px;" >
+                            <ul>
+                                {volist name="price" id="vo"}
+                                <li class="buycenter" >
+                                    <a onclick="MY.chosesale(this,'#salelist')" class="button">{$vo.rprice}</a>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                        <div class="list-block media-list">
+                            <ul id="salelist">
+                                {volist name="buylist" id="vo" }
+                                <li class=" item-content">
+
+                                    <div class="item-media"><img src="{$vo.avatar}" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">交易金额</div>
+                                            <div class="item-after">{$vo.num}</div>
+                                        </div>
+                                        <div class="item-subtitle">{$vo.account}</div>
+                                        <div class="item-subtitle">信用： <span style="display: inline-block;width: 75px;"><i
+                                                style=" background: url(/assets/img/star7.png) -{$vo['star']*(-15)+150}px 0 no-repeat;height: 12px;width: 100%; display: block;"></i></span></div>
+                                        <div class="item-text" style="display: flex;">实付金额：{$vo['num']} <a onclick="MY.sale({$vo.tgid},{$vo.num})" class="button" style="width: 59px;right: 2px;top: 2px;position: absolute;">卖出</a></div>
+
+                                    </div>
+
+                                </li>
+                                {/volist}
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!--未完成订单-->
+                    <div id="tab8" class="tab">
+                        <div style="height: 20px"></div>
+                        <div class="list-block media-list">
+                            <ul>
+                                {volist name="saleorder" id="vo" }
+                                <li class=" item-content">
+
+                                    <div class="item-media"><img src="{$vo.avatar}" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">交易金额</div>
+                                            <div class="item-after">{$vo.number}</div>
+                                        </div>
+                                        <div class="item-subtitle">{$vo.realname}</div>
+                                        <div class="item-subtitle">信用： <span style="display: inline-block;width: 75px;"><i
+                                                style=" background: url(/assets/img/star7.png) -{$vo['star']*(-15)+150}px 0 no-repeat;height: 12px;width: 100%; display: block;"></i></span></div>
+
+                                    </div>
+
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                    <!--交易-->
+                    <div id="tab9" class="tab">
+                        <div class="list-block media-list">
+                            <ul>
+                                {volist name="saletrade" id="vo" }
+                                <li class=" item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">订单编号</div>
+                                            <div class="item-after">{$vo.ppsn}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">交易果实</div>
+                                            <div class="item-after">{$vo.number}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">实付金额</div>
+                                            <div class="item-after">￥{$vo['number']}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">匹配时间</div>
+                                            <div class="item-after">{$vo.addtime}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">付款会员</div>
+                                            <div class="item-after">{$vo.username}</div>
+                                        </div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">订单状态</div>
+                                        </div>
+                                        <div class="item-subtitle">{$vo.endtime}</div>
+                                        <div class="item-title-row">
+                                            <div class="item-title">付款操作</div>
+                                            <div class="item-after">{$vo.status}</div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,283 @@
+<div data-page="index1" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">个人资料</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+
+    <style>
+        .list-block .item-media + .item-inner {
+            margin-left: 15px;
+            font-size: 15px;
+        }
+
+        .list-block input[type=time], .list-block input[type=number], .list-block input[type=search], .list-block input[type=text], .list-block input[type=password], .list-block input[type=email], .list-block input[type=tel], .list-block input[type=url], .list-block input[type=date], .list-block input[type=datetime-local], .list-block select, .list-block textarea {
+            font-size: 15px;
+        }
+
+        .img-left {
+            height: 20px;
+        }
+    </style>
+    <div class="page-content member">
+        <div class="list-block ">
+            <ul class="bg-white">
+                <li class="item-content">
+                    <div class="item-media">
+                        <img class="img-left" src="/assets/img/persondata/icon-grzx-sjh.png" alt="">
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">手机号</div>
+                        <div class="item-after">{$hyrs.mobile}</div>
+                    </div>
+                </li>
+                <li>
+				  <span class="item-content ">
+                    <div class="item-media">
+                        <img class="img-left" src="/assets/img/persondata/icon-grzx-smrz.png" alt="">
+                    </div>
+                    <div class="item-inner">
+                       <div class="item-title">实名认证</div>
+                        <div class="item-after">
+						  {if condition="$hyrs['alipay'] eq ''"}
+                         <a href="{:url('user/realname')}">
+                           <span style="background-color: #2bac38;color: #fff;padding: 5px 14px 5px;border-radius: 30px;font-size: 14px;">去认证</span>
+                           </a>
+                           {else/}
+                           <span style="color: #2bac38">已认证</span>
+                           {/if}
+						</div>
+                    </div>
+					</span>
+                </li>
+                <li class="item-content">
+                    <div class="item-media">
+                        <img class="img-left" src="/assets/img/persondata/icon-grzx-zsxm.png" alt="">
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">真实姓名</div>
+                        <div class="item-after">{$hyrs.realname}</div>
+                    </div>
+                </li>
+
+                <li>
+                  <span class="item-content ">
+                    <div class="item-media">
+                        <img style="height: 15px;" class="img-left" src="/assets/img/persondata/icon-grzx-yhk.png" alt="">
+                    </div>
+                    <div class="item-inner">
+                    <div class="item-title">银行卡</div>
+                        <a href="{:url('User/bank')}">
+                        {if condition="$hyrs['banknum'] eq ''"}
+                        <div class="item-after" style="background-color: #2bac38;color: #fff;padding: 3px 14px 3px;border-radius: 30px;font-size: 14px;">去绑定</div>
+                        {else/}
+                        <div class="item-after" style="color: #2bac38">已绑定</div>
+                          {/if}
+                      </a>
+                         </div>
+                  </span>
+                </li>
+                <li>
+                <span class="item-content ">
+                    <div class="item-media">
+                        <img style="height: 14px;" class="img-left" src="/assets/img/persondata/icon-grzx-sfz.png" alt="">
+                    </div>
+                    <div class="item-inner">
+                    <div class="item-title">身份证</div>
+                        {if condition="$hyrs['idcard'] eq ''"}
+                        <a href="{:url('user/realname')}">
+                        <div class="item-after" style="background-color: #2bac38;color: #fff;padding: 3px 14px 3px;border-radius: 30px;font-size: 14px;">去绑定</div>
+                        </a>
+                        {else/}
+                        <div class="item-after" style="color: #2bac38">已绑定</div>
+                            {/if}
+                        </div>
+                        </span>
+                </li>
+                <!--<li class="item-content">-->
+                <!--<div class="item-media">-->
+                <!--<i class="iconfont icon-unie654 color-blue" style="font-size: 24px;"></i>-->
+                <!--</div>-->
+                <!--<div class="item-inner">-->
+                <!--<div class="item-title">支付宝账号</div>-->
+                <!--<div class="item-after">{$hyrs.alipay}</div>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li class="item-content">-->
+                <!--<div class="item-media">-->
+                <!--<i class="iconfont icon-weixin-copy color-green" style="font-size: 24px;"></i>-->
+                <!--</div>-->
+                <!--<div class="item-inner">-->
+                <!--<div class="item-title">微信账号</div>-->
+                <!--<div class="item-after">{$hyrs.weixin}</div>-->
+                <!--</div>-->
+                <!--</li>-->
+
+            </ul>
+            <form action="" method="post" class="ajax-submit" id="profile">
+                <div class="list-block ">
+                    <ul>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 15px;" class="img-left" src="/assets/img/persondata/icon-grzx-zfbzh.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">支付宝账号</div>
+                                    <div class="item-input">
+
+                                        <input type="text" name="alipay" placeholder="请输入您的支付宝账号" value="{$hyrs['alipay']}">
+
+                                    </div>
+
+                                    <div class="item-after">
+
+                                        <div style="position: relative">
+                                            {empty name="hyrs.alipayimage" }
+                                            <input type="file" name="alipayimage" onchange="MY.upload2('{:url('api/user/updateimg')}','profile','#alipayimage')"
+                                                   style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 111;opacity: 0;">
+                                            <img class="img-left" id="alipayimage" src="/assets/img/persondata/icon-grzl-zfbjh.png" alt="">
+                                            {else/}
+                                            <input type="file" name="alipayimage" onchange="MY.upload2('{:url('api/user/updateimg')}','profile','#alipayimage')"
+                                                   style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 111;opacity: 0;">
+                                            <img class="img-left" id="alipayimage" src="{$hyrs.alipayimage}" alt="">
+                                            {/empty}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 17px;" class="img-left" src="/assets/img/persondata/icon-grzx-wxh.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">微信号</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入您的微信号" name="weixin" value="{$hyrs['weixin']}">
+                                    </div>
+                                    <div class="item-after">
+                                        <div style="position: relative">
+                                            {empty name="hyrs.weixinimgage" }
+                                            <input type="file" name="weixinimgage" onchange="MY.upload2('{:url('api/user/updateimg')}','profile','#weixinimgage')"
+                                                   style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 111;opacity: 0;">
+                                            <img class="img-left" id="weixinimgage" src="/assets/img/persondata/icon-grzx-wxhjh.png" alt="">
+
+                                            {else/}
+                                            <input type="file" name="weixinimgage" onchange="MY.upload2('{:url('api/user/updateimg')}','profile','#weixinimgage')"
+                                                   style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 111;opacity: 0;">
+                                            <img class="img-left" id="weixinimgage" src="{$hyrs.weixinimgage}" alt="">
+                                            {/empty}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 14px;" class="img-left" src="/assets/img/persondata/icon-grzx-sfzh.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">身份证号</div>
+                                    <div class="item-input">
+
+                                        <input type="text" name="idcard" placeholder="请输入您的身份证号" value="{$hyrs['idcard']}">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 20px;" class="img-left" src="/assets/img/persondata/icon-grzx-khyh.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">开户银行</div>
+                                    <div class="item-input">
+                                        <input type="text" name="bankname" placeholder="请输入您的开户银行" value="{$hyrs['bankname']}">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--<li>-->
+                        <!--<div class="item-content">-->
+                        <!--<div class="item-media">-->
+                        <!--<i class="iconfont icon-geren color-blue"></i>-->
+                        <!--</div>-->
+                        <!--<div class="item-inner">-->
+                        <!--<div class="item-title label">开户名</div>-->
+                        <!--<div class="item-input">-->
+                        <!--<input placeholder="请输入开户名" type="text" name="bankusename" value="{$hyrs['bankusename']}">-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</li>-->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 13px;" class="img-left" src="/assets/img/persondata/icon-grzx-yhkh.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">银行卡号</div>
+                                    <div class="item-input">
+
+                                        <input type="text" name="banknum" placeholder="请输入您的银行卡号" value="{$hyrs['banknum']}">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 20px;" class="img-left" src="/assets/img/persondata/icon-grzx-jymm.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">交易密码</div>
+                                    <div class="item-input">
+                                        <input type="password" name="password" placeholder="请输入您的交易密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <p class="content-block">
+
+                            </p>
+                        </li>
+                    </ul>
+                    <button onclick="MY.formpost('{:url(\'api/user/profile\')}','profile')" style="width: 94%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    background: #007aff;
+    border-radius: 30px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 16px;
+    font-family: Microsoft YaHei;"  class="button button-fill button-round bg-green">修改资料</button>
+                </div>
+
+            </form>
+            <div class="row" style="height: 50px;"></div>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,92 @@
+<div class="wrapper">
+
+    <section class="content">
+
+        <!-- Main content -->
+
+        <div class="container-fluid">
+
+            <!--新订单列表 操作信息-->
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 审核操作 </h3>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <form id="delivery-form" method="post" action="">
+
+                        <input type="hidden" name="id" value="{$id}">
+
+                        <table class="table table-bordered">
+
+                            <tbody>
+
+                            <tr>
+
+                                <div class="row">
+
+                                    <td class="text-right col-sm-2">选择操作：</td>
+
+                                    <td colspan="3">
+
+                                        <label class="checkbox-inline">
+
+                                            <input type="radio" name="op" value="1" checked> 通过
+
+                                        </label>
+
+                                        <label class="checkbox-inline">
+
+                                            <input type="radio" name="op" value="2"> 不通过
+
+                                        </label>
+
+                                    </td>
+
+                                </div>
+
+                            </tr>
+
+                            <tr>
+
+                                <div class="row">
+
+                                    <td colspan="4">
+
+                                        <div class="form-group text-center">
+
+                                            <button class="btn btn-primary" type="submit" id="disabled">提交</button>
+
+                                            <button onclick="history.go(-1)" class="btn btn-primary" type="button">返回</button>
+
+                                        </div>
+
+                                    </td>
+
+                                </div>
+
+                            </tr>
+
+
+
+                            </tbody>
+
+                        </table>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+

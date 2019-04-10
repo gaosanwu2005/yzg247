@@ -1,0 +1,240 @@
+<div data-page="goodsinfo" class="page no-navbar">
+    <div class="page-content">
+        <style>
+            .content-block img{
+                width: 100%;
+            }
+            .list-block ul{
+                background: transparent !important;
+            }
+            .list-block .item-inner:after{
+                height: 0;
+            }
+            .list-block .item-content{
+                background: #fff;
+            }
+            .login-screen, .popup {
+                top: 20%;
+                border-radius: 10px;
+            }
+            .guige{
+                padding: 0 15px;
+            }
+            .guige p{
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+            .guige a{
+                display: inline-block;
+                color: #999;
+                padding: 3px 5px;
+                border: 1px solid #999;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            .guige a.active{
+                color:#007aff;
+                border: 1px solid #007aff;
+            }
+            .close-popup{
+                position: absolute;
+                top: 6px;
+
+                right: 10px;
+                color: #999 !important;
+                font-size: 14px;
+                z-index: 111;
+                height: 16px;
+                width: 16px;
+                text-align: center;
+                line-height: 14px;
+                border: 1px solid #999;
+                border-radius: 20px;
+            }
+            .numjj .button{
+                height: 25px;
+                line-height: 25px;
+                border: none;
+                color: #666;
+                font-size: 17px;
+                font-weight: 600;
+                padding: 0;
+                background: #efefef;
+                border-width: 0 !important;
+            }
+        </style>
+        <div class="left" style="position: absolute;padding: 23px;z-index: 5555;">
+            <a href="" class="back"><i class="icon icon-back"></i></a>
+        </div>
+        <!--轮播图-->
+        <div class="swiper-container swiper-vertical">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+                {volist name="images" id="vo" empty="暂时没有数据" }
+
+                <div class="swiper-slide" style="border: none">
+                    <span>
+                        <img width="100%" style="" src=" {$vo}" alt="">
+                    </span>
+                </div>
+                {/volist}
+
+            </div>
+        </div>
+        <div class="list-block" style="margin-top: 0">
+
+
+            <!--<img src="{$info.image}" style="width: 100%;">-->
+            <ul>
+                <li class="item-content" style="margin-top: 10px">
+                    <div class="item-inner">
+                        <div class="item-text" style="color: #000">{$info.goods_name}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">价格：<span style="color: red;">￥<b>{$info.shop_price}</b></span>
+
+                        </div>
+                        <div class="item-after"> 积分 {:lmc($info['shop_price'])}</div>
+                    </div>
+                </li>
+                <li class="item-content" style="margin-top: 10px">
+                    <div class="item-inner">
+                        <div class="item-title">库存：{$info.store_count}</div>
+                    </div>
+                </li>
+                <li class="item-content" >
+                    <a href="#"  data-popup=".popup-guige" class="open-popup item-link item-content" style="width: 100%;padding-left: 0;">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">商品规格</div>
+                                <div class="item-after"></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            {notempty name="info.shopname"}
+            <ul style="margin-top: 10px">
+
+                <li class="item-content ">
+
+                    <div class="item-media">
+                        {notempty name="info.avatar"}
+                        <img src="{$info['avatar']}" alt="用户名" style="padding:2px;border:none;margin-right: auto;margin-left: auto;width: 61px;border-radius: 50%;">
+                        {else/}
+                        <img src="{$site.logo}" alt="用户名" style="padding:2px;border:none;margin-right: auto;margin-left: auto;width: 61px;border-radius: 50%;">
+                        {/notempty}
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">
+                            <!--账号：&nbsp;{$info.username}<br>-->
+                            店铺：{$info.shopname}<br>
+                            {neq name="info.id" value="36"}手机号:{$info.mobile}{/neq}
+                        </div>
+                        <div class=" item-after">
+
+                            <a onclick="SHOP.find5('{$info[\'shop_id\']}')"> 进入店铺</a>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            {/notempty}
+            <div class="content-block-title" style="background: #fff;margin: 10px 0 0;padding-left: 15px;height: 40px;line-height: 40px;border-bottom: 1px solid #ddd;font-size: 17px;color: #333">商品详情</div>
+            <div class="content-block" style="background: #fff;margin-top: 0;margin-bottom:10px;padding: 10px 15px;line-height: 25px;font-size: 13px">
+                <p>{$info.goods_content|html_entity_decode}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Popup -->
+    <div class="popup popup-guige">
+        <a href="#" class="close-popup">×</a>
+
+        <div class="list-block media-list">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media">
+                            <img src="{$info.image}" width="100" height="100" style="border-radius: 5px;border: 1px solid #ddd">
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">
+                                    价格：<span style="color: red;">￥
+                                    <b id="price">{$info.shop_price}</b>
+                                </span>
+                                </div>
+                            </div>
+                            <div class="item-subtitle">库存：{$info.store_count}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class=" guige">
+            <p>商品规格</p>
+
+            <div class="guige-row">
+                {volist name="spec_type" id="vo"}
+                <a onclick="SHOP.spec(this,'#spec_key_name','#spec_key')" data-value="{$vo}"  style=" margin-right: 14px;">{$key}</a>
+                {/volist}
+            </div>
+
+
+        </div>
+
+        <div class="list-block">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title" style="font-size: 15px">购买数量 </div>
+                        <div class="item-title-row buttons-row numjj" style="width: 35%;">
+                            <a onclick="SHOP.down('#goods_num')" class="button" style="width: 32%;">-</a>
+                            <a href="#" class="button " style="width: 34%;margin: 0 1%"><input style="height: 27px;width: 100%;text-align: center" type="number" min="1" id="goods_num" name="goods_num" value="1"></a>
+                            <a onclick="SHOP.up('#goods_num')" class="button" style="width: 32%;">+</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="toolbar tabbar tabbar-labels" style="background: white;position: fixed;bottom: 20%;">
+            <div class="toolbar-inner" >
+                <input name="gid" type="hidden" id="goods_id" value="{$info.goods_id}">
+                <input type="hidden" id="spec_key_name" name="spec_key_name" value="0">
+                <input type="hidden" id="spec_key" name="spec_key" value="0">
+                <div class="buttons-row" style="width: 100%;">
+                    <button onclick="SHOP.addcart('#goods_num','#goods_id')" class="button button-round button-fill " style="background: linear-gradient(to bottom right,#ff3300,#ff9500);color: #fff;height: 35px;line-height: 35px;">加入购物车</button>
+                    <button onclick="SHOP.buy('#goods_num','#goods_id')" class="button button-round button-fill color-orange" style="color: #fff;height: 35px;line-height: 35px;background: linear-gradient(to bottom right,red,#921cce);">立即购买</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbar tabbar tabbar-labels" style="background: white;">
+        <div class="toolbar-inner" >
+            <input name="gid" type="hidden" id="goods_id" value="{$info.goods_id}">
+            <input type="hidden" id="spec_key_name" name="spec_key_name" value="0">
+            <input type="hidden" id="spec_key" name="spec_key" value="0">
+            <div style="width: 100px">
+                <p>
+                    <img src="/assets/img/icon-sc.png" alt="" style="height: 20px;margin: 0 auto">
+                </p>
+                <button onclick="MY.ajax('{:addon_url('shop/ajax/collection',['gid'=>$info['goods_id']])}')" style="border: none;font-family:'微软雅黑';font-size: 14px">收藏</button>
+            </div>
+
+            <div class="buttons-row" style="width: 100%;">
+
+                <button onclick="SHOP.addcart('#goods_num','#goods_id')" class="button button-round button-fill " style="background: linear-gradient(to bottom right,#ff3300,#ff9500);color: #fff;height: 35px;line-height: 35px;">加入购物车</button>
+                <button onclick="SHOP.buy('#goods_num','#goods_id')" class="button button-round button-fill color-orange" style="color: #fff;height: 35px;line-height: 35px;background: linear-gradient(to bottom right,red,#921cce);">立即购买</button>
+            </div>
+        </div>
+    </div>
+
+</div>

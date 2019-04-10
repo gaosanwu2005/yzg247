@@ -1,0 +1,101 @@
+
+<!--公共底部导航-->
+<style>
+	.theme-blue .tabbar a.active, .tabbar.theme-blue a.active, .theme-blue .tabbar a.active i, .tabbar.theme-blue a.active i {
+		color: #49a1ff;
+	}
+	.toolbar-inner a li {
+		font-size: 18px;
+	}
+	.footer-icon{
+		display: block;
+		width: 100%;
+		height: 25px;
+	}
+	.icon-index{
+		background: url(/assets/img/index-img/icon/icon-footer-index01.png) no-repeat center;
+		background-size: auto 20px;
+	}
+	.active .icon-index{
+		background: url(/assets/img/index-img/icon/icon-footer-index02.png) no-repeat center;
+		background-size: auto 20px;
+	}
+	.icon-lxq{
+		background: url(/assets/img/index-img/icon/icon-footer-lxq01.png) no-repeat center;
+		background-size: auto 20px;
+	}
+	.active .icon-lxq{
+		background: url(/assets/img/index-img/icon/icon-footer-lxq02.png) no-repeat center;
+		background-size: auto 20px;
+	}
+	.icon-jfsc{
+		background: url(/assets/img/index-img/icon/icon-footer-jfsc01.png) no-repeat center;
+		background-size: auto 20px;
+	}
+	.active .icon-jfsc{
+		background: url(/assets/img/index-img/icon/icon-footer-jfsc02.png) no-repeat center;
+		background-size: auto 20px;
+	}
+	.icon-lxwm{
+		background: url(/assets/img/index-img/icon/icon-footer-lxkf01.png) no-repeat center;
+		background-size: auto 20px;
+	}
+	.active .icon-lxwm{
+		background: url(/assets/img/index-img/icon/icon-footer-lxkf02.png) no-repeat center;
+		background-size: auto 20px;
+	}
+</style>
+<div class="toolbar tabbar tabbar-labels">
+	<div class="toolbar-inner">
+
+		<a href="{:url('index/index1')}" class=" link {eq name="sidebar" value="1"}active{/eq}">
+			<i class="footer-icon icon-index"></i>
+			<span class="tabbar-label">首页</span>
+		</a>
+		<a href="" class=" link">
+			<i class="footer-icon icon-lxq"></i>
+			<span class="tabbar-label">练习区</span>
+		</a>
+		<a href="{:url('index/user/center')}" class=" link">
+			<img src="/assets/img/index-img/icon/icon-footer-my.png" alt="" style="height: 40px;margin-top:2px;vertical-align: middle">
+		</a>
+		<a href="{:url('mobile/index/shop')}" class=" link">
+			<i class="footer-icon icon-jfsc"></i>
+			<span class="tabbar-label">积分商城</span>
+		</a>
+		<a href="" class="link">
+			<i class="footer-icon icon-lxwm"></i>
+			<span class="tabbar-label">联系我们</span>
+		</a>
+		<!--<a href="{:url('goods/category')}" class=" link active">-->
+			<!--<i class="iconfont icon-liebiao"></i>-->
+			<!--<span class="tabbar-label">分类</span>-->
+		<!--</a>-->
+
+		<!--<a href="{:url('index/Message/sendlist')}" class=" link active">-->
+			<!--<i class="iconfont icon-fankui">  </i>-->
+			<!--<span class="tabbar-label">消息</span>-->
+		<!--</a>-->
+
+		<!--<a href="{:url('index/trade/index')}" class="link {eq name="sidebar" value="2"}active{/eq}">-->
+			<!--<i class="iconfont icon-jiaoyi">-->
+				<!--&lt;!&ndash;<span class="badge bg-red">3</span>&ndash;&gt;-->
+			<!--</i>-->
+			<!--<span class="tabbar-label">交易</span>-->
+		<!--</a>-->
+		<!--<a href="{:url('mobile/index/shop')}" class=" link {eq name="sidebar" value="3"}active{/eq}">-->
+			<!--<i class="iconfont icon-daohanggouwuche">  </i>-->
+			<!--<span class="tabbar-label">商城</span>-->
+		<!--</a>-->
+
+		<!--<a href="{:url('Cart/cart')}" class="link active">-->
+			<!--<i class="iconfont icon-daohanggouwuche"></i>-->
+			<!--<span class="tabbar-label">购物车</span>-->
+		<!--</a>-->
+
+		<!--<a href="{:url('index/user/center')}" class=" link {eq name="sidebar" value="4"}active{/eq}">-->
+			<!--<i class="iconfont icon-geren"></i>-->
+			<!--<span class="tabbar-label">我的</span>-->
+		<!--</a>-->
+	</div>
+</div>

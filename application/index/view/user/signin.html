@@ -1,0 +1,153 @@
+<div data-page="signin" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">每日签到</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .signin{
+            width: 100%;
+            padding: 30px 0 10px;
+            background: url("/assets/img/usercenter/signin-bg.png") no-repeat;
+            background-size: 100%;
+            text-align: center;
+        }
+        .signin-time{
+            width: 130px;
+            height: 120px;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 0px;
+            /*background: url("/assets/img/usercenter/signin.png") no-repeat;*/
+            background-size: 100%;
+        }
+        .signin-time p{
+            color: #3797ff;
+            font-size: 15px;
+            line-height: 30px;
+        }
+        .signin .tip{
+            color: #fff;
+            font-size: 15px;
+        }
+        .mallTj>p{
+            font-size: 14px;
+            padding: 0 15px;
+            height: 40px;
+            line-height: 40px;
+            background: #fff;
+        }
+        .mallTj>p img{
+            height: 15px;
+            display: inline-block;
+        }
+        .mallTj>p>img{
+            position: relative;
+            top:2px;
+        }
+        .mallTj>p a img{
+            height: 10px;
+        }
+        .mallTj ul{
+            overflow: hidden;
+            padding: 0 10px 10px;
+            background: #fff;
+        }
+        .mallTj ul li{
+            float: left;
+            width: 30%;
+            margin:0 1.6666%;
+        }
+        .mallTj ul li a{
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+        .mallTj ul li a img{
+            width: 100%;
+        }
+        .mallTj ul li a p{
+            position: absolute;
+            top:50%;
+            left:50%;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            transform:translate(-50%,-50%);
+            -webkit-transform:translate(-50%,-50%);
+            -moz-transform:translate(-50%,-50%);
+            -ms-transform:translate(-50%,-50%);
+        }
+        .picker-header,.picker-footer{
+            display: none;
+        }
+        .toolbar{
+        background: #fff
+        }
+        .content-block{
+            margin: 10px 0;
+        }
+
+
+    </style>
+    <div class="page-content">
+
+        <div class="signin">
+            <div class="signin-time">
+                <!--<img style="display:block;width: 100px;margin: 0 auto" src="/assets/img/usercenter/headImg.png" alt="">-->
+                {notempty name="hyrs.avatar"}
+                <img src="{$hyrs['avatar']}"  style="padding:2px;margin-right: auto;margin-left: auto;width: 87px;height: 87px;border-radius: 50%;" alt="用户"  >
+                {else/}
+                <img src="{$site.logo}" style="padding:2px;margin-right: auto;margin-left: auto;width: 87px;height: 87px;border-radius: 50%;" alt="用户"  >
+                {/notempty}
+                <!--<p style="font-size: 20px;padding-top: 36px">已签到</p>-->
+                <!--<p>连续5天</p>-->
+            </div>
+            <p class="tip">今日已签到,恭喜您获得 {$today}LMC</p>
+        </div>
+        <!--商城推荐-->
+        <div class="mallTj">
+            <p>
+                <img src="/assets/img/usercenter/icon-sctj.png" alt="">
+                商城推荐
+                <a style="float: right" href="">查看更多 <img src="/assets/img/usercenter/icon-more.png" alt=""></a>
+            </p>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="/assets/img/usercenter/pro01.png" alt="">
+                        <p>名仕钱包</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/assets/img/usercenter/pro02.png" alt="">
+                        <p>饰品装饰</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/assets/img/usercenter/pro03.png" alt="">
+                        <p>时尚手机壳</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!--日历-->
+        <!--<div class="content-block">-->
+            <!--<div style="padding:0; margin-right:-15px; width:auto" class="content-block-inner">-->
+                <!--<div id="calendar-inline-container"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    </div>
+</div>

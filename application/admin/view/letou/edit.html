@@ -1,0 +1,172 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Qi')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-qi" class="form-control" name="row[qi]" type="text" value="{$row.qi}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('N1')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-N1" class="form-control" name="row[N1]" type="text" value="{$row.N1}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('N2')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-N2" class="form-control" name="row[N2]" type="text" value="{$row.N2}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('N3')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-N3" class="form-control" name="row[N3]" type="text" value="{$row.N3}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('N4')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-N4" class="form-control" name="row[N4]" type="text" value="{$row.N4}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('N5')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-N5" class="form-control" name="row[N5]" type="text" value="{$row.N5}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('M1')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-M1" class="form-control" name="row[M1]" type="text" value="{$row.M1}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('M2')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-M2" class="form-control" name="row[M2]" type="text" value="{$row.M2}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Date')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-date" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[date]" type="text" value="{$row.date}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ktime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ktime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[ktime]" type="text" value="{$row.ktime|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ysl')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ysl" data-rule="required" class="form-control" name="row[ysl]" type="text" value="{$row.ysl}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ngank')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ngank" data-rule="required" class="form-control" name="row[ngank]" type="text" value="{$row.ngank}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ygank')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ygank" data-rule="required" class="form-control" name="row[ygank]" type="text" value="{$row.ygank}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Rgank')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rgank" data-rule="required" class="form-control" name="row[rgank]" type="text" value="{$row.rgank}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sgank')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sgank" data-rule="required" class="form-control" name="row[sgank]" type="text" value="{$row.sgank}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Nzhik')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-nzhik" data-rule="required" class="form-control" name="row[nzhik]" type="text" value="{$row.nzhik}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Yzhik')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-yzhik" data-rule="required" class="form-control" name="row[yzhik]" type="text" value="{$row.yzhik}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Rzhik')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rzhik" data-rule="required" class="form-control" name="row[rzhik]" type="text" value="{$row.rzhik}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Szhik')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-szhik" data-rule="required" class="form-control" name="row[szhik]" type="text" value="{$row.szhik}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Week')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-week" data-rule="required" class="form-control" name="row[week]" type="text" value="{$row.week}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Beizhu')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-beizhu" class="form-control" name="row[beizhu]" type="text" value="{$row.beizhu}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Xi1')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-xi1" class="form-control" name="row[xi1]" type="text" value="{$row.xi1}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Xi2')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-xi2" class="form-control" name="row[xi2]" type="text" value="{$row.xi2}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ji1')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ji1" class="form-control" name="row[ji1]" type="text" value="{$row.ji1}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ji2')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ji2" class="form-control" name="row[ji2]" type="text" value="{$row.ji2}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ji3')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ji3" class="form-control" name="row[ji3]" type="text" value="{$row.ji3}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Plan')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-plan" class="form-control" name="row[plan]" type="text" value="{$row.plan}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

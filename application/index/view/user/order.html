@@ -1,0 +1,62 @@
+<div data-page="cart" class="page ">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">商城订单</div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content" style="background: white;">
+        <div class="list-block media-list">
+            <ul>
+                {volist name="list" id="order" empty="暂时没有数据" }
+
+                <div class="content-block-title" style="margin-top: 40px;">订单编号：{$key}</div>
+                {volist name="order" id="vo" empty="暂时没有数据" }
+                <li>
+                    <div class="item-content">
+                        <a href="{:url('Mobile/Goods/goodsInfo',array('id'=>$vo['goods_id']))}" class="item-link">
+                            <div class="item-media"><img src="{$vo.image}" width="80"></div>
+                        </a>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">{:substr($vo.goods_name,0,6)}</div>
+                                <div class="item-after"> {$order_status[$vo['order_status']]}</div>
+                            </div>
+                            <div class="item-subtitle">
+                                ￥{$vo.goods_price}  X{$vo.goods_num}
+                            </div>
+                            <div class="item-text">
+                                {neq name="vo.spec_key" value="0"}
+                                {$vo.spec_key_name}
+                                {/neq}
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </li>
+                {/volist}
+                {gt name="order[0]['shipping_num']" value="0"}
+                <div class="content-block-title">物流：{$order[0]['shipping_name']} {$order[0]['shipping_num']}</div>
+                {/gt}
+                <div style="display: flex;float: right;margin-top: -35px;margin-right: 23px;" >
+                    {if condition="($order[0]['order_status'] == 0)"}
+                    <a onclick="SHOP.c_order('{$order[0]['order_id']}','5')" class="button">取消订单</a>
+                    {/if}
+                    {if condition="($order[0]['order_status'] == 2)"}
+                    <a onclick="SHOP.c_order('{$order[0]['order_id']}','3')" class="button">确认收货</a>
+                    {/if}
+                </div>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

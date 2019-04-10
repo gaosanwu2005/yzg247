@@ -1,0 +1,38 @@
+
+<div data-page="news" class="page">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class=" back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">新手指南</div>
+			<div class="right">
+				<a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<div class="page-content">
+		<div class="list-block ">
+			{volist name="list" id="vo"}
+			<ul>
+				<li >
+					<a href="{:url('Announce/xwmb',array('id'=>$vo['id']))}" class=" item-content">
+						<div class="item-inner">
+							<div class="item-title">
+								{$vo.title}
+							</div>
+							<div class="item-after" style="font-size: xx-small">{$vo['refreshtime']|date="Y-m-d H:i:s",###}</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+			{/volist}
+		</div>
+		<div class="row" style="height: 50px;"></div>
+	</div>
+	<!--底部开始-->
+	{include file="common/footnav"/}
+	<!--底部结束-->
+</div>

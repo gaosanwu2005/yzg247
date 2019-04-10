@@ -1,0 +1,87 @@
+<div data-page="agent" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">申请代理</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content ">
+        <div class="content-block-title">
+            官方账号
+        </div>
+        <div class="list-block media-list">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media">
+                            <img src="{$site.logo}" width="80">
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-subtitle">支付宝：{$site.palipay}</div>
+                            <div class="item-subtitle">微信：{$site.pweixin}</div>
+                            <div class="item-subtitle">银行卡：{$site.pbank}</div>
+                            <!--<div class="item-after"><a class="button button-round " onclick="MY.copywww('1')">复制账号</a></div> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content-block">
+            <p>{$site.shopdai}</p>
+        </div>
+
+
+        <form action="{:url('api/user/agent')}" method="post" class="ajax-submit">
+            <!-- 代理级别 -->
+            <div class="list-block ">
+                <ul>
+                    {volist name="level" id="vo"}
+                    <li>
+                        <label class="label-checkbox item-content">
+                            <input type="radio" name="level_id" value="{$vo.level_id}"  checked="checked" >
+                            <div class="item-media">
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-content">
+                                    <div class="item-title-row">
+                                        <div class="item-title">{$vo.level_name}</div>
+                                        <div class="item-after">
+                                            <p>应缴纳保证金：<span>￥{$vo.deposit}</span>元</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+
+            {eq name="hyrs.is_agent" value="1"}
+            <div class="list-block">
+                <div style="padding:0 15px;">
+                    <span >申请成功 目前是 {$hyrs.agent_name}</span>
+                </div>
+            </div>
+            {else/}
+            <div class="list-block">
+                <div style="padding:0 15px;">
+                    <button type="submit" class="button button-round button-fill">提交申请</button>
+                </div>
+            </div>
+            {/eq}
+
+
+
+        </form>
+    </div>
+</div>
+

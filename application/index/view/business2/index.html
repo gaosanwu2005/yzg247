@@ -1,0 +1,139 @@
+<div data-page="staticAccount" class="page myMain no-navbar">
+    <!--顶部导航-->
+    <!--<div class="navbar">-->
+    <!--<div class="navbar-inner">-->
+    <!--<div class="left">-->
+    <!--<a href="" class="back"><i class="icon icon-back"></i></a>-->
+    <!--</div>-->
+    <!--<div class="center sliding" style="text-align: center;width: 100%;">财务中心</div>-->
+    <!--<div class="right">-->
+    <!--<a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--顶部导航-->
+
+    <div class="page-content">
+        <style>
+            .pf-comment {
+                width: 75px;
+                display: inline-block;
+            }
+            .item-media i {
+                font-size: x-large;
+            }
+        </style>
+        <div class="row">
+            <div style=" position:  absolute; padding: 18px;">
+                <div class="left" style=" display:  inline;">
+                    <a href="" class="back"><i class="icon icon-back"></i></a>
+                </div>
+                <div style="display: inline;color: ;">我的钱包</div>
+            </div>
+            <!--<div class="col-100 top" style="background:url('/Public/Home/my/img/bg-red.jpg');background-size:100% 100%;">-->
+            <div class="col-100 top"
+                 style="">
+                <div class="rz">
+                    <a href="{:url('Message/send2')}" style=" background:  no-repeat;">
+                        {notempty name="hyrs.avatar"}<img src="{$hyrs['avatar']}" style="padding:2px;border:none;margin-top: 33px;margin-right: auto;margin-left: auto;width: 87px;" alt="用户名" class="headImg">
+                        {else/}
+                        <img src="{$site.logo}" style="padding:2px;border:none;margin-top: 33px;margin-right: auto;margin-left: auto;width: 87px;" alt="用户名" class="headImg">
+                        {/notempty}
+                    </a>
+                </div>
+                <div class="rz">{$hyrs['username']}&nbsp;&nbsp;{$hyrs['level']}</div>
+                <div style="top: 258px;position:  absolute;width: 100%;">
+                </div>
+            </div>
+
+        </div>
+        <div class="content-block-title">财务概览</div>
+        <div class="list-block  " style="
+    margin-top: 0;
+">
+            <ul>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall1" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">{$site['walltype']['wall1']}</div>
+                            <div class="item-after">{$hyrs['wall1']} {$site['btc']}</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall2" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">{$site['walltype']['wall2']}</div>
+                            <div class="item-after">{$hyrs['wall2']}{$site['cny']}</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall3" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">{$site['walltype']['wall3']}</div>
+                            <div class="item-after">{$hyrs['wall3']}{$site['cny']}</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall4" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">{$site['walltype']['wall4']}</div>
+                            <div class="item-after">{$hyrs['wall4']}{$site['cny']}</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall6" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">{$site['walltype']['wall6']}</div>
+                            <div class="item-after">{$hyrs['wall6']}{$site['cny']}</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall7" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">{$site['walltype']['wall7']}</div>
+                            <div class="item-after">{$hyrs['wall7']}{$site['cny']}</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall8" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">{$site['walltype']['wall8']}</div>
+                            <div class="item-after">{$hyrs['wall8']}{$site['cny']}</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title">交易历史</div>
+        <div class="list-block  " style="
+    margin-top: 0;
+">
+            <ul>
+                <li>
+                    <a href="{:url('trade/complete')}" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">虚拟币交易记录</div>
+                            <div class="item-after"> </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('trade2/complete')}" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">互助交易记录</div>
+                            <div class="item-after"> </div>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

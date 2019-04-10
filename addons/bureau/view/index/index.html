@@ -1,0 +1,282 @@
+<div data-page="xuelitisheng" class="page form">
+
+    <style>
+
+        .navbar {
+
+            color: #fff;
+
+            background: -webkit-linear-gradient(left, #3e77f2 , #43aff6);
+
+            background: -o-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: -moz-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: linear-gradient(to right, #3e77f2 , #43aff6);
+
+        }
+
+
+
+    </style>
+
+    <!--顶部导航-->
+
+    <div class="navbar">
+
+        <div class="navbar-inner">
+
+            <div class="left">
+
+                <a href="" class="back">
+
+                    <img src="/assets/img/icon-back.png" alt="">
+
+                </a>
+
+            </div>
+
+            <div class="center sliding" style="text-align: center;width: 100%;">学历提升</div>
+
+            <!-- <div class="right">
+
+                <a href="#" class="link icon-only open-panel" data-panel="right">修改</a>
+
+            </div> -->
+
+        </div>
+
+    </div>
+
+    <!--顶部导航-->
+
+    <div class="page-content" style="background: #fff">
+
+        <!--报名流程-->
+
+        <div class="bmlc">
+
+            <div class="bmlc-title">报名流程</div>
+
+            <div class="bmlc-box">
+
+                <p>
+
+                    <a class="button color-blue" href="">在线报名</a>
+
+                    <img src="/assets/img/school-img/icon-yjt02.png" alt="">
+
+                    <a class="button  color-gray" href="">准考证下载</a>
+
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">录取成绩公布</a>
+
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">考试通告</a>
+
+                </p>
+
+                <p style="text-align: right;overflow: hidden;height: 19px">
+
+                    <img style="float: right;height: 15px;top:0px;left: -50px" src="/assets/img/school-img/icon-xjt01.png" alt="">
+
+                </p>
+
+
+
+                <p style="text-align: right">
+
+                    <a class="button  color-gray" href="">单位录取</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">信息发布</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">进入人才中心</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">毕业</a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!---->
+
+        <div class="zxbm">
+
+            <div class="zxbm-title">在线报名</div>
+
+            <form action="{:addon_url('school/ajax/sendinfo')}" method="post" class="store-data ajax-submit form-input">
+
+                <!-- <div class="input-group">
+
+                    <label>选择省：</label>
+
+                    <input type="text">
+
+                </div> -->
+
+                <div class="input-group">
+
+                    <label>姓名：</label>
+
+                    <input type="text" name='realname' value="{$info.realname}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>性别：</label>
+
+                    <select name='sex'>
+
+
+
+                        <option value="男" {eq name="info.sex" value="男"}selected = "selected"{/eq}>男</option>
+
+                        <option value="女" {eq name="info.sex" value="女"}selected = "selected"{/eq}>女</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>民族：</label>
+
+                    <input type="text" name='national' value="{$info.national}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>学历：</label>
+
+                    <select name='type'>
+
+                        <option value="专科" {eq name="info.type" value="专科"}selected = "selected"{/eq}>专科</option>
+
+                        <option value="本科" {eq name="info.type" value="本科"}selected = "selected"{/eq}>本科</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>身份证号码：</label>
+
+                    <input type="text" name='idcard' value="{$info.idcard}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>出生日期：</label>
+
+                    <input type="text" name='birthday' id='ks-picker-date' value="{$info.birthday}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>详细地址：</label>
+
+                    <input type="text" name='address' value="{$info.address}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>复习资料地址：</label>
+
+                    <input type="text" name='address2' value="{$info.address2}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>联系电话：</label>
+
+                    <input type="text" name='mobile' value="{$info.mobile}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>备用电话：</label>
+
+                    <input type="text" name='mobile2' value="{$info.mobile2}">
+
+                </div>
+
+                <div class="input-filegroup">
+
+                    <label>本人证件照：<span>(上传)</span></label>
+
+                    <div class="file-box">
+
+                        <input  type="file" name="headimg"  onchange="MY.showimg(this,'headimg')" accept="image/*" capture="camera">
+
+
+
+                        <img {notempty name="info.headimg"}src="{$info.headimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="headimg">
+
+                    </div>
+
+                </div>
+
+                <div class="input-filegroup">
+
+                    <label>本人身份证：<span>(上传)</span></label>
+
+                    <div class="file-box">
+
+                        <input type="file" name="idcardimg" onchange="MY.showimg(this,'idcardimg')" accept="image/*" capture="camera">
+
+                        <img {notempty name="info.idcardimg"}src="{$info.idcardimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="idcardimg">
+
+                    </div>
+
+                </div>
+
+                <div class="input-filegroup">
+
+                    <label>本人毕业证：<span>(上传)</span></label>
+
+                    <div class="file-box">
+
+                        <input type="file" name="graduationimg" onchange="MY.showimg(this,'graduationimg')" accept="image/*" capture="camera">
+
+                        <img {notempty name="info.graduationimg"}src="{$info.graduationimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="graduationimg">
+
+                    </div>
+
+                </div>
+
+                <div class="tip">须知：（专科学历需上传，高中或者中专毕业证，必须真实有效，如有虚假，后果自行承担。本科学历需上传学信网电子备案表截图，学信网下载网址：www.chsi.com.cn）</div>
+
+                <div class="input-submit">
+
+                    <input type="submit" value="确认保存">
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'Ppid'  =>  '编号id',
+    'Tgid'  =>  '买id',
+    'Userid'  =>  '买会员id',
+    'Account'  =>  '买账号',
+    'Xyid'  =>  '卖id',
+    'Userid1'  =>  '卖会员id',
+    'Account1'  =>  '卖账号',
+    'Price'  =>  '匹配金额',
+    'Number'  =>  '交易数量',
+    'Total'  =>  '总金额',
+    'Addtime'  =>  '匹配时间',
+    'Paytime'  =>  '打款时间',
+    'Confirmtime'  =>  '确认时间',
+    'Pimg'  =>  '打款截图',
+    'Payinfo'  =>  '备注信息',
+    'Tsimg'  =>  '投诉图片',
+    'Tsinfo'  =>  '投诉说明',
+    'Tstime'  =>  '投诉时间',
+    'Type'  =>  '类型',
+    'Type 4'  =>  '买入',
+    'Type 5'  =>  '卖出',
+    'Status'  =>  '状态(单选)',
+    'Status 0'  =>  '待打款',
+    'Status 1'  =>  '已付款',
+    'Status 2'  =>  '已完成',
+    'Status 3'  =>  '已取消',
+    'Status 4'  =>  '投诉'
+];

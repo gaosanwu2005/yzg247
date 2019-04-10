@@ -1,0 +1,125 @@
+<div data-page="cart2" class="page ">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">确定订单</div>
+        </div>
+    </div>
+    <!--顶部导航-->
+
+    <div class="page-content">
+        <div id="app">
+
+            <form name="cart2_form" id="cart2_form" method="post">
+                <section id="order">
+                    <!-- 地址 -->
+                    <a href="{:url('index/Info/editinfo2')}" class="item-content item-link">
+                        <div class="address">
+                            <div class="top">
+                                <span><b>收货人：{$hyrs.consignee}</b></span>
+                                <span><b>手机号：{$hyrs.shouphone}</b></span>
+                            </div>
+                            <div class="bottom">
+                                <i class="iconfont icon-dizhi"></i>
+                                <span><b>收货地址：{$hyrs.address}</b></span>
+                                <i class="iconfont icon-xiangyou"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- 商品信息 -->
+
+                    {volist name="list" id="vo" empty="暂时没有数据" }
+                    <div class="shop-box">
+                        <div class="img-box">
+                            <a href="{:url('Mobile/Goods/goodsInfo',array('id'=>$vo['goods_id']))}">
+                                <img src="{$vo['image']}">
+                            </a>
+                        </div>
+                        <div class="detail-box">
+                            <div class="name">
+                                {$vo['goods_name']}
+                            </div>
+                            {neq name="vo.spec_key" value="0"}
+                            <div class="spec">
+                                <span>{$vo.spec_key_name}</span>
+                            </div>
+                            {/neq}
+
+                            <div class="price">
+                                <span>￥{$vo['goods_price']}</span>
+                                <span>X {$vo['goods_num']}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {/volist}
+
+                    <!-- 价钱信息 -->
+                    <!--<div class="price-box">-->
+                    <!--<div class="cell-item">-->
+                    <!--<div class="cell-left">配送方式:</div>-->
+                    <!--<div class="cell-right ">-->
+                    <!--<select class="cell-select" name="shipping_code" style="margin-left: 9px;">-->
+                    <!--{notempty name="expressid"}-->
+                    <!--{volist name="expressid" id="vo" }-->
+                    <!--<option value="$express[$vo]">$express[$vo]</option>-->
+                    <!--{/volist}-->
+                    <!--{/notempty} -->
+                    <!--</select>-->
+
+
+                    <!--</div>-->
+                    <!--</div> -->
+                    <!--</div>-->
+                    <!-- 提示信息 -->
+                    <div class="info">
+                        请选择支付方式
+                    </div>
+                    <div class="list-block inset">
+                        <ul>
+                            <li>
+                                <label class="label-checkbox item-content">
+                                    <input type="radio" name="ptype" value="wall1" checked="checked">
+                                    <div class="item-media">
+                                        <i class="icon icon-form-checkbox"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">{$site['walltype']['wall1']}</div>
+                                        <div class="item-after">需要：{$needlmc} </div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="label-checkbox item-content">
+                                    <input type="radio" name="ptype" value="wall2" checked="checked">
+                                    <div class="item-media">
+                                        <i class="icon icon-form-checkbox"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">{$site['walltype']['wall2']}</div>
+                                        <div class="item-after">需要：{$needlmc} </div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!-- 底部 -->
+                    <div class="bottom-btn">
+                        <div class="zs">
+                            合计：<span><em id="payables">{$total}</em>元</span>
+                        </div>
+                        <div class="submit-btn" onClick="SHOP.suancart('#cart2_form');">
+                            提交订单
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+
+    </div>
+</div>
+

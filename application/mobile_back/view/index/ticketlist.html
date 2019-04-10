@@ -1,0 +1,117 @@
+<div data-page="ticketlist" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">{$from_station}→{$to_station}</div>
+            <div class="right">
+
+            </div>
+
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .ticketList{
+            background: #fff;
+        }
+        .ticketList li{
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .ticketList li>a{
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            color: #333;
+        }
+        .ticketList li>a>span{
+            float: left;
+            font-size: 16px;
+            line-height: 25px;
+        }
+        .ticketList li>a>span:nth-of-type(1){
+            width: 18%;
+        }
+        .ticketList li>a>span:nth-of-type(2){
+            width: 33%;
+        }
+        .ticketList li>a>span:nth-of-type(3){
+            width: 21%;
+        }
+        .ticketList li>a>span:nth-of-type(4){
+            width: 28%;
+            text-align: right;
+            color: #f90;
+        }
+        .f14{
+            font-size: 14px;
+        }
+        .ticketList li>a>span em i{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            margin-right: 5px;
+            font-size: 12px;
+            text-align: center;
+            color: #007aff;
+            border: 1px solid #007aff;
+            border-radius: 20px;
+        }
+    </style>
+
+    <div class="page-content">
+
+        <ul class="ticketList">
+            {empty name='reason'}
+            {volist name='list' id='item'}
+            <li>
+                <a href="{:url('mobile/index/ticketlist_card', [
+                                                                    'train_code'=>$item['train_code'],
+                                                                    'start_station_name'=>$item['start_station_name'],
+                                                                    'end_station_name'=>$item['end_station_name'],
+                                                                    'from'=>$from_station,
+                                                                    'from_code'=>$item['from_station_code'],
+                                                                    'to'=>$to_station,
+                                                                    'to_code'=>$item['to_station_code'],
+                                                                    'start_time'=>$item['start_time'],
+                                                                    'arrive_time'=>$item['arrive_time'],
+                                                                    'run_time'=>$item['run_time'],
+                                                                    'ticket_price'=>$item['ticket_price'],
+                                                                    'train_type'=>$item['train_type'],
+                                                                    'train_date'=>$train_date,
+                                                                ])}">
+                    <span>
+                        <em>{$item.start_time}</em><br>
+                        <em class="f14">{$item.arrive_time}</em>
+                    </span>
+                    <span>
+                        <em>
+                            <i>始</i>{$item.start_station_name}
+                        </em><br>
+                        <em><i>终</i>{$item.end_station_name} </em>
+                    </span>
+                    <span>
+                        <em> {$item.train_code}</em><br>
+                        <em class="f14">{$item.run_time}</em>
+                    </span>
+                    <span>
+                        <em>￥{$item.ticket_price} </em><br>
+                    </span>
+                </a>
+            </li>
+            {/volist}
+            {else/}
+                {$reason}
+            {/empty}
+        </ul>
+
+
+    </div>
+
+
+</div>
+

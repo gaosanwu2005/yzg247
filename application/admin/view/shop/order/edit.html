@@ -1,0 +1,81 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="orderStatusList" item="vo"}
+            <label for="row[order_status]-{$key}"><input id="row[order_status]-{$key}" name="row[order_status]" type="radio" value="{$key}" {in name="key" value="$row.order_status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Consignee')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-consignee" class="form-control" name="row[consignee]" type="text" value="{$row.consignee}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Address')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-address" class="form-control" name="row[address]" type="text" value="{$row.address}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mobile" class="form-control" name="row[mobile]" type="text" value="{$row.mobile}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Shipping_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-shipping_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[shipping_time]" type="text" value="{$row.shipping_time|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Confirm_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-confirm_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[confirm_time]" type="text" value="{$row.confirm_time|datetime}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Admin_note')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-admin_note" class="form-control" name="row[admin_note]" type="text" value="{$row.admin_note}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Shop_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-shop_id" data-rule="required" data-source="shop/index" class="form-control selectpage" name="row[shop_id]" type="text" value="{$row.shop_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Shipping_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-shipping_name" class="form-control" name="row[shipping_name]" type="text" value="{$row.shipping_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Shipping_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-shipping_num" class="form-control" name="row[shipping_num]" type="text" value="{$row.shipping_num}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

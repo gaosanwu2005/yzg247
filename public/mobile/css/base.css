@@ -1,0 +1,187 @@
+/* CSS Document */
+
+/* CSS Document */
+*,::before,::after{margin:0; padding:0; -webkit-box-sizing:border-box; -webkit-tap-highlight:transparent;/*清除点击默认的高亮效果*/}
+
+a, article, aside, audio, b, blockquote, body, canvas, caption, dd,  details,div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, label, legend, li, menu, nav, object, ol, output, p,s, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video
+{ margin: 0; padding: 0; border: 0; }
+
+ol, ul,li{ list-style: none;}
+table { border-collapse: collapse;/*表格的边线重叠*/ border-spacing: 0; }
+input,textarea{border:0 none; resize:none;/*调整尺寸*/  /*outline:none;*//*清除表单默认的蓝色边框效果*/
+    -webkit-appearance:none;/* 针对表单的默认的样式进行清除  比如立体效果*/}
+:focus{outline:none;}
+img{ display:block; -webkit-touch-callout:none;/*当你触摸并按住触摸目标时候，禁止或显示系统默认菜单 */}
+
+a,a:link,a:visited{ text-decoration:none; -webkit-touch-callout:none;}
+a:hover{ color:#e10c28;}
+
+.clearfix:after{content:""; display:block; height:0; clear:both; visibility:hidden;}
+
+.fl{float:left;}
+.fr{float:right;}
+
+html{-webkit-text-size-adjust: none;/*不调整（拉伸）字大小*/  font-size:100px;/*表示100px=1rem;       625%    62.5%*/}
+
+body{font-family: "microsoft yahei", "\534E\6587\7EC6\9ED1",
+Verdana, Arial, Helvetica, sans-serif; font-size:24px; background:#eeeeee; -webkit-user-select:none; /*禁止选中内容*/}
+
+/*微软雅黑      华文细黑                                         最后一个字体：ios系统默认 */
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot');
+    src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+    /* url('../fonts/iconfont.woff') format('woff'),
+    url('../fonts/iconfont.ttf') format('truetype'), */
+    url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:19px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.m20{ height:0.2rem; width:100%; background:#f6f6f6; overflow:hidden; box-shadow:0 0 1px #e1dddd inset; max-width:7.5rem; min-width:3.2rem; margin:0 auto;}
+.m_layout{ max-width:7.5rem; min-width:3.2rem; width:100%; margin:0 auto;}
+
+
+
+/*foot_tab_box*/
+.foot_tab_box{ width:100%; height:1rem; border-top:#f8f8f8 1px solid; background:#fff; position:fixed; bottom:0; left:0; z-index:1000;}
+.foot_tab_box ul{ width:100%; height:100%;}
+
+.foot_tab_box ul li{ width:20%; height:1rem; float:left;padding:0.1rem 0; }
+.foot_tab_box ul li a{ width:100%; height:100%; display:block; margin:0 auto; background:url(../images/index_sy.png) no-repeat center;
+    background-size:contain; }
+.foot_tab_box ul li:nth-child(2) a{background: url(../images/index_sc.png) no-repeat center center; background-size:contain;}
+.foot_tab_box ul li:nth-child(3) a{background: url(../images/index_rw.png) no-repeat center center; background-size:contain;}
+/*.foot_tab_box ul li:nth-child(4) a{background: url(../images/index_gwc.png) no-repeat center center; background-size:contain;}*/
+.foot_tab_box ul li:nth-child(5) a{background: url(../images/index_wd.png) no-repeat center center; background-size:contain;}
+/*.foot_tab_box ul li:nth-child(1).foot_tab_on a{background:url(../images/index_sy.png) no-repeat center;background-size: contain; }*/
+/*.foot_tab_box ul li:nth-child(2).foot_tab_on a{background:url(../images/index_gwc.png) no-repeat center;background-size: contain; }*/
+
+
+/*m_sub_header*/
+.m_sub_header{ width:100%; height:0.88rem; background:rgba(254,58,104,0.8); position:fixed;/*参照物*/ z-index:20;/*6-13新修*/ top:0; left:50%;
+    transform:translateX(-50%);}
+.m_sub_header .m_header_l{ width:1.25rem; height:0.6rem; position:absolute; top:0.2rem; left:0.1rem; }
+.m_sub_header .m_header_l a{ display:block; width:100%; height:100%; font-size:0.38rem; color:#fff;}
+.m_sub_header .m_header_l a img{ width:1.25rem; height:auto;}
+
+.m_sub_header .m_search_box{ width:100%; height:0.68rem;  position:absolute; top:0.1rem; padding:0 1rem 0 1.36rem;}
+.m_sub_header .m_search_box input[type=search]{ width:100%; height:0.68rem; background:rgba(255,255,255,0.5);
+    font-size:0.30rem; padding-left:0.1rem; border-radius:0.1rem; position:relative; border:1px solid rgba(255,255,255,0.5);}
+.m_sub_header .m_search_box input[type=search]::-webkit-input-placeholder { color:#fff;}
+.m_sub_header .m_search_box input[type=submit]{ width:0.38rem; height:0.38rem; background:transparent;
+    position:absolute; right:0.3rem; top:0.15rem;  font-size:0.38rem; color:#fff;}
+
+
+/*
+  rem方式，750px 为高保真基准，原高保真大小除以基数100，即 10px/100 = 0.1rem，以此类推,字体还是 px
+ */
+
+
+html{font-size:100px;}
+body{font-size:24px;}
+
+
+@media screen and (min-width:320px) {
+    html {
+        font-size: 42.66px
+    }
+    body {
+        font-size: 12px
+    }
+}
+@media screen and (min-width:360px) {
+    html {
+        font-size: 48px
+    }
+    body {
+        font-size: 12px
+    }
+}
+@media screen and (min-width:375px) {
+    html {
+        font-size: 50px
+    }
+    body {
+        font-size: 12px
+    }
+}
+@media screen and (min-width:384px) {
+    html {
+        font-size: 51.2px
+    }
+    body {
+        font-size: 14px
+    }
+}
+@media screen and (min-width:400px) {
+    html {
+        font-size: 23.34px
+    }
+    body {
+        font-size: 14px
+    }
+}
+@media screen and (min-width:412px) {
+    html {
+        font-size: 54.93px
+    }
+    body {
+        font-size: 14px
+    }
+}
+@media screen and (min-width:414px) {
+    html {
+        font-size: 55.2px
+    }
+    body {
+        font-size: 14px
+    }
+}
+@media screen and (min-width:424px) {
+    html {
+        font-size: 56.533px
+    }
+    body {
+        font-size: 14px
+    }
+}
+@media screen and (min-width:480px) {
+    html {
+        font-size: 64px
+    }
+    body {
+        font-size: 15.36px
+    }
+}
+@media screen and (min-width:540px) {
+    html {
+        font-size: 72px
+    }
+    body {
+        font-size: 17.28px
+    }
+}
+@media screen and (min-width:720px) {
+    html {
+        font-size: 96px
+    }
+    body {
+        font-size: 23.04px
+    }
+}
+@media screen and (min-width:750px) {
+    html {
+        font-size: 100px
+    }
+
+    body {
+        font-size: 24px
+    }
+}

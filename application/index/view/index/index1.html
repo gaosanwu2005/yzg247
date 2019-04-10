@@ -1,0 +1,1062 @@
+<div data-page="main" class="page">
+    <div class="popover popover-menu-right">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list-block">
+                <ul>
+                    <li><a href="{:url('user/scancode')}" class="list-button item-link">扫一扫</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="popover popover-menu-left">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list-block">
+                <ul>
+                    <li><a href="{:url('user/scancode')}" class="list-button item-link">扫一扫</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="navbar" >
+        <div class="navbar-inner">
+            <div class="left">
+                <span class="cityname" style="font-size: 15px;margin-left: 5px;margin-right: 5px"></span>
+                <img id="citySelected" style="height: 8px" src="/assets/img/index-img/icon/icocn-down.png" alt="">
+                <!--<a href="#" data-popover=".popover-menu-right" class="open-popover link">-->
+                    <!--<i class="iconfont icon-gonggao"></i>-->
+                <!--</a>-->
+            </div>
+            <div class="center">
+                <!--<img src="/assets/img/index-img/logo.png" alt="">-->
+                <a href="{:addon_url('shop/goods/search')}">
+                <div class="searchBox" style="position: relative;width: 200px">
+                    <input type="text" style="width: 100%;background: #fff;height: 30px;border-radius: 20px;font-size: 14px;text-align: center;font-family: 微软雅黑" placeholder="在万千种商品搜索">
+                    <img style="position: absolute;left: 21px;top: 15px;height: 15px;" src="/assets/img/index-img/icon/icon-esarch.png" alt="">
+                </div>
+                </a>
+            </div>
+            <div class="right">
+                <a href="{:url('user/center')}">
+                    <img src="/assets/img/index-img/icon/icon-user.png" alt="">
+                </a>
+                <a href="{:url('announce/news',array('type'=>1))}">
+                    <img src="/assets/img/index-img/icon/icon-msg.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+
+    <style>
+        .popover {
+            width: 100px;
+        }
+        .navbar {
+            color: #fff;
+            background: -webkit-linear-gradient(left, #3e77f2 , #43aff6);
+            background: -o-linear-gradient(right, #3e77f2, #43aff6);
+            background: -moz-linear-gradient(right, #3e77f2, #43aff6);
+            background: linear-gradient(to right, #3e77f2 , #43aff6);
+        }
+        .navbar .center img {
+            height: 21px;
+        }
+
+        .navbar .left img, .navbar .right img {
+            height: 18px;
+        }
+        /*动态*/
+        .gg {
+            background: rgba(0,0,0,.4);
+            height: 32px;
+            line-height: 32px;
+            padding: 0 15px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            margin-top: -32px;
+            z-index: 111;
+            position: relative;
+        }
+
+        .gg a {
+            display: block;
+            font-size: 13px;
+            color: #fff;
+            height: 32px;
+            line-height: 32px;
+            overflow: hidden;
+            padding-left: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .gg img {
+            height: 15px;
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        /*链接*/
+        .link-row ul {
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .link-row ul li {
+            float: left;
+            width: 25%;
+        }
+
+        .link-row ul li a {
+            display: block;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .link-row ul li a img {
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .link-row ul li a p {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            color: #000;
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+
+        .money {
+            background: #fff;
+            padding-top: 0;
+            padding-bottom: 7px;
+        }
+
+        .money img {
+            width: 93%;
+            margin: 0 auto;
+        }
+
+        /*宣传视频*/
+        .xcVideo {
+            background: #fff;
+            margin-top: 10px;
+        }
+
+        .xcVideo .title, .newsList .title,.shMall .title {
+            font-size: 15px;
+            line-height: 40px;
+            height: 40px;
+            padding: 0 15px;
+            margin-left: 0;
+            font-weight: 600;
+            border-bottom: 1px solid #efeff4;
+        }
+
+
+
+        .xcVideo .title i, .newsList .title i,.shMall .title i{
+            display: inline-block;
+            height: 14px;
+            width: 4px;
+            border-radius: 8px;
+            background: #3285ff;
+            position: relative;
+            top: 2px;
+            margin-right: 5px;
+        }
+        .xcVideo .title .more, .newsList .title .more,.shMall .title .more{
+            float: right;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+        }
+        .xcVideo .title .more img, .newsList .title .more img,.shMall .title .more img{
+           display: inline-block;
+            height: 14px;
+            margin-left: 5px;
+            vertical-align: middle;
+            position: relative;
+            top: -2px;
+
+        }
+        .shMall{
+            background: #fff;
+            margin-bottom: 7px;
+        }
+
+
+
+        .videoBox {
+            padding: 15px 12px 8px;
+        }
+
+        .videoBox img {
+            width: 100%;
+        }
+
+        /*新闻动态*/
+        .newsList {
+            background: #fff;
+        }
+
+        .newsList .title img {
+            height: 14px;
+            display: inline-block;
+        }
+
+        .newsList ul {
+            padding: 15px;
+        }
+
+        .newsList ul li {
+            border-bottom: 1px solid #efeff4;
+        }
+
+        .newsList ul li a {
+            display: block;
+            padding: 10px 0;
+            overflow: hidden;
+            color: #434343;
+        }
+
+        .newsList ul li a img {
+            float: left;
+            width: 26%;
+            height: 60px;
+        }
+
+        .newsList ul li a .newsDesc {
+            width: 71%;
+            float: right;
+        }
+
+        .newsList ul li a .newsDesc h3 {
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .newsList ul li a .newsDesc div {
+            font-size: 13px;
+            line-height: 20px;
+            color: #8e8e8e;
+            height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        /*抢红包*/
+        .box-shadow {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1111;
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .qiandaoBtn {
+            display: block;
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #3adcbb;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .hongbaoChai {
+            width: 66%;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .hongbaoShow, .hongbaoShow11 {
+            /*display: none;*/
+            width: 77%;
+            margin: 1.5rem auto;
+            position: relative;
+        }
+
+        .hongbao-chai {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hongbaoChai .chaiBtn {
+            font-weight: bold;
+            position: absolute;
+            top: 4.48rem;
+            left: 0.95rem;
+            color: #d00c24;
+            background: #fccc45;
+            font-size: 0.32rem;
+            padding: 0.15rem 0.7rem;
+            border-radius: 1rem;
+        }
+
+        .hongbaoShow p {
+            position: absolute;
+            width: 100%;
+            margin: 0 auto;
+            top: 5rem;
+            text-align: center;
+            color: #Fff;
+            padding: 0 1.5rem;
+            font-size: 0.27rem;
+        }
+
+        .hongbaoShow .chaiBtn {
+            font-weight: bold;
+            position: absolute;
+            top: 6.48rem;
+            left: 1.55rem;
+            color: #d00c24;
+            background: #fccc45;
+            font-size: 0.32rem;
+            padding: 0.15rem 1rem;
+            border-radius: 1rem;
+        }
+
+        .schbox {
+            overflow: hidden;
+            padding: .1rem;
+            line-height: .3rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff
+        }
+
+        .schbox span {
+            float: left;
+            font-size: .14rem;
+            color: #333;
+            width: .8rem;
+            text-align: right;
+            margin-right: .05rem;
+            line-height: .3rem
+        }
+
+        .schbox input {
+            float: left;
+            width: calc(100% - 1.05rem);
+            border: 1px solid #ccc;
+            line-height: .3rem;
+            text-indent: .1rem;
+            font-size: .14rem;
+            color: #333
+        }
+
+        .touchcity {
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 14px;
+            background: #fff;
+            min-height: 100%;
+            z-index: 1111;
+        }
+
+        .citybox {
+            padding-top: .6rem
+        }
+
+        .cityindex {
+            background: #bebebe;
+            line-height: .26rem;
+            font-size: .15rem;
+            color: #fff;
+            font-weight: 400;
+            text-indent: .1rem
+        }
+
+        .cityper {
+            font-size: .26rem;
+            color: #333;
+            line-height: 0.5rem;
+            margin: 0 .25rem;
+            text-indent: .1rem;
+        }
+
+        .cityper + .cityper {
+            border-top: 1px solid #dadada
+        }
+
+        .indexBar {
+            position: fixed;
+            right: 0;
+            top: .8rem;
+            bottom: 0;
+            width: .25rem
+        }
+
+        .indexBar.active a {
+            background: rgba(0, 0, 0, .3);
+            color: #fff
+        }
+
+        .indexBar a {
+            display: flex;
+            font-size: .12rem;
+            color: #666;
+            height: 4.4%;
+            justify-content: center;
+            align-items: center
+        }
+
+        .indexBar a:hover {
+            border: 1px solid #dbdbdb;
+            cursor: pointer
+        }
+
+        .indexBar a:first-child {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px
+        }
+
+        .indexBar a:last-child {
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px
+        }
+
+        .locate {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: .4rem;
+            height: .4rem;
+            background: rgba(0, 0, 0, .3);
+            font-size: .16rem;
+            color: #fff;
+            border-radius: 50%;
+            z-index: 99;
+            text-align: center;
+            line-height: .4rem;
+            display: none
+        }
+
+        /*弹窗公告*/
+        #tcgg {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 11111;
+            background: rgba(0, 0, 0, .6);
+        }
+
+        #tcgg .tcgg-content {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+
+            padding: 10px 20px 80px;
+            box-sizing: border-box;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            width: 80%;
+            margin: 0 auto;
+            background: url("/assets/img/index-img/tcgg-bg.png") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #tcgg .tcgg-content p {
+            line-height: 30px;
+            color: #333;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        #tcgg .tcgg-content .tcgg-desc {
+            height: 240px;
+            overflow-y: scroll;
+        }
+
+        #tcgg .tcgg-content p.tcgg-title {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #tcgg .tcgg-content p.tcgg-time {
+            position: absolute;
+            bottom: 50px;
+            right: 20px;
+        }
+
+        #tcgg .tcgg-content .tcgg-close {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+        }
+
+        #tcgg .tcgg-content .tcgg-close img {
+            display: block;
+            height: 77px;
+            margin: 0 auto;
+        }
+
+        .link-row i.iconfont {
+            font-size: 28px;
+            background: #47a2ff;
+            border-radius: 50%;
+            color: aliceblue;
+            padding-bottom: 7px;
+            padding-left: 13px;
+            padding-right: 13px;
+            padding-top: 11px;
+        }
+        .ggList{
+            margin: 7px 0;
+            padding: 0 15px;
+            background: #fff;
+        }
+        .ggList ul li{
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            overflow: hidden;
+        }
+        .ggList ul li>div{
+            float: left;
+            overflow: hidden;
+        }
+        .ggList ul li>div h3{
+            color: #46a4ff;
+            font-size: 18px;
+            height: 60px;
+            width: 50px;
+            margin-top: 8px;
+            overflow: hidden;
+            border-right: 2px solid #bfbfbf;
+            box-sizing: border-box;
+            padding-top: 6px;
+        }
+        .ggList ul li>div img{
+            width: 125px;
+            height: 75px;
+        }
+        .ggList ul li>div a{
+            display: block;
+        }
+        .ggList ul li>div p a{
+            display: block;
+            height: 20px;
+            padding-left: 16px;
+            line-height: 20px;
+            color: #656565;
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            position: relative;
+
+        }
+        .ggList ul li>div p a i{
+            position: absolute;
+            top:7px;
+            left: 3px;
+            height: 4px;
+            width: 4px;
+            display: inline-block;
+            border-radius: 3px;
+            background: #656565;
+        }
+        .pro-show img{
+            width: 100%;
+        }
+        .pro-show .p-desc{
+            padding-top: 10px;
+        }
+        .pro-show p{
+            text-align: center;
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+        .pro-show .p-title{
+            font-size: 15px;
+            color: #444;
+            font-weight: 600;
+
+        }
+        .pro-show .p-price-m{
+            color: #fd5950;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .pro-show .p-price{
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+    <div class="page-content  infinite-scroll infinite-scroll-bottom">
+         
+            <section id="index">
+                <div class="scroll-box">
+                    <!-- 轮播图 -->
+                    <style>
+                        .swiper-slide {
+                            background: #fff;
+                            box-sizing: border-box;
+                            /*border: 1px solid #ccc;*/
+                        }
+
+                        .swiper-slide span {
+                            text-align: center;
+                            display: block;
+                            font-size: 21px;
+                        }
+
+                    </style>
+                    <div class="swiper-container swiper-vertical">
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-wrapper">
+                            {volist name="site.slides" id="vo"}
+                            <div class="swiper-slide"><span><img width="100%" src="{$vo}" alt=""></span></div>
+                            {/volist}
+                        </div>
+                    </div>
+
+                    <!--动态-->
+                    <div class="gg">
+                        <a href="">
+                            <img src="/assets/img/index-img/icon/icon-gg.png" alt="">
+                            <marquee behavior="" direction="">
+                                {$site.dongtai}
+                            </marquee>
+                        </a>
+
+                    </div>
+
+                    <!--弹窗公告-->
+                    <div id="tcgg">
+                        <div class="tcgg-content">
+
+                            <p class="tcgg-title">{$announcement.title}</p>
+                            <p class="tcgg-desc" style="margin-top: 30px">{$announcement.subtitle}</p>
+                            <p class="tcgg-time">{$announcement.startdate}</p>
+                            <div class="tcgg-close">
+                                <i>
+                                    <img src="/assets/img/index-img/tcgg-closeBtn.png" alt="">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--链接-->
+                    <div class="link-row">
+                        <ul>
+                            <li>
+                                <a href="{:url('index/index2')}">
+                                    <img src="/assets/img/index-img/icon/icon-zxbm.png" alt="">
+                                    <p>我要报名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-zbkc.png" alt="">
+                                    <p>直播课堂</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-xhsd.png" alt="">
+                                    <p>新华书店</p>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-xxcj.png" alt="">
+                                    <p>新华社信息采集</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-jskc.png" alt="">
+                                    <p>教师资格课程</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-xfkx.png" alt="">
+                                    <p>消防课程</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-gkcc.png" alt="">
+                                    <p>高考冲刺</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-yjszq.png" alt="">
+                                    <p>研究生专区</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-qzzq.png" alt="">
+                                    <p>求职中心</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-dwzp.png" alt="">
+                                    <p>单位招聘</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-gxzq.png" alt="">
+                                    <p>高校专区</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="" class="kaifa">
+                                    <img src="/assets/img/index-img/icon/icon-qb.png" alt="">
+                                    <p>更多</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--抢红包-->
+                    <!--<div class="money">-->
+                    <!--<a href="javascript:;" onclick="hongbao()">-->
+                    <!--<img src="/assets/img/index-img/money01.png" alt="">-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--宣传视频-->
+                    <!--<div class="xcVideo">-->
+                    <!--<div class="title">-->
+                    <!--<i></i>宣传视频-->
+                    <!--</div>-->
+                    <!--<div class="videoBox">-->
+                    <!--<video poster="/assets/img/video-poster.jpg" src="{$site.indexvideo}" style="width: 100%;" preload="none"  controls="controls"></video>-->
+                    <!--&lt;!&ndash;<img src="/assets/img/index-img/video.png" alt="">&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--总部公告-->
+
+                    <div class="ggList">
+                        <ul>
+                            <li>
+                                <div>
+                                    <h3>
+                                        总部公告
+                                    </h3>
+                                </div>
+                                <div >
+                                    <a href="" style="padding:0  5px">
+                                        <img src="/assets/img/index-img/gg01.png" alt="">
+                                    </a>
+                                </div>
+                                <div style="width: 46%;float: right">
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>
+                                        省部公告
+                                    </h3>
+                                </div>
+                                <div >
+                                    <a href="" style="padding:0  5px">
+                                        <img src="/assets/img/index-img/gg02.png" alt="">
+                                    </a>
+                                </div>
+                                <div style="width: 46%;float: right">
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>
+                                        地市公告
+                                    </h3>
+                                </div>
+                                <div >
+                                    <a href="" style="padding:0  5px">
+                                        <img src="/assets/img/index-img/gg03.png" alt="">
+                                    </a>
+                                </div>
+                                <div style="width: 46%;float: right">
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i></i>
+                                            江苏人才发展战略研究院
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--生活商城-->
+                    <div class="shMall">
+                        <div class="title">
+                            <i></i>佳家生活商城
+                            <a href="" class="more">查看更多
+                                <img  src="/assets/img/index-img/icon/icon-more.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-container swiper-vertical">
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <span>
+                                        <img width="100%" src="/assets/img/index-img/mall-banner.png" alt="">
+                                    </span>
+                                </div>
+                                <div class="swiper-slide">
+                                    <span>
+                                        <img width="100%" src="/assets/img/index-img/mall-banner.png" alt="">
+                                    </span>
+                                </div>
+                                <div class="swiper-slide">
+                                    <span>
+                                        <img width="100%" src="/assets/img/index-img/mall-banner.png" alt="">
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="pro-show" style="padding: 15px 10px 10px">
+                            <div  data-space-between="10" data-slides-per-view="3" class="swiper-container swiper-init demo-swiper">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+
+                                   
+                                    {volist name="favourite_goods" id="v"}
+                                    <div class="swiper-slide">
+                                        <a href="{:addon_url('shop/Goods/goodsInfo',array('id'=>$v['goods_id']))}">
+                                            <img src="{$v.image}" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">{:substr($v.goods_name,0,12)}</p>
+                                            <p class="p-price-m"> 积分:{$v.shop_price}</p>
+                                            <p class="p-price">
+                                                <s>积分:{$v['shop_price']*1.2}</s>
+                                            </p>
+                                        </div>
+                                    </div> 
+                                    {/volist}
+                                    <!-- <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro02.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">粉美人</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro03.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">川菜小龙虾</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro01.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">巷里小院串串</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro02.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">粉美人</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro03.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">川菜小龙虾</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!--新闻动态-->
+                    <div class="newsList">
+                        <div class="title">
+                            <i></i>新闻资讯
+                            <a href="{:url('announce/news',array('type'=>2))}" class="more">查看更多
+                                <img  src="/assets/img/index-img/icon/icon-more.png" alt="">
+                            </a>
+                        </div>
+                        <ul id="newslist" class=" infinite-scroll">
+                             
+                        </ul>
+                    </div>
+
+                    <!--城市选择-->
+                    <div class="touchcity">
+                        <div class="schbox">
+                            <span>搜索城市:</span><input id="cityipt" type="text"/>
+                        </div>
+                        <div class="citybox"></div>
+                        <div class="indexBar"></div>
+                        <a class="locate"></a>
+                    </div>
+
+                    <div id="bdMapBox" style="display:none;"></div>
+
+                    <!-- <div style="width: 100%;height: 100px"></div> -->
+
+
+                    <!--抢红包-->
+                    <div id="box-shadow" class="box-shadow">
+                        <div class="big-content">
+                            <div class="hongbaoChai">
+                                <img class="hongbao-chai" src="/assets/img/usercenter/redEnvelopes-chai-00.png" alt="">
+                                <span class="chaiBtn" onclick="hongbaoChai()">立即拆红包</span>
+                            </div>
+                            <!--<div class="hongbaoShow">-->
+                            <!--<img class="hongbao-chai" src="/assets/img/usercenter/redEnvelopes-00.png" alt="">-->
+                            <!--<p>恭喜您，成功获取300M全国流量</p>-->
+                            <!--<span class="chaiBtn" onclick="closeQiandao()">确定</span>-->
+                            <!--</div>-->
+                            <div class="hongbaoShow11">
+                                <img class="hongbao-chai" src="/assets/img/usercenter/redEnvelopes-00.png" alt="">
+                                <p>使用3枚LMC参与抢红包活动</p>
+                                <span class="chaiBtn" onclick="hongbaoChai()">确定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

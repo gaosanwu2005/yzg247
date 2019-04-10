@@ -1,0 +1,316 @@
+<div data-page="realName" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">身份认证</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .identify img{
+            width: 100%;
+        }
+        .notice{
+            height: 40px;
+            line-height: 40px;
+            padding: 0 15px;
+            overflow: hidden;
+        }
+        .notice span{
+            float: left;
+        }
+        .notice span img{
+            height: 15px;
+            display: inline-block;
+            margin-right: 5px;
+            position: relative;
+            top: 2px;
+        }
+        #identify-form{
+            padding:10px 0px 0;
+            background: #fff;
+        }
+        .tip{
+            color: #999;
+            line-height: 20px;
+            padding: 0 15px;
+        }
+        .tip img{
+            height: 13px;
+            display: inline-block;
+            margin-right: 3px;
+        }
+        .file-group{
+            overflow: hidden;
+            padding: 15px 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .file-group>div{
+            float: left;
+            width: 46%;
+            margin: 0 2%;
+        }
+        .file-group>div img{
+            width: 100%;
+            height: 100px;
+            margin: 0 auto;
+            display: inline-block;
+        }
+        .filebox{
+            position: relative;
+        }
+        .filebox input{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 111;
+            opacity: 0;
+        }
+        #bor6{
+            background-image: url(/assets/img/usercenter/identift-zheng.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .input-group{
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .input-group input{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 10px;
+            font-size: 15px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-family: "Microsoft YaHei";
+        }
+        .submit-group{
+            background: #F0F0F0;
+            text-align: center;
+            padding: 25px 0;
+        }
+        .submit-group button{
+            width: 94%;
+            height: 40px;
+            line-height: 40px;
+            padding: 0;
+            background: #007aff;
+            border-radius: 30px;
+            margin: 0 auto;
+            color: #fff;
+            font-size: 16px;
+            font-family: "Microsoft YaHei";
+        }
+        .list-block .item-title.label{
+            font-size: 15px;
+        }
+        .list-block .item-input input{
+            font-size: 15px;
+        }
+
+    </style>
+    <div class="page-content">
+
+        <div class="identify">
+            <img src="/assets/img/usercenter/identify.png" alt="">
+        </div>
+        <div class="notice">
+
+            <span>身份证拍摄与活体检测（必填）</span>
+            <span style="float: right"><img src="/assets/img/usercenter/incon-notice.png" alt="">照片实例</span>
+        </div>
+
+        <form action="" method="post" class="ajax-submit" id="realform">
+            <div class="list-block" style="margin: 5px auto;background: #fff">
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">会员账号:</div>
+                            <div class="item-input">
+                                <input type="text" readonly="readonly" placeholder="" value="{$hyrs.username}">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">会员等级:</div>
+                            <div class="item-input">
+                                <input type="text"  readonly="readonly" placeholder="" value="{$hyrs['level_text']}">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">支付宝:</div>
+                            <div class="item-input">
+                                <input name="alipay" type="text" placeholder="支付宝账号" value="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">微信号:</div>
+                            <div class="item-input">
+                                <input name="weixin" type="text" placeholder="微信" value="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">所属地:</div>
+                            <div class="item-input">
+                                <input name="attribution" type="text" placeholder="所属地" value="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">开户姓名:</div>
+                            <div class="item-input">
+                                <input name="bankusename" type="text" placeholder="开户姓名" value="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">银行名称:</div>
+                            <div class="item-input">
+                                <select name="bankname" class="select" style="border:1px solid lightgray;height:30px">
+                                    {foreach $banks as $vo}
+                                    <option style="font-size: 15px" value="{$vo.bank}">{$vo.bank}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">银行卡号:</div>
+                            <div class="item-input">
+                                <input name="banknum" type="text" placeholder="银行卡号" value="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">预留手机号:</div>
+                            <div class="item-input">
+                                <input type="text" name="mobile"  id="smphone"   value="{$hyrs.username}" >
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">验证码:</div>
+                            <div class="item-input">
+                                <input type="text" name="captcha" placeholder="请输入验证码" value="">
+                            </div>
+                            <input class="item-after yzm" style="position: absolute;top: 6px;border: none; right: 3px;color: #999;width: auto;border-bottom: none;" type="button"  onclick="yzm($$('#smphone').val(),'realname',3)" value="获取验证码"/>
+                            <!--<div onclick="MY.ajax('{:url('api/sms/send')}',{mobile:$$('#smphone').val(),event:'realname',type:3});" class="item-after" style="font-size: 13px">获取验证码</div>-->
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <!--</form>-->
+            <!--<form action="" method="post" class="ajax-submit" id="uploadimg1" style="background: #fff">-->
+            <!--<div class="tip" style="background: #fff;padding-top: 10px">-->
+                <!--<img src="/assets/img/usercenter/icon-lamp.png" alt="">-->
+                <!--温馨提示：请上传原始比例的身份证正反面，请勿剪裁涂改，保证身份信息清晰显示，否则无法通过审核。-->
+            <!--</div>-->
+            <!--<div class="file-group" style="background: #fff">-->
+            <!--<div class="filebox">-->
+            <!--<div id="bor6"></div>-->
+            <!--&lt;!&ndash;<input type="file" name="idcard_image" onchange="MY.showimg(this,'idcard_image')" accept="image/*" capture="camera">&ndash;&gt;-->
+            <!--<img id="idcard_image" src="display:none" alt="">-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<img src="/assets/img/usercenter/identify-zheng-li.png" alt="">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--imgShow(ele1,ele2)-->
+
+            <!--<div class="file-group" style="background: #fff">-->
+            <!--<div class="filebox">-->
+            <!--<input id="fileimg01" type="file" name="idcard_image" onchange="imgShow(this,'idcard_image')" accept="image/*" capture="camera">-->
+            <!--<img id="idcard_image" src="/assets/img/usercenter/identift-zheng.png" alt="">-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<img src="/assets/img/usercenter/identify-zheng-li.png" alt="">-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="file-group" style="background: #fff">
+                <div class="filebox">
+                    <!--<input type="file" name="idcard_image" onchange="MY.showimg(this,'idcard_image')" accept="image/*"  capture="camera">-->
+                    <input type="hidden" name="idcard_image" id="idcard_imageinput">
+                    <img id="idcard_image" src="/assets/img/usercenter/identift-zheng.png" alt=""  onclick="MY.appendByCamera('idcard_image')">
+                </div>
+                <div>
+                    <img src="/assets/img/usercenter/identify-zheng-li.png" alt="">
+                </div>
+            </div>
+            <div class="file-group" style="background: #fff">
+                <div class="filebox">
+                    <!--<input  type="file" name="photo" id="test" onchange="MY.showimg(this,'photo')" accept="image/*" capture="camera">-->
+                    <input type="hidden" name="photo" id="photoinput">
+                    <img id="photo" src="/assets/img/usercenter/identify-shou.png" alt="" onclick="MY.appendByCamera('photo')">
+                </div>
+                <div>
+                    <img src="/assets/img/usercenter/identify-shou-li.png" alt="">
+                </div>
+            </div>
+            <div class="tip" style="color:#333;height:40px;line-height:40px;background: #f0f0f0">以上信息仅供此次认证使用，将严格保密</div>
+            <div class="input-group">
+                <input name="realname" type="text" placeholder="请输入您的真实姓名">
+            </div>
+            <div class="input-group">
+                <input name="idcard" type="text" placeholder="请输入您的身份证号码">
+                
+            </div>
+            <div class="submit-group">
+                {if condition="$user.issm eq 1"}
+                <span style="color: red">您已通过实名认证,请勿重复提交</span>
+                {else /}
+                <button onclick="MY.formpost('{:url(\'api/User/Verified\')}','realform')" >提交</button>
+                {/if}
+            </div>
+
+        </form>
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

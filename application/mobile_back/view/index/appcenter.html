@@ -1,0 +1,255 @@
+<div data-page="appcenter" class="page">
+    顶部导航
+    <div class="navbar">
+    <div class="navbar-inner">
+    <div class="left">
+    <a href="" class="back"><i class="icon icon-back"></i></a>
+    </div>
+    <div class="center sliding" style="text-align: center;width: 100%;">应用中心</div>
+    <div class="right">
+    <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+    </div>
+    </div>
+    </div>
+    顶部导航
+
+    <style>
+
+        .navbar {
+            background: #fff;
+        }
+
+        .navbar .center img {
+            height: 21px;
+        }
+
+        .navbar .center i {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            position: relative;
+            top: 3px;
+            border-top: 5px solid #000;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        .navbar .left img, .navbar .right img {
+            height: 18px;
+        }
+
+
+        /*链接*/
+        .link-row ul {
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .link-row ul li {
+            float: left;
+            width: 20%;
+        }
+
+        .link-row ul li a {
+            display: block;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .link-row ul li a img {
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .link-row ul li a p {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            color: #000;
+        }
+
+
+
+
+
+    </style>
+    <div class="page-content">
+        <div id="app">
+            <section id="index">
+                <div class="scroll-box">
+                    <!-- 轮播图 -->
+                    <style>
+                        .swiper-slide {
+                            background: #fff;
+                            box-sizing: border-box;
+                            border: 1px solid #ccc;
+                        }
+
+                        .swiper-slide span {
+                            text-align: center;
+                            display: block;
+                            font-size: 21px;
+                        }
+
+                        .searchBox {
+                            background: #fff;
+                            width: 100%;
+                            padding: 10px 0;
+                            text-align: center;
+                            position: relative;
+                        }
+
+                        .searchBox a {
+                            display: block;
+                            width: 100%;
+                        }
+
+                        .searchBox input {
+                            width: 90%;
+                            background: #efeef3;
+                            border-radius: 20px;
+                            height: 35px;
+                            line-height: 35px;
+                        }
+
+                        .searchBox img {
+                            position: absolute;
+                            top: 19px;
+                            right: 10%;
+                            height: 18px;
+                        }
+
+                        .index-link-row ul {
+                            width: 100%;
+                            overflow: hidden;
+                            background: #fff;
+                        }
+
+                        .index-link-row ul li {
+                            float: left;
+                            width: 25%;
+                        }
+
+                        .index-link-row ul li a {
+                            display: block;
+                            width: 100%;
+                            text-align: center;
+                            padding-bottom: 10px;
+                        }
+
+                        .index-link-row ul li a img {
+                            height: 40px;
+                            margin: 0 auto;
+                        }
+
+                        .index-link-row ul li a p {
+                            font-size: 14px;
+                            line-height: 25px;
+                            color: #333;
+                        }
+
+                        #index .nav-box {
+                            display: flex;
+                            background: #fff;
+                            border-radius: 10px;
+                            padding: 15px 0;
+                            width: 94%;
+                            position: relative;
+                            top: 0px !important;
+                            z-index: 1111;
+                            margin: 17px auto !important;
+                            box-shadow: 0 0 2px 1px #eee;
+                        }
+                    </style>
+                    <!--选项-->
+                    <div class="index-link-row" style="padding-top: 15px;background: #fff">
+                        <ul>
+                            <li>
+                                <a href="{:url('mobile/index/recharge_hf')}" >
+                                    <img src="/assets/img/mall-icon/mall-hfcz.png" alt="">
+                                    <p>话费充值</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:url('mobile/index/recharge_ll')}" >
+                                    <img src="/assets/img/mall-icon/mall-llcz.png" alt="">
+                                    <p>流量充值</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:url('mobile/index/recharge_yk')}" >
+                                    <img src="/assets/img/mall-icon/mall-ykcz.png" alt="">
+                                    <p>油卡充值</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:url('mobile/index/recharge_sf')}">
+
+                                    <img src="/assets/img/mall-icon/mall-sfjn.png" alt="">
+                                    <p>水费缴纳</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:url('mobile/index/recharge_df')}">
+                                    <img src="/assets/img/mall-icon/mall-dfjn.png" alt="">
+                                    <p>电费缴纳</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href=" {:url('mobile/index/recharge_rq')}">
+                                    <img src="/assets/img/mall-icon/mall-rqjn.png" alt="">
+                                    <p>燃气缴纳</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="alert('对接中...')">
+                                    <img src="/assets/img/mall-icon/mall-wzdj.png" alt="">
+                                    <p>违章代缴</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="alert('对接中...')">
+                                <!--<a href="{:url('mobile/index/traintickets')}" >-->
+                                    <img src="/assets/img/mall-icon/mall-hcp.png" alt="">
+                                    <p>火车票</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="alert('对接中...')">
+                                    <img src="/assets/img/mall-icon/mall-qcp.png" alt="">
+                                    <p>汽车票</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="alert('对接中...')">
+                                    <img src="/assets/img/mall-icon/mall-fjp.png" alt="">
+                                    <p>飞机票</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a onclick="alert('对接中...')">
+                                    <img src="/assets/img/mall-icon/mall-jdzs.png" alt="">
+                                    <p>酒店住宿</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a onclick="alert('对接中...')">
+                                    <img src="/assets/img/mall-icon/mall-xyk.png" alt="">
+                                    <p>信用卡代还</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="Public/footer_shop"/}
+    <!--底部结束-->
+</div>

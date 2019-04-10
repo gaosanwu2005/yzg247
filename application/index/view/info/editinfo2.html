@@ -1,0 +1,72 @@
+<div data-page="editinfo" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">收货信息</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+        <form action="{:url('api/user/profile2')}" method="post" class="ajax-submit">
+            <div class="list-block">
+                <ul>
+
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">收货人</div>
+                                <div class="item-input">
+                                    <input placeholder="请输入收货人" type="text" name="consignee" value="{$hyrs['consignee']}"  >
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">收货电话</div>
+                                <div class="item-input">
+
+                                    <input type="text" name="shouphone" placeholder="请输入您的收货电话" value="{$hyrs['shouphone']}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">收货地址</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="请输入您的收货地址"  name="address" value="{$hyrs['address']}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="content-block">
+
+                        </p>
+                    </li>
+                </ul>
+                <button type="submit" class="button button-fill button-round bg-green">确认</button>
+            </div>
+            <div class="content-block">
+                <p>	 </p>
+            </div>
+
+        </form>
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,160 @@
+<div data-page="ticketlist-card" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">{$train_code}</div>
+            <div class="right">
+
+            </div>
+
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .ticketList{
+            background: #fff;
+        }
+        .ticketList li{
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .ticketList li>.ticketinfo{
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .ticketList li>.ticketinfo>span{
+            float: left;
+            font-size: 16px;
+            line-height: 25px;
+        }
+        .ticketList li>.ticketinfo>span:nth-of-type(1){
+            width: 25%;
+        }
+        .ticketList li>.ticketinfo>span:nth-of-type(2){
+            width: 40%;
+            text-align: center;
+        }
+        .ticketList li>.ticketinfo>span:nth-of-type(3){
+            width: 35%;
+            text-align: right;
+        }
+
+        .f14{
+            font-size: 14px;
+        }
+        .ticketList li>.ticketinfo>span em i{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            margin-right: 5px;
+            font-size: 12px;
+            text-align: center;
+            color: #007aff;
+            border: 1px solid #007aff;
+            border-radius: 20px;
+        }
+        .ticketPrice{
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        .ticketPrice p{
+            padding-top: 10px;
+            flex: 1;
+            text-align: center;
+        }
+        .ticketPrice p input[type='radio']{
+            width: 10px;
+            height: 10px;
+        }
+        .sjx {
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 29px;
+            right: 10px;
+        }
+    </style>
+
+    <div class="page-content">
+        <form action="/api/recharge/submit_ticket" method="post" class="ajax-submit">
+
+            <ul class="ticketList list-block">
+                <li>
+                    <div class="ticketinfo">
+                        <span>
+                        <em>{$start_time}</em><br>
+                        <em class="f14">{$arrive_time}</em>
+                    </span>
+                        <span>
+                        <em>
+                            <i>始</i>{$from}
+                        </em><br>
+                        <em><i>终</i>{$to}</em>
+                    </span>
+                        <span>
+                        <em>
+                            {$train_code}
+                        </em><br>
+                        <em class="f14">{$run_time}</em>
+                    </span>
+                    </div>
+
+                    <div class="ticketPrice" style="position: relative;padding-top: 10px">
+                        <input type="hidden" name="from" value="{$from}">
+                        <input type="hidden" name="from_code" value="{$from_code}">
+                        <input type="hidden" name="to" value="{$to}">
+                        <input type="hidden" name="to_code" value="{$to_code}">
+                        <input type="hidden" name="train_date" value="{$train_date}">
+                        <input type="hidden" name="train_code" value="{$train_code}">
+                        <input type="hidden" name="train_type" value="{$train_type}">
+
+                        <input type="hidden" name="start_station_name" value="{$start_station_name}">
+                        <input type="hidden" name="end_station_name" value="{$end_station_name}">
+                        <input type="hidden" name="ticket_price" value="{$ticket_price}">
+
+                        <?php if(in_array($train_type, ['D', 'G'])):?>
+                        <p id="" style="background: #ededed;border-radius: 5px;padding-left: 10px;padding-top: 0;line-height: 30px">
+                            二等座 ￥{$ticket_price}
+                        </p>
+                        <?php else:?>
+                        <p id="" style="background: #ededed;border-radius: 5px;padding-left: 10px;padding-top: 0;line-height: 30px">
+                            硬座 ￥{$ticket_price}
+                        </p>
+                        <?php endif;?>
+                        <!--<span class="sjx"></span>-->
+                    </div>
+
+                    <div class="">
+                        <input type="text" name="truename" value="" placeholder="乘车人姓名">
+                        <input type="text" name="idCard" value="" placeholder="请输入身份证号码">
+                    </div>
+
+                    <div>
+                        <input class="button button-fill" style="width: 100%;margin: 30px auto;font-family: 'Microsoft YaHei'" type="submit" value="提交">
+                    </div>
+
+                </li>
+            </ul>
+
+
+
+        </form>
+
+
+
+
+    </div>
+
+
+</div>
+

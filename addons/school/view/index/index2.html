@@ -1,0 +1,57 @@
+<div data-page="schoolindex2" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">学历提升</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+        <span style="display: none" id="record">{$record}</span>
+        <span style="display: none" id="classtype">{$classtype}</span>
+        <div class="row">
+            <div class="col-50">
+                <input type="text" placeholder="地区选择" readonly="readonly" id="picker-address" />
+            </div>
+            <div class="col-25"> 
+                <input type="text" placeholder="学历层次" readonly="readonly" id="ks-picker-device" /> 
+            </div>
+            <div class="col-25">
+                <input type="text" placeholder="上课类型" readonly="readonly" id="picker-classtype" />
+            </div> 
+        </div>
+        <div class="list-block media-list">
+            <ul>
+                {volist name="infos" id="vo" empty="暂时没有数据" }
+                <li>
+                    <div class="item-content">
+                        <div class="item-media">
+                            <img src="{$vo.image}" alt="" width="100">
+                        </div>
+                        <div class="item-inner" >
+                            <div class="item-title-row" style="display: grid;">
+                                <div class="item-title" >{$vo.title}</div>
+                                <div class="item-after"></div>
+                            </div>
+                            <div class="item-subtitle">企业认证 身份认证</div>
+                            <div class="item-text">新东方教育机构</div>
+                            <div class="item-title-row">
+                                <div class="item-title">{$vo.price}</div>
+                                <div class="item-after"><a href="{:addon_url('school/index/xuelitisheng')}" class="button button-fill">我要报名</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+
+        <div style="width: 100%;height: 50px"></div>
+    </div>
+</div>

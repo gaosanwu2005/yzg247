@@ -1,0 +1,331 @@
+<div data-page="news" class="page myMain  no-navbar">
+    <!--顶部导航-->
+
+    <!--顶部导航-->
+    <style>
+        .page.no-navbar .page-content {
+            padding-top: 0px;
+        }
+        .pf-comment {
+            width: 75px;
+            display: inline-block;
+        }
+        .score {
+        background: url(/assets/img/star7.png) -{$xing}px 0 no-repeat;
+        height: 12px;
+        width: 100%;
+        display: block;
+        }
+        .item-media i {
+            font-size: x-large;
+        }
+        .myMain .top .rz a{
+            padding: 0px;
+        }
+        .myMain .top .rz {
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+        }
+        .progress{
+            width: 80%;
+            position: relative;
+            background: #fff;
+            height: 6px;
+            margin: 5px auto;
+            border-radius: 5px;
+        }
+        .progress span{
+            position: absolute;
+            top:0;
+            left: 0;
+            height: 6px;
+            border-radius: 5px;
+            background: #f4d100;
+        }
+        .levelValue{
+            text-align: center;
+            color: #fff;
+            margin-top: 15px;
+        }
+        .rzrow{
+            line-height: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+        .levelValue span{
+            display: inline-block;
+            padding: 2px 7px;
+            font-size: 12px;
+            margin: 0 3px;
+            border: 1px solid #fff;
+            border-radius: 20px;
+        }
+        .progress img{
+            position: absolute;
+            top: -5px;
+            height: 17px;
+        }
+        .levelValue span.active{
+            background:#f4d100 ;
+            background-size: 100% 100%;
+            border: 1px solid #f4d100;
+        }
+        .gs-zz-cl{
+            padding: 10px 0;
+        }
+    </style>
+    <div class="page-content" style="background: #fff">
+        <div class="row">
+            <div style="position: absolute;top: 10px;right: 1px;height: 23px;line-height: 23px;background: #3073cc;
+    font-size: 12px;
+    border-radius: 10px 0 0 10px;
+    padding-right: 10px;color: #fff">
+                <img style="display: inline-block; height: 12px;margin: 0 3px 0 8px;position: relative;top: 2px;" src="/assets/img/trade/icon-csts.png" alt="">
+                {gt name="hyrs.issm" value="0"}已认证{else/}未认证{/gt}</div>
+            <!--<div class="col-100 top" style="background:url('/Public/Home/my/img/bg-red.jpg');background-size:100% 100%;">-->
+            <div class="col-100 top"
+                 style=" ">
+                <div class="rz">
+                    <form action="" method="post" class="ajax-submit" id="uploadavatar">
+                        <div style="position: relative;">
+                            <input type="file" name="avatar" onchange="MY.upload2('{:url('api/user/updateimg')}','uploadavatar','#avatar')" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 111;opacity: 0;">
+                            {notempty name="hyrs.avatar"}
+                            <img src="{$hyrs['avatar']}" id="avatar" style="padding:2px;border:none;margin-right: auto;margin-left: auto;width: 87px;height: 87px" alt="用户名" class="headImg">
+                            {else/}
+                            <img src="{$site.logo}" style="padding:2px;border:none;margin-top: 12px;margin-right: auto;margin-left: auto;width: 87px;" alt="用户名" id="avatar" class="headImg">
+                            {/notempty}
+                        </div>
+                    </form>
+                </div>
+                <div class="rzrow">推荐人ID:{$hyrs['tjuser']}</div>
+                <div class="rzrow">ID:{$hyrs['username']}&nbsp;&nbsp;<span>
+                    <!--{gt name="hyrs.jointime" value="0"}已激活{else/}未激活{/gt}--> 
+                </span>
+
+                </div>
+                <div class="level">
+                    <p style="padding-left:10%;color: #f4d100">级别</p>
+                    <div class="progress">
+                        <span style="width: {$hyrs['level']*25}%"></span>
+                        <img style=" left: {$hyrs['level']*25}%;" src="/assets/img/usercenter/icon-progress.png" alt="">
+                    </div>
+                    <p class="levelValue">
+                        {volist name="levels" id="vo" empty="暂时没有数据" }
+                        <span {eq name="hyrs.level" value="$vo['level_id']"}class="active"{/eq}>{$vo.level_name}</span>
+                        {/volist}
+                    </p>
+                </div> 
+            </div>
+
+        </div>
+
+        <div class="gs-zz-cl">
+            <ul>
+                <li >
+                    <a href="{:url('Edetail/bonus')}?type=wall1">
+                        <p>{$hyrs['wall1']}</p>
+                        <p>余额</p>
+                    </a>
+                </li>
+                <li >
+                    <a href="{:url('Edetail/bonus')}?type=wall2">
+                        <p>{$hyrs['wall2']}</p>
+                        <p>积分</p>
+                    </a>
+                </li>
+                <li >
+                    <a href="">
+                        <p>{$hyrs.tdnum}</p>
+                        <p>我的团队</p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+        <!--红包-->
+        <!-- <div class="money" style="position: relative;">
+            <a href="javascript:;">
+                <img style="border-radius: 5px;" src="/assets/img/usercenter/app-intro.png" alt="">
+
+            </a>
+        </div> -->
+
+        <!--资产服务-->
+        <!-- <div class="list-row">
+            <h3>我的服务</h3>
+            <ul>
+                <li>
+                    <a {eq name="hyrs.issm" value="1"}href="{:url('index/message/etc2lmc')}"{else/}onclick="myApp.alert('请先完成实名认证')"{/eq}>
+                    <img src="/assets/img/usercenter/zcfw-c2cjy.png" alt="">
+                    <p>c2c交易</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('business/index')}">
+                        <img src="/assets/img/usercenter/zcfw-dzqb.png" alt="">
+                        <p>电子钱包</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/coinexchange')}">
+                        <img src="/assets/img/usercenter/ylcx-bbsd.png" alt="">
+                        <p>币币闪兑</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?cwtype=9">
+                        <img src="/assets/img/usercenter/zcfw-wdsy.png" alt="">
+                        <p>我的收益</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('User/numteam')}">
+                        <img src="/assets/img/usercenter/ylcx-wdtd.png" alt="">
+                        <p>我的团队</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?cwtype=12">
+                        <img src="/assets/img/usercenter/zcfw-tdsy.png" alt="">
+                        <p>团队收益</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}">
+                        <img src="/assets/img/usercenter/ylcx-zdmx.png" alt="">
+                        <p>账单明细</p>
+                    </a>
+                </li>
+                <li>
+
+                    <a {eq name="hyrs.issm" value="1"}href="{:url('User/myaccount')}"{else/}onclick="myApp.alert('请先完成实名认证')"{/eq}>
+                        <img src="/assets/img/usercenter/ylcx-wdzc.png" alt="">
+                        <p>数字资产</p>
+                    </a>
+                </li>
+
+                <li >
+                    <a href="{:url('User/myaccount3')}">
+                        <img src="/assets/img/usercenter/ylcx-wdzc.png" alt="">
+                        <p>授信资产</p>
+                    </a>
+                </li>
+                
+            </ul>
+        </div> -->
+
+        <!--娱乐畅享-->
+        <div class="list-row">
+            <h3>个人中心</h3>
+            <ul>
+                <!-- <li>
+                    <a href="{:url('trade/index')}">
+                        <img src="/assets/img/usercenter/ylcx-tglj.png" alt="">
+                        <p>test</p>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{:url('chart/mycode')}">
+                        <img src="/assets/img/usercenter/ylcx-tglj.png" alt="">
+                        <p>我的二维码</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('User/sendlink')}">
+                        <img src="/assets/img/usercenter/ylcx-tglj.png" alt="">
+                        <p>分享中心</p>
+                    </a>
+                </li>
+                <li> 
+                    <a {eq name="hyrs.issm" value="0"}href="{:url('User/realname')}"{else/}onclick="myApp.alert('已完成实名认证')"{/eq}>
+                        <img src="/assets/img/usercenter/ylcx-smrz.png" alt="">
+                        <p>实名认证</p>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="{:url('User/luckydraw')}">
+                        <img src="/assets/img/usercenter/ylcx-xycj.png" alt="">
+                        <p>幸运抽奖</p>
+                    </a>
+                </li> -->
+
+                <li>
+                    <a href="{:url('Info/password')}">
+                        <img src="/assets/img/usercenter/ylcx-mmgl.png" alt="">
+                        <p>密码管理</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/order')}">
+                        <img src="/assets/img/usercenter/ylcx-wddd.png" alt="">
+                        <p>我的订单</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/collection')}">
+                        <img src="/assets/img/usercenter/ylcx-wdsc.png" alt="">
+                        <p>我的收藏</p>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a class="external" href="https://github.com/SingaporeLMC/LMC?files=1">
+                        <img src="/assets/img/usercenter/github.png" alt="">
+                        <p>GitHub</p>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{:url('User/index1')}">
+                        <img src="/assets/img/usercenter/ylcx-grzl.png" alt="">
+                        <p>个人资料</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{:url('Message/send')}">
+                        <img src="/assets/img/usercenter/ylcx-wyfk.png" alt="">
+                        <p>我要反馈</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Message/sendlist')}">
+                        <img src="/assets/img/usercenter/ylcx-wyfk.png" alt="">
+                        <p>反馈列表</p>
+                    </a>
+                </li> 
+                <!-- <li>
+                    <a class="external" href="">
+                        <img src="/assets/img/usercenter/ylcx-zxkf.png" alt="">
+                        <p>在线客服</p>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{:url('Announce/index')}">
+                        <img src="/assets/img/usercenter/ylcx-xszn.png" alt="">
+                        <p>新手指南</p>
+                    </a>
+                </li> 
+                <li>
+                    <a href="javascript:;" onclick="loginout()">
+                        <img src="/assets/img/usercenter/ylcx-aqtc.png" alt="">
+                        <p>安全退出</p>
+                    </a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="javascript:myApp.confirm('您确定要退出吗？',function(){MY.ajax('{:url('api/user/logout')}',{event:'logout'});})">-->
+                        <!--<img src="/assets/img/usercenter/ylcx-aqtc.png" alt="">-->
+                        <!--<p>安全退出</p>-->
+                    <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </div>
+ 
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,41 @@
+<div data-page="goodslist" class="page ">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">商品列表</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<div class="page-content">
+
+		<section id="index">
+			<div class="scroll-box">
+				<!-- 热门推荐 -->
+				<div class="recom-box">
+					<div class="recom-content" style="margin-top: 5px;">
+						{volist name="hot_goods" id="v"}
+						<a href="{:url('Mobile/Goods/goodsInfo',array('id'=>$v['goods_id']))}" class="recom-item">
+							<div class="top">
+								<img data-src="{$v.image}" class="lazy">
+							</div>
+							<div class="name">
+								{$v.goods_name}
+							</div>
+							<div class="price">
+								￥{$v.shop_price}
+							</div>
+						</a>
+						{/volist}
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</div>
+	<!--底部开始-->
+	{include file="Public/footer_nav"/}
+	<!--底部结束-->
+</div>

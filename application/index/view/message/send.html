@@ -1,0 +1,119 @@
+<div data-page="send" class="page form">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">问题反馈</div>
+			<div class="right">
+				<a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<style>
+		.list-block .item-content {
+			padding-left: 0;
+		}
+	</style>
+	<div class="page-content">
+		<form action="" method="post" class="ajax-submit" id="uploadimg">
+			<div class="list-block inset" style="margin: 0 15px">
+				<ul style="background: transparent;">
+					<li class="item-content" >
+						<div class="item-title label">选择上传图片</div>
+					</li>
+					<li class=" item-content">
+						<div class="item-input" style="background: #fff;border: 1px solid #Ddd;border-radius: 5px">
+							<input style="height: 43px" type="file" name="file" onchange="MY.upload('{:url('api/common/upload')}','uploadimg','#payimg','#payimg2')">
+						</div>
+					</li>
+					<li>
+						<div class="content-block">
+							<img id="payimg" src="" alt="" style=" width: 45%;">
+						</div>
+					</li>
+				</ul>
+			</div>
+		</form>
+		<form action="{:url('api/user/sendmsg')}" method="post" class="ajax-submit">
+			<div class="list-block inset" style="margin: 0 15px">
+				<ul style="background: transparent">
+					<!--<li>-->
+						<!--<div class="item-content">-->
+							<!--<div class="item-inner">-->
+								<!--<div class="item-title label">收件人:</div>-->
+								<!--<div class="item-input">-->
+									<!--<input type="text" value="管理员" readonly="readonly">-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
+					<li class="item-content">
+						<div class="item-title label">反馈标题:</div>
+					</li>
+					<li class="item-content" style="">
+						<input style="border: 1px solid #ddd;background: #fff;border-radius: 5px" type="text" name="title" class="browser-default" >
+					</li>
+					<li class="item-content">
+						<div class="item-title label">反馈内容:</div>
+					</li>
+					<li class="item-content" >
+						<div class="item-input">
+							<textarea style="border: 1px solid #ddd;background: #fff;border-radius: 5px"  id="message2" name="content" class="materialize-textarea"></textarea>
+						</div>
+					</li>
+					<!--<li>-->
+						<!--<div class="item-content">-->
+							<!--<div class="item-inner">-->
+								<!--<div class="item-title label">反馈标题:</div>-->
+								<!--<div class="item-input">-->
+									<!--<input type="text" name="title" class="browser-default" >-->
+									<!--&lt;!&ndash;<select name="title" class="browser-default" style="border-top: none;border-left: none;border-right: none;">&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="系统出现错误">系统出现错误</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="参与者拒绝汇款">参与者拒绝汇款</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="接款者不愿意确认收款">接款者不愿意确认收款</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="汇款时，对方银行资料与系统提供的有差别">汇款时，对方银行资料与系统提供的有差别</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="参与者账号被封锁了">参与者账号被封锁了</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="未确认收款">未确认收款</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="错误的操作">错误的操作</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="无法接受手机短信">无法接受手机短信</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="无法提交提供资助申请">无法提交提供资助申请</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="无法提交接受资助申请">无法提交接受资助申请</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="系统显示的金额有误">系统显示的金额有误</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="举报诈骗行为">举报诈骗行为</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="无法更新汇款状态">无法更新汇款状态</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="无法更新接款状态">无法更新接款状态</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="未获得款项">未获得款项</option>&ndash;&gt;-->
+										<!--&lt;!&ndash;<option value="其他问题">未获得款项</option>&ndash;&gt;-->
+									<!--&lt;!&ndash;</select>&ndash;&gt;-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="item-content">-->
+							<!--<div class="item-inner">-->
+								<!--<div class="item-title label">反馈内容:</div>-->
+								<!--<div class="item-input">-->
+									<!--<textarea  id="message2" name="content" class="materialize-textarea"></textarea>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
+					<input type="hidden" name="pimg" id="payimg2">
+
+				</ul>
+				<div style="color: red;margin-top: 10px;font-size: 12px">
+					我们会在24小时内处理您的留言
+				</div>
+				<button type="submit" class="button button-fill" style="height: 36px;margin-top: 30px;font-size: 16px;">提交</button>
+			</div>
+		</form>
+		<div class="row" style="height: 50px;"></div>
+	</div>
+	<!--底部开始-->
+	{include file="common/footnav"/}
+	<!--底部结束-->
+</div>

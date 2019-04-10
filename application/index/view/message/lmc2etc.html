@@ -1,0 +1,94 @@
+<div data-page="lmc2etc" class="page form">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">提现</div>
+			<div class="right">
+				<a href="{:U('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<div class="page-content">
+		<div class="content-block-title">
+			温馨提示：提现24小时到账
+		</div>
+		<div class="list-block media-list">
+			<ul>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<img src="/Public/images/ytb.jpg" width="80">
+						</div>
+						<div class="item-inner">
+							<div class="item-title-row">
+								<div class="item-title">以太坊</div>
+								<div class="item-after">1个={$myset['eth']}美元 </div>
+							</div>
+							<!--<div class="item-subtitle">账号：{$myset['qbaddr']}</div>-->
+							<div class="item-text">每次最少提现{$myset['mineth']}个</div>
+							<!--<div class="item-after"><a class="button button-round " onclick="MY.copywww('{$myset[\'qbaddr\']}')">复制账号</a></div>-->
+
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<form action="{:U('Message/lmc2etc')}" method="post" class="ajax-submit">
+			<div class="content-block-title" style="margin-top: 10px;">可用余额:{$hyrs['walltwo'] ? $hyrs['walltwo'] : 0} {$sysset['jshb']}</div>
+			<div class="list-block ">
+				<ul>
+					<li class=" item-content">
+						<div class="item-inner">
+							<div class="item-title label">提现：</div>
+							<div class="item-input">
+								<input type="number" id="usdz" name="number" min="0" onchange="MY.suaneth('#usdz','#ethz','{$myset[\'eth\']}')">
+							</div>
+							<div class="item-after">
+								{$sysset['jshb']}
+							</div>
+						</div>
+					</li>
+					<li class=" item-content">
+						<div class="item-inner">
+							<div class="item-title label">可收到以太坊：</div>
+							<div class="item-input">
+								<input id="ethz" type="number" name="eth" min="0" readonly>
+							</div>
+							<div class="item-after">
+								ETH
+							</div>
+						</div>
+					</li>
+					<!--<li class=" item-content">-->
+						<!--<div class="item-inner">-->
+							<!--<div class="item-title label">上传转账截图</div>-->
+							<!--<div class="item-input">-->
+								<!--<input type="file" name="pimg">-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
+					<li class=" item-content">
+						<div class="item-inner">
+							<div class="item-title label">以太坊钱包：</div>
+							<div class="item-input">
+								<input type="text" name="ethwall" required>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="content-block">
+
+						</div>
+					</li>
+				</ul>
+				<button type="submit" class="button button-fill button-round ">提交</button>
+			</div>
+		</form>
+		<div class="row" style="height: 50px;"></div>
+	</div>
+
+</div>

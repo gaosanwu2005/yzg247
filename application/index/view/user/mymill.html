@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale =1,maximum-scale=2,">
+    <title>慈善链</title>
+    <script type='text/javascript' src='/assets/js/index/Circle1.0.js'></script>
+    <script type='text/javascript' src='/assets/js/index/index.js'></script>
+    <!--<script src="scripts/Circle1.0.js?v=123"></script>-->
+    <!--<script src="scripts/Circle1.0.min.js"></script>-->
+    <!--<script src="scripts/index.js"></script>-->
+    <style>
+        * { margin: 0; padding: 0; border: 0; }
+        body { width: 100%; background-color: #000000; text-align: center; }
+        .svg { position: relative; width: 100%; height: auto;z-index: -1; }
+        #circleJsBgSvg, #circleJsSvg, #circleJsLightSvg { position: absolute; }
+        #circleJsSvg { z-index: 5; left: 50%; margin-left: -320px; top: -50px !important; }
+        #circleJsBgSvg { top: 0; left: 0; }
+        #circleJsLightSvg { bottom: 0; right: 0; width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+<div class="svg">
+    <svg id="circleJsBgSvg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="1136">
+        <title>CircleJs Background</title>
+        <defs>
+            <style type="text/css"></style>
+            <filter id="soptFilter" x="0" y="0" width="200%" height="200%">
+                <feOffset result="offOut" in="SourceGraphic" dx="3" dy="3"></feOffset>
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="5"></feGaussianBlur>
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+            </filter>
+            <filter id="lightFilter" x="0" y="0" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="60" />
+            </filter>
+            <linearGradient id="lightGrad" x1="100%" y1="0%" x2="0%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(8,209,254);stop-opacity:0.8" />
+                <stop offset="50%" style="stop-color:rgb(2,111,135);stop-opacity:0.5" />
+                <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
+            </linearGradient>
+        </defs>
+        <g id="soptGroup" fill="#08d1fe" filter="url(#soptFilter)">
+            <circle cx="350" cy="20" r="3"></circle>
+            <circle cx="690" cy="1" r="1"></circle>
+            <circle cx="480" cy="50" r="3"></circle>
+            <circle cx="480" cy="50" r="3"></circle>
+            <circle cx="450" cy="65" r="5"></circle>
+            <circle cx="370" cy="100" r="5" fill="rgba(8,209,254,0.3)"></circle>
+            <circle cx="500" cy="120" r="5"></circle>
+            <circle cx="320" cy="130" r="1"></circle>
+            <circle cx="440" cy="160" r="2"></circle>
+            <circle cx="378" cy="170" r="3"></circle>
+            <circle cx="440" cy="165" r="2"></circle>
+            <circle cx="325" cy="220" r="2"></circle>
+            <circle cx="510" cy="230" r="5"></circle>
+            <circle cx="668" cy="197" r="1"></circle>
+            <circle cx="720" cy="190" r="1"></circle>
+            <circle cx="580" cy="220" r="4"></circle>
+            <circle cx="370" cy="300" r="4"></circle>
+            <g id="lineGroup" stroke="rgb(8,209,254)" stroke-width="1"></g>
+        </g>
+        <g id="lineCircleGroup" fill="#08d1fe" filter="url(#soptFilter)"></g>
+    </svg>
+    <svg id="circleJsSvg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="640">
+        <title>CircleJs</title>
+        <defs>
+            <style type="text/css"></style>
+        </defs>
+        <g id="circleJsSvg09">
+            <defs></defs>
+            <circle cx="320" cy="320" r="225" stroke="#034955" stroke-width="1" />
+            <animateTransform attributeName="transform" begin="0s" dur="20s" type="rotate" from="0 320 320" to="360 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvg08">
+            <defs>
+                <linearGradient id="grad08" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(198,95,0);stop-opacity:1" />
+                    <stop offset="30%" style="stop-color:rgb(58,26,2);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
+                </linearGradient>
+            </defs>
+            <circle cx="320" cy="320" r="222" fill="url(#grad08)" />
+            <animateTransform attributeName="transform" begin="0s" dur="2s" type="rotate" from="360 320 320" to="0 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvg07">
+            <defs></defs>
+            <circle cx="320" cy="320" r="180" stroke="#481e01" stroke-width="0.5" />
+        </g>
+        <g id="circleJsSvg06">
+            <defs>
+                <linearGradient id="grad06" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(20,227,255);stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:rgb(3,92,117);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(0,45,45);stop-opacity:0.2" />
+                </linearGradient>
+            </defs>
+            <circle cx="320" cy="320" r="175" stroke="url(#grad06)" stroke-width="2" />
+            <animateTransform attributeName="transform" begin="0s" dur="5s" type="rotate" from="0 320 320" to="360 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvg05">
+            <defs>
+                <radialGradient id="grad05" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="95%" style="stop-color:rgb(0,45,45);stop-opacity:0" />
+                    <stop offset="950%" style="stop-color:rgb(3,92,117);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(20,227,255);stop-opacity:1" />
+                </radialGradient>
+            </defs>
+            <circle cx="320" cy="320" r="140" fill="url(#grad05)" stroke="#14e3ff" stroke-width="1" />
+            <animateTransform attributeName="transform" begin="0s" dur="10s" type="rotate" from="0 320 320" to="360 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvgRect01">
+            <rect x="168" y="308" width="24" height="24" fill="#08d1fe" />
+            <rect x="448" y="308" width="24" height="24" fill="#08d1fe" />
+            <animateTransform attributeName="transform" begin="0s" dur="3s" type="rotate" from="0 320 320" to="360 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvgRect02">
+            <rect x="308" y="168" width="24" height="24" fill="#08d1fe" />
+            <rect x="308" y="448" width="24" height="24" fill="#08d1fe" />
+            <animateTransform attributeName="transform" begin="0s" dur="3s" type="rotate" from="0 320 320" to="360 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvg04">
+            <defs>
+                <radialGradient id="grad04" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="90%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
+                    <stop offset="950%" style="stop-color:rgb(58,26,2);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(198,95,0);stop-opacity:1" />
+                </radialGradient>
+            </defs>
+            <circle cx="320" cy="320" r="130" fill="url(#grad04)" stroke="#a04b06" stroke-width="1" />
+        </g>
+        <g id="circleJsSvg03">
+            <defs>
+                <linearGradient id="grad03" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(20,227,255);stop-opacity:1" />
+                    <stop offset="30%" style="stop-color:rgb(3,92,117);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(1,45,57);stop-opacity:0" />
+                </linearGradient>
+            </defs>
+            <circle cx="320" cy="320" r="110" stroke="url(#grad03)" stroke-width="2" />
+            <animateTransform attributeName="transform" begin="0s" dur="2s" type="rotate" from="0 320 320" to="360 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvg02">
+            <defs>
+                <linearGradient id="grad02" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(20,227,255);stop-opacity:1" />
+                    <stop offset="30%" style="stop-color:rgb(3,92,117);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(1,45,57);stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <circle cx="320" cy="320" r="70" stroke="url(#grad02)" stroke-width="1" />
+            <animateTransform attributeName="transform" begin="0s" dur="2s" type="rotate" from="360 320 320" to="0 320 320" repeatCount="indefinite" />
+        </g>
+        <g id="circleJsSvg01">
+            <defs></defs>
+            <circle cx="320" cy="320" r="30" stroke="#14e3ff" stroke-width="2" style="fill:rgba(0,74,96,0.5);" />
+            <animateTransform attributeName="transform" begin="0s" dur="2s" type="rotate" from="0 320 320" to="360 310 310" repeatCount="indefinite" />
+        </g>
+    </svg>
+    <svg id="circleJsLightSvg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="bgLightGroup" fill="url(#lightGrad)" filter="url(#lightFilter)">
+            <path d="M640 1136 L200 900 L500 300 Z"></path>
+        </g>
+    </svg>
+</div>
+
+<div data-page="myMill" class="page">
+
+    <header style="padding: 15px;text-align: left">
+        <a href="/">
+            <i  style="color: #fff">
+                <img style="height: 20px" src="/assets/img/icon-back.png" alt="">
+            </i></a>
+    </header>
+
+    <div class="page-content">
+        <!--<canvas id="canvas" width="100%" height="100%"></canvas>-->
+
+        <div style="position: fixed;top:65px;left: 10px;color: #fff;line-height: 25px;letter-spacing: 1px;width: 100%;text-align: left;font-size: 14px;">
+            <p>矿机编号: {$info.order_sn}</p>
+            <p>矿机算力: {$info.kjsl}G</p>
+            <p>上次结算时间: {:date('Y-m-d H:03:00',time())}</p>
+        </div>
+
+        <div style=" position:fixed; bottom:0;height: 160px;left: 0;padding-left: 10px;width: 100%;text-align: left;">
+            <p style="height: 30px;line-height: 30px;font-size:12px;"><span id="drGEC" style="font-size:2em;color:#fff;">{$info.yfprice} {$site['walltype']['wall2']}</span>&nbsp;&nbsp;&nbsp;</p>
+
+            <p style="height: 30px;line-height: 30px;color:#fff;font-size: 14px">累计收益：<span id="ljGEC">{$sumyf}</span>&nbsp;{$site['walltype']['wall2']}</p>
+            <div id="text" style="color: #00a2ea;font-size: 14px">
+                剩余时间：
+                <span>{$info['yxzq']-$info['runday']}</span><label>小时</label>
+                <!--<span>{$info.hours|default=0}</span><label>时</label>-->
+                <!--<span>{$info.minute|default=0}</span><label>分</label>-->
+                <!--<span>{$info.seconds|default=0}</span><label>秒</label>-->
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,65 @@
+
+ <div data-page="tou" class="page">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">上传凭证</div>
+			<div class="right">
+				<a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<div class="page-content ddxq">
+		<div class="content-block-title">上传凭证</div>
+		<div class="list-block ">
+			<form action="" method="post" class="ajax-submit" id="uploadimg">
+				<div class="list-block">
+					<ul>
+						<li class=" item-content">
+							<div class="item-inner">
+								<div class="item-title label">选择上传图片</div>
+								<div class="item-input">
+									<input type="file" name="file" onchange="MY.upload('{:url('api/common/upload')}','uploadimg','#touimg','#touimg2')">
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="content-block">
+								<img id="touimg" src="" alt="" style=" width: 45%;">
+							</div>
+						</li>
+					</ul>
+				</div>
+			</form>
+
+
+			<form action="{:url('api/business2/shamtss')}" method="post" class="ajax-submit">
+				<input name="ppid" type="hidden" value="{$ppid}"/>
+				<input type="hidden" name="touimg" id="touimg2">
+			<ul>
+				<li class="item-link item-content">
+					<div class="item-inner">
+						<div class="item-title label">说明</div>
+						<div class="item-input">
+							<textarea placeholder="请描述您的问题详情..." id="message2" class="materialize-textarea" name="tsinfo"></textarea>
+						</div>
+					</div>
+				</li>
+			</ul>
+				<div class="row" style="height: 10px;"></div>
+				<div class="content-block">
+					<button type="submit" class="button button-fill">上传</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="row" style="height: 50px;"></div>
+	</div>
+	<!--底部开始-->
+	{include file="common/footnav"/}
+	<!--底部结束-->
+<!-- </div> --> 

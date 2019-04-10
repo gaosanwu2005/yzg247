@@ -1,0 +1,295 @@
+<div data-page="zb" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">转币</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+            <div class="subnavbar">
+                <div class="buttons-row">
+                    <a href="#tab1" class="button tab-link active">{$site['walltype']['wall7']}</a>
+                    <!--<a href="#tab2" class="button tab-link ">业绩提现</a>-->
+                    <!--<a href="#tab3" class="button tab-link">静态提现</a>-->
+                    <!--<a href="#tab4" class="button tab-link">本金提现</a>-->
+                    <a href="#tab5" class="button tab-link ">{$site['walltype']['wall8']}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="content-block">
+                    <form action="{:url('api/trade/pdzz')}" method="post" class="ajax-submit">
+                        <div class="content-block-title" style="margin-top: 57px;">可用{$site['walltype']['wall7']}: {$hyrs['wall7'] ? $hyrs['wall7'] : 0}</div>
+                        <div class="list-block inset">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">转出账号 </div>
+                                            <div class="item-input">
+                                                <input type="text" id="myAccount" name="toaccount" onchange="MY.yzAccount('{:url('api/user/getrname')}',{username:$$('#myAccount').val()},'#yzAccount')" placeholder="请输入转出账号">
+                                                <span id="yzAccount" class="color-red" style="float: right;margin-top: -34px;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--联创币-->
+                                    <input type="hidden" name="ptype" value="wall7">
+
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">转出金额</div>
+                                            <div class="item-input">
+                                                <input type="text" name="price" placeholder="请输入转出币数">
+                                                {:token()}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">交易密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content-block">
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="submit" class="button button-fill button-round">转出</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <div id="tab5" class="tab">
+                <div class="content-block">
+
+                    <form action="{:url('api/trade/pdzz')}" method="post" class="ajax-submit">
+                        <div class="content-block-title" style="margin-top: 57px;">可用{$site['walltype']['wall8']}: {$hyrs['wall8'] ? $hyrs['wall8'] : 0}</div>
+                        <div class="list-block inset">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">转出账号</div>
+                                            <div class="item-input">
+                                                <input type="text" id="myAccount2"  name="toaccount" onchange="MY.yzAccount('{:url('api/user/getrname')}',{username:$$('#myAccount2').val()},'#yzAccount2')" placeholder="请输入转出账号">
+                                                <span  id="yzAccount2" class="color-red" style="float: right;margin-top: -34px;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--联创币-->
+                                    <input type="hidden" name="ptype" value="wall8">
+
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">转出金额</div>
+                                            <div class="item-input">
+                                                <input type="number" name="price" placeholder="请输入转出数量">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">交易密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content-block">
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="submit" class="button button-fill button-round">转出</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <!--<div id="tab2" class="tab">-->
+            <!--<div class="content-block">-->
+            <!--<form action="{:url('Jtrane/pdzz')}" method="post" class="ajax-submit">-->
+            <!--<div class="content-block-title" style="margin-top: 57px;">业绩余额: {$hyrs['walltwo'] ? $hyrs['walltwo'] : 0}</div>-->
+            <!--<div class="list-block inset">-->
+            <!--<ul>-->
+            <!--<li>-->
+            <!--<div class="item-content">-->
+            <!--<div class="item-inner">-->
+            <!--<div class="item-title label">转出额度</div>-->
+            <!--<div class="item-input">-->
+            <!--<input type="text" name="price" placeholder="请输入转出额度">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--&lt;!&ndash;联创币&ndash;&gt;-->
+            <!--<input type="hidden" name="ptype" value="walltwo">-->
+            <!--<input type="hidden" name="act" value="dong">-->
+
+            <!--</li>-->
+            <!--<li>-->
+            <!--<div class="item-content">-->
+            <!--<div class="item-inner">-->
+            <!--<div class="item-title label">交易密码</div>-->
+            <!--<div class="item-input">-->
+            <!--<input type="password" name="password">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<div class="content-block">-->
+
+            <!--</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<button type="submit" class="button button-fill button-round">转出</button>-->
+
+            <!--</div>-->
+
+            <!--</form>-->
+
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div id="tab3" class="tab">-->
+            <!--<div class="content-block">-->
+            <!--<form action="{:url('Jtrane/pdzz')}" method="post" class="ajax-submit">-->
+            <!--<div class="content-block-title" style="margin-top: 57px;">静态余额: {$hyrs['wallthree'] ? $hyrs['wallthree'] : 0}</div>-->
+            <!--<div class="list-block inset">-->
+
+
+            <!--<ul>-->
+            <!--<li>-->
+            <!--<div class="item-content">-->
+            <!--<div class="item-inner">-->
+            <!--<div class="item-title label">转出额度</div>-->
+            <!--<div class="item-input">-->
+            <!--<input type="text" name="price" placeholder="请输入转出额度">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--&lt;!&ndash;联创币&ndash;&gt;-->
+            <!--<input type="hidden" name="ptype" value="wallthree">-->
+            <!--<input type="hidden" name="act" value="jing">-->
+
+            <!--</li>-->
+            <!--<li>-->
+            <!--<div class="item-content">-->
+            <!--<div class="item-inner">-->
+            <!--<div class="item-title label">交易密码</div>-->
+            <!--<div class="item-input">-->
+            <!--<input type="password" name="password">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<div class="content-block">-->
+
+            <!--</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<button type="submit" class="button button-fill button-round">转出</button>-->
+
+            <!--</div>-->
+
+            <!--</form>-->
+
+
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div id="tab4" class="tab">-->
+            <!--<div class="content-block">-->
+            <!--<form action="{:url('Jtrane/pdzz')}" method="post" class="ajax-submit">-->
+            <!--<div class="content-block-title" style="margin-top: 57px;">本金钱包余额: {$hyrs['wallfive'] ? $hyrs['wallfive'] : 0}</div>-->
+
+
+            <!--<div class="list-block inset">-->
+            <!--<ul>-->
+            <!--<li>-->
+            <!--<div class="item-content">-->
+            <!--<div class="item-inner">-->
+            <!--<div class="item-title label">转出额度</div>-->
+            <!--<div class="item-input">-->
+            <!--<input type="text" name="price" placeholder="请输入转出额度">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--&lt;!&ndash;联创币&ndash;&gt;-->
+            <!--<input type="hidden" name="ptype" value="wallfive">-->
+            <!--<input type="hidden" name="act" value="shou">-->
+
+            <!--</li>-->
+            <!--<li>-->
+            <!--<div class="item-content">-->
+            <!--<div class="item-inner">-->
+            <!--<div class="item-title label">交易密码</div>-->
+            <!--<div class="item-input">-->
+            <!--<input type="password" name="password">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<div class="content-block">-->
+
+            <!--</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<button type="submit" class="button button-fill button-round">转出</button>-->
+
+            <!--</div>-->
+            <!--<div class="content-block-title" style="margin-top: -17px;">注：提前转出本金，不会有收益利息</div>-->
+
+            <!--</form>-->
+
+
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+
+
+        <!--<div class="row" style="height: 50px;"></div>-->
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" class="jsx-2559917061 next-head">-->
+    <title>{$site.name}</title>
+    <link rel="stylesheet" href="/assets/F7/css/framework7.ios.min.css">
+    <!--<link rel="stylesheet" href="/assets/F7/css/framework7.ios.css">-->
+    <link rel="stylesheet" href="/assets/F7/css/framework7.ios.colors.css">
+    <link rel="stylesheet" href="/assets/F7/css/kitchen-sink.css">
+    <!--<link rel="icon" href="/assets/F7/img/icon.png">-->
+</head>
+<body class="theme-blue">
+
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+<!--左侧模态框-->
+<div class="panel panel-left panel-reveal">
+    <div class="content-block">
+        <p>Left panel content goes here</p>
+    </div>
+</div>
+<!--左侧模态框结束-->
+
+<!--右侧模态框开始-->
+<div class="panel panel-right panel-cover">
+    <div class="content-block">
+        <p>Left panel content goes here</p>
+    </div>
+</div>
+<!--右侧模态框开始-->
+
+<!--视图开始-->
+<div class="views">
+    <div class="view view-main">
+        <!--页面开始-->
+        <div class="pages navbar-through toolbar-through">
+        </div>
+        <!--页面结束-->
+    </div>
+</div>
+<!--视图结束-->
+<script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/assets/js/index/dat.gui.min.js"></script>
+<script type="text/javascript" src="/assets/js/echarts.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/assets/F7/js/framework7.min.js"></script>
+<script type="text/javascript" src="/assets/js/index/my-app.js"></script>
+<script type="text/javascript" src="/assets/js/index/fun.js"></script>
+<script type="text/javascript" src="/assets/js/index/countdown.js"></script>
+<script type="text/javascript" src="/assets/js/index/jquery.countdown.js"></script>
+<script type="text/javascript">
+
+    myApp.showIndicator();
+    console.log(mainView.router);
+    //所有准备完毕之后获取首页信息
+    mainView.router.load({
+        url: "{:url('Index/index2')}"
+    });
+    myApp.hideIndicator();
+    myApp.onPageInit('webindex', function () {
+        $countdown = "{$site.kai}";
+        setCountdown($countdown);
+    });
+
+</script>
+</body>
+</html>

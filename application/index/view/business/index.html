@@ -1,0 +1,86 @@
+<div data-page="staticAccount" class="page myMain">
+    <!--顶部导航-->
+    <div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="" class="back"><i class="icon icon-back"></i></a>
+        </div>
+        <div class="center sliding" style="text-align: center;width: 100%;">我的钱包</div>
+        <div class="right">
+            <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+        </div>
+    </div>
+    </div>
+    <!--顶部导航-->
+
+    <div class="page-content">
+        <style>
+            .pf-comment {
+                width: 75px;
+                display: inline-block;
+            }
+            .item-media i {
+                font-size: x-large;
+            }
+        </style>
+        <div class="row"> 
+            <div class="col-100 top"
+                 style="">
+                <div class="rz">
+                    <a href="{:url('Message/send2')}" style=" background:  no-repeat;">
+                        {notempty name="hyrs.avatar"}<img src="{$hyrs['avatar']}" style="padding:2px;border:none;margin-top: 33px;margin-right: auto;margin-left: auto;width: 87px;height: 87px" alt="用户名" class="headImg">
+                        {else/}
+                        <img src="{$site.logo}" style="padding:2px;border:none;margin-top: 33px;margin-right: auto;margin-left: auto;width: 87px;" alt="用户名" class="headImg">
+                        {/notempty}
+                    </a>
+                </div>
+                <div class="rz" style="color: #fff">ID:{$hyrs['username']}<br>等级：{$hyrs['level_text']}</div>
+                <div style="top: 258px;position:  absolute;width: 100%;">
+                </div>
+            </div>
+
+        </div>
+        <div class="list-block ">
+            <ul class="bg-white">
+
+                <li>
+                  <span class="item-content ">
+                    <div class="item-media">
+                        <img style="height: 20px;" class="img-left" src="/assets/img/persondata/im-token.png" alt="">
+                    </div>
+                    <div class="item-inner">
+                    <div class="item-title">im Token</div>
+                        <a href="{:url('User/imtoken')}">
+                        {if condition="$hyrs['itoken'] eq ''"}
+                        <div class="item-after" style="background-color: #007aff;color: #fff;padding: 3px 14px 3px;border-radius: 30px;font-size: 14px;">去绑定</div>
+                        {else/}
+                        <div class="item-after" style="color: #007aff">已绑定</div>
+                          {/if}
+                      </a>
+                     </div>
+                  </span>
+                </li>
+            </ul>
+        </div>
+        <div class="wallet"style="background: #fff;padding: 20px;text-align: center">
+                <div>
+                    <img src="/api/user/sendlink?link={:url('index/index/pdzz',['tgno'=>$hyrs['tgno']],'html',true)}" alt="" style="width: 130px;height: 130px;margin: 0px auto;border-radius: 5px;border: 1px solid #ddd;">
+                    <p style="font-size: 15px;line-height: 30px">钱包地址</p>
+                    <input type="text" style="border: none;text-align: center;width: 100%;font-size:15px;line-height: 30px" value="{$hyrs['walladress']}">
+                    <div class="copyinput" style="
+    width: 73%;
+    left: 14%;
+    margin: 0px auto;
+    text-align: center;
+">
+                        <!--<button class="button button-round button-fill" onclick="MY.copywww('{:url(\'index/index/pdzz\',[\'tgno\'=>$hyrs[\'tgno\']],\'html\',true)}')" >测试</button>-->
+                        <button class="button button-round button-fill" onclick="MY.copywww('{$hyrs[\'walladress\']}')" >复制</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

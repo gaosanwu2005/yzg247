@@ -1,0 +1,53 @@
+
+<div data-page="bonus" class="page finance">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">提现记录</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+        <!--<div class="content-block-title">奖金明细</div>-->
+        {if condition="$list"}
+            <div class="list-block ">
+                <ul>
+                   {volist name="list" id="vo"}
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <span class="color-gray"> 提现时间：{$vo.addtime|date="Y-m-d,H:i",###}</span><br>
+                                    <span class="color-red">提现金额: {$vo.number} $</span><br>
+                                    <span class="color-black">状态: {$cz[$vo['state']]}</span><br>
+                                </div>
+                            </div>
+                        </li>
+                    {/volist}
+                </ul>
+            </div>
+            {else/}
+            <div class="content-block-title">没有更多了</div>
+        {/if}
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+            {if condition="$p eq 1"}
+                <a href="{:url('Edetail/txlist')}?p={$p}" class="link disabled">上一页</a>
+                <a href="{:url('Edetail/txlist')}?p=1" class="link disabled">首页</a>
+                {else/}
+                <a href="{:url('Edetail/txlist')}?p={$p - 1}" class="link">上一页</a>
+                <a href="{:url('Edetail/txlist')}?p=1" class="link">首页</a>
+            {/if}
+            <a href="{:url('Edetail/txlist')}?p={$p +1 }" class="link">下一页</a>
+        </div>
+    </div>
+    <!--底部结束-->
+</div>

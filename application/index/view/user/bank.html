@@ -1,0 +1,38 @@
+
+<div data-page="bank" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">银行卡</div>
+            <div class="right">
+                <a href="{:url('User/addbank')}" class="link"> <i class="fa fa-edit"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content bank">
+        <div class="list-block inset">
+            <ul>
+
+                <li class="active">
+                    <div class="logo">
+                        <img src="/Public/Home/my/img/bank2.png" alt="">
+                    </div>
+                    <h3> </h3>
+                    <p>借记卡</p>
+                    <p>{$hyrs['banknum']}</p>
+                    <div class="right">
+                        <h3>默认使用</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

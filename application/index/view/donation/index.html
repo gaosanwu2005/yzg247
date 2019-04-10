@@ -1,0 +1,153 @@
+<div data-page="charitablegiving" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">慈善捐助</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .csjz-top{
+            background: url("/assets/img/charitable/csjz-bg.png") no-repeat;
+            background-size: 100%;
+            color: #fff;
+        }
+        .numShow{
+            overflow: hidden;
+        }
+        .numShow li{
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .numShow li div{
+            height: 30px;
+            line-height: 30px;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+        .numShow li>span{
+            display: block;
+            font-size: 13px;
+            line-height: 20px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .ningju{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
+            background: #fff;
+        }
+        .ningju span{
+            font-weight: bold;
+            font-size: 16px;
+            color: #ff750c;
+        }
+        .banner{
+            background: #fff;
+            padding: 0 5% 20px;
+        }
+        .list-block ul{
+            background: transparent;
+        }
+
+        .list-block ul li{
+            margin-bottom: 15px;
+            background: #fff;
+        }
+        .media-list ul li a{
+            color: #333 !important;
+        }
+        .list-block .item-inner:after {
+            background: transparent;
+        }
+    </style>
+    <div class="page-content">
+
+        <div class="csjz-top">
+            <div class="list-block media-list" style="margin: 0">
+                <ul style="background: transparent">
+                    <li style="background: transparent;margin-bottom: 0">
+                        <a href="#" class="item-link item-content">
+                            <div class="item-media"><img src="/assets/img/charitable/csjz-headPic.png" width="55"></div>
+                            <div class="item-inner" style="padding-top: 15px;color: #fff">
+                                <div class="item-subtitle">ID：{$user.username}</div>
+                                <div class="item-subtitle">等级：{$user.level_text}</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="numShow">
+                <li>
+                    <div>{$user.contribution_amount?:0}</div>
+                    <span>捐赠金额</span>
+                </li>
+                <li>
+                    <div>{$user.love_number?:0} <span style="font-size: 12px">(次)</span></div>
+                    <span>爱心次数</span>
+                </li>
+                <li>
+                    <div>{$user.star?:0}</div>
+                    <span>信用值</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="ningju">凝聚 <span>{$love_time?:845680}</span>份爱心</div>
+
+        <div class="banner">
+            <div class="swiper-container swiper-vertical">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper">
+                    {volist name="site.cishanimgs" id="vo"}
+                    <div class="swiper-slide" style="border: none"><span><img width="100%" style="border-radius: 5px" src="{$vo}" alt=""></span></div>
+                    {/volist}
+                  </div>
+            </div>
+        </div>
+
+        <div class="cszjList">
+
+            <div class="list-block media-list">
+                <ul>
+                    {foreach $list as $v}
+                    <li>
+                        <a href="{:url('/index/donation/detail/id/'.$v['id'])}">
+                            <div class="item-content">
+                                <div class="item-media"><img src="{$v.title_image}" width="170"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">{$v.title}</div>
+                                    </div>
+                                    <div class="item-text">{$v.subtitle}</div>
+                                    <div class="item-subtitle">
+                                        目标金额: <span style="color: red">￥{$v.amount}</span></div>
+                                    <div class="item-subtitle">
+                                        已捐金额: <span style="color: red">￥{$v.amount_donated}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

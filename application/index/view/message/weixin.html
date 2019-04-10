@@ -1,0 +1,46 @@
+<div data-page="upweixin" class="page form">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">上传微信收款码</div>
+			<div class="right">
+				<a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<div class="page-content">
+		<div class="content-block-title">
+
+		</div>
+		<form action="" method="post" class="ajax-submit" id="upweixin">
+			<div class="list-block inset">
+				<ul>
+					<li class=" item-content">
+						<div class="item-inner">
+							<div class="item-title label">选择上传图片</div>
+							<div class="item-input">
+								<input type="file" id="headimg" name="file" onchange="MY.upload('{:url('api/common/upload')}','upweixin','#weixinimg','#img2')">
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="content-block">
+							<img id="weixinimg" src="" alt="" style=" width: 45%;">
+						</div>
+					</li>
+				</ul>
+			</div>
+		</form>
+
+		 <form action="{:url('api/user/upweixin')}" method="post" class="ajax-submit">
+			 <input type="hidden" name="img" id="img2">
+			 <button type="submit" class="button button-fill button-round bg-green">提交</button>
+		</form>
+		<div class="row" style="height: 50px;"></div>
+	</div>
+
+</div>

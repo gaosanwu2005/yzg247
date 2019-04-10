@@ -1,0 +1,74 @@
+<div data-page="gobuy" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">提供帮助</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+            <!-- Sub navbar -->
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content  infinite-scroll infinite-scroll-bottom" style="background:  white;">
+        <div class="content-block-title"  >{$site['walltype']['wall7']}余额: {$hyrs['wall7'] ? $hyrs['wall7'] : 0}</div>
+        <form action="{:url('api/trade2/buy')}" method="post" class="ajax-submit">
+            <div class="list-block ">
+                <ul>
+                    <a href="#" class="item-link smart-select" data-open-in="popup"  data-searchbar="false" data-back-on-select="true">
+                        <!-- select -->
+                        <select name="btc">
+                            {volist name="price" id="vo"}
+                                <option value="{$vo.rid}"  {lt name="hyrs.futou" value="$vo.isdk"}disabled{/lt}>{$vo.rprice}---需{$vo.pdfee}个排单币</option>
+                            {/volist}
+                        </select>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <!-- Select label -->
+                                <div class="item-title">交易金额</div>
+                                <!-- Selected value, not required -->
+                                <div class="item-after">1000</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!--<li>-->
+                    <!--<div class="item-content">-->
+                    <!--<div class="item-media"></div>-->
+                    <!--<div class="item-inner">-->
+                    <!--<div class="item-title label">交易金额</div>-->
+                    <!--<div class="item-input">-->
+                    <!--<input type="text" name="btc" autocomplete="off" placeholder="请输入交易金额">-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</li>-->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner" style="margin-left: 0;">
+                                <div class="item-title label">交易密码</div>
+                                <div class="item-input">
+                                    <input type="password" name="password2" autocomplete="off" placeholder="请输入交易密码">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <p style=" width: 90%; margin:  auto; margin-top: 20px;">
+                    <button type="submit" class="button button-fill button-round ">买入</button>
+                </p>
+            </div>
+
+            <div class="content-block-title" style="margin-top: -17px;">注：您已完成{$hyrs.futou}轮，正在进行第{$hyrs['futou']+1}轮 </div>
+
+        </form>
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

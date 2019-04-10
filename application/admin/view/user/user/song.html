@@ -1,0 +1,57 @@
+
+<div class="wrapper">
+
+    <section class="content">
+        <!-- Main content -->
+        <!--<div class="container-fluid">-->
+        <div class="container-fluid">
+            <!--新订单列表 操作信息-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 赠送矿机</h3>
+                </div>
+                <div class="panel-body">
+                    <!--表单数据-->
+                    <form method="post" id="handleposition" action=""  >
+                        <!--通用信息-->
+                    <div class="tab-content col-md-10">                 	  
+                        <div class="tab-pane active" id="tab_tongyong">                           
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class="col-sm-2">会员账号：</td>
+                                    <td class="col-sm-4">
+                                        <input type="text" class="form-control" value="{$info.username}" readonly="readonly">
+                                    </td>
+                                    <td class="col-sm-4">
+                                    </td>
+                                </tr>
+                                <tr>
+                        			<td class="col-sm-2">选择矿机:</td>
+                       			 	<td >
+                        			<select class="form-control" name="goods_id" id="rank">
+                        				{volist name="rank" id="vo"}
+ 											<option value="{$vo.goods_id}" >&nbsp;{$vo.goods_name}&nbsp;</option>
+ 										{/volist}
+                        			</select></td>
+                        			<td></td>
+                    			</tr>
+                                </tbody> 
+                                <tfoot>
+                                	<tr>
+                                	<td>
+                                	<input type="hidden" name="user_id" value="{$info.id}">
+                                	</td>
+                                	<td class="col-sm-4"></td>
+                                	<td class="text-right"><input class="btn btn-primary" type="submit" value="保存"></td></tr>
+                                </tfoot>                               
+                                </table>
+                        </div>                           
+                    </div>              
+			    	</form>
+                </div>
+            </div>
+
+        </div>    <!-- /.content -->
+    </section>
+</div>

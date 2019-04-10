@@ -1,0 +1,222 @@
+
+<div data-page="myaccount" class="page finance ">
+    <style>
+
+        /*总资产*/
+        .total-assets{
+            padding: 20px 0;
+            text-align: center;
+            background: url(/assets/img/buycenter-bg.png) no-repeat;
+            background-size: 100% 100%;
+            /*background: #007aff;*/
+            letter-spacing: 1px;
+            color: #FFF;
+        }
+        .total-assets p{
+            line-height: 30px;
+            font-size: 15px;
+            color: #fff;
+        }
+        .total-assets b{
+            font-weight: normal;
+            font-size: 12px;
+        }
+        .accountList ul{
+            padding: 10px;
+        }
+        .accountList ul li{
+            background: #fff;
+            border-radius: 5px;
+            border: 1px solid #DDd;
+            margin-bottom: 10px;
+        }
+        .accountList ul li a{
+            display: block;
+            width: 100%;
+            padding: 5px 0;
+        }
+        .accountList ul li a .coinTitle{
+            padding: 0 10px;
+            color: #007aff;
+            font-weight: 600;
+            line-height: 30px;
+        }
+        .accountList ul li a .coinTitle i{
+            float: right;
+            font-size: 8px;
+            font-weight: normal;
+            color: #ab3535 !important;
+            position: relative;
+            top: 5px;
+            width: 9px;
+            height: 15px;
+        }
+        .accountList ul li a>.num{
+            overflow: hidden;
+        }
+        .accountList ul li a>.num>div{
+            float: left;
+            width: 33.33%;
+            text-align: left;
+            padding:0 10px;
+            box-sizing: border-box;
+        }
+        .accountList ul li a>.num>div:nth-of-type(3){
+            text-align: right;
+        }
+        .accountList ul li a>.num>div span{
+            color: #999;
+            font-size: 12px;
+        }
+        .accountList ul li a>.num>div p{
+            color: #000;
+            font-size: 15px;
+            line-height: 30px;
+        }
+    </style>
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">我的资产</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+
+        <div class="total-assets">
+            <p>总资产折合(USD)</p>
+            <p style="font-size: 20px">{$total}</p>
+            <b>≈{:round($total*$site['usd2cny'],2)} CNY</b>
+        </div>
+
+        <div class="accountList">
+            <ul>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall1" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['wall1']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['wall1']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freeze1']}</p>
+                            </div>
+                            <div>
+                                <span>折合(CNY)</span>
+                                <p>{:round(($hyrs['wall1']+$hyrs['freeze1'])*$lmc_rate*$site['usd2cny'],2)}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall2&cwtype=7" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['wall2']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['wall2']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freeze2']}</p>
+                            </div>
+                            <div>
+                                <span>折合(CNY)</span>
+                                <p>{:round(($hyrs['wall2']+$hyrs['freeze2'])*$lmc_rate*$site['usd2cny'],2)}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/myaccount2',array('bname'=>0,'type'=>'wall3'))}" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['wall3']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['wall3']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freeze3']}</p>
+                            </div>
+                            <div>
+                                <span>折合(CNY)</span>
+                                <p>{:round(($hyrs['wall3']+$hyrs['freeze3'])*$btc_rate*$site['usd2cny'],2)}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/myaccount2',array('bname'=>0,'type'=>'wall4'))}" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['wall4']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['wall4']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freeze4']}</p>
+                            </div>
+                            <div>
+                                <span>折合(CNY)</span>
+                                <p>{:round(($hyrs['wall4']+$hyrs['freeze4'])*$eth_rate*$site['usd2cny'],2)}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/myaccount2',array('bname'=>0,'type'=>'wall5'))}" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['wall5']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['wall5']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freeze5']}</p>
+                            </div>
+                            <div>
+                                <span>折合(CNY)</span>
+                                <p>{:round(($hyrs['wall5']+$hyrs['freeze5'])*$ltc_rate*$site['usd2cny'],2)}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/myaccount2',array('bname'=>0,'type'=>'wall6'))}" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['wall6']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['wall6']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freeze6']}</p>
+                            </div>
+                            <div>
+                                <span>折合(CNY)</span>
+                                <p>{:round(($hyrs['wall6']+$hyrs['freeze6'])*$eos_rate*$site['usd2cny'],2)}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

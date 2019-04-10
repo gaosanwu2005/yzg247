@@ -1,0 +1,32 @@
+<div data-page="pay" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">正在转到付款页</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+
+        <form name="pay" action="http://api.qianypay.com/PayApi" method="post" id="payform">
+            <input type="hidden" name="pay_type" value="{$map.paytype}">
+            <input type="hidden" name="version" value="{$map.version}">
+            <input type="hidden" name="mch_id" value="{$map.customerid}">
+            <input type="hidden" name="out_trade_no" value="{$map.sdorderno}">
+            <input type="hidden" name="total_fee" value="{$map.total_fee}">
+            <input type="hidden" name="notify_url" value="{$map.notifyurl}">
+            <input type="hidden" name="return_url" value="{$map.returnurl}">
+            <input type="hidden" name="sign" value="{$map.sign}">
+        </form>
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

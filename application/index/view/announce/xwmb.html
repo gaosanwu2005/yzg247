@@ -1,0 +1,37 @@
+
+<div data-page="newinfo" class="page">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class=" back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">{$list['title']}</div>
+			<div class="right">
+				<a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+			</div>
+		</div>
+	</div>
+	<style>
+		.content-block p img{
+			width: 100%;
+			float: left;
+		}
+	</style>
+	<!--顶部导航-->
+	<div class="page-content" style="background: white;">
+		<div class="content-block">
+
+				<h1 style="font-size: 16px;text-align: center;line-height: 25px">{$list['title']}</h1>
+				<p style="text-align: center">作者-管理员&nbsp;{$list['refreshtime']|date="Y-m-d H:i:s",###}&nbsp;</p>
+			    <p style="font-size: 13px">{$list['subtitle'] | html_entity_decode} </p>
+				<p style="font-size: 13px">{$list['content'] | html_entity_decode} </p>
+
+		</div>
+
+		<div class="row" style="height: 50px;"></div>
+	</div>
+	<!--底部开始-->
+	{include file="common/footnav"/}
+	<!--底部结束-->
+</div>

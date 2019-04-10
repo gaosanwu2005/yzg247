@@ -1,0 +1,89 @@
+<div data-page="imtoken" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">im Token</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+
+    <style>
+        .list-block .item-media + .item-inner {
+            margin-left: 15px;
+            font-size: 15px;
+        }
+
+        .list-block input[type=time], .list-block input[type=number], .list-block input[type=search], .list-block input[type=text], .list-block input[type=password], .list-block input[type=email], .list-block input[type=tel], .list-block input[type=url], .list-block input[type=date], .list-block input[type=datetime-local], .list-block select, .list-block textarea {
+            font-size: 15px;
+        }
+
+        .img-left {
+            height: 20px;
+        }
+    </style>
+    <div class="page-content member">
+        <div class="list-block ">
+            <form action="" method="post" class="ajax-submit" id="imtoken">
+                <div class="list-block ">
+                    <ul>
+                        <input type="text" value="123" readonly style="display: none;">
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 13px;" class="img-left" src="/assets/img/persondata/icon-grzx-yhkh.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">im Token</div>
+                                    <div class="item-input">
+                                        <input type="text" name="itoken" placeholder="请输入您的im Token钱包地址" value="{$hyrs['itoken']}">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img style="height: 20px;" class="img-left" src="/assets/img/persondata/icon-grzx-jymm.png" alt="">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title label">交易密码</div>
+                                    <div class="item-input">
+                                        <input type="password" name="password" placeholder="请输入您的交易密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <p class="content-block">
+
+                            </p>
+                        </li>
+                    </ul>
+                    <button onclick="MY.formpost('{:url(\'api/user/imtoken\')}','imtoken')" style="width: 94%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    background: #007aff;
+    border-radius: 30px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 16px;
+    font-family: Microsoft YaHei;"  class="button button-fill button-round bg-green">确认绑定</button>
+                </div>
+
+            </form>
+            <div class="row" style="height: 50px;"></div>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

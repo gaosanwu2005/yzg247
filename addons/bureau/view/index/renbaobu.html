@@ -1,0 +1,210 @@
+<div data-page="anjianju" class="page form">
+
+    <style>
+
+        .navbar {
+
+            color: #fff;
+
+            background: -webkit-linear-gradient(left, #3e77f2 , #43aff6);
+
+            background: -o-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: -moz-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: linear-gradient(to right, #3e77f2 , #43aff6);
+
+        }
+
+        .redcheck {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ccc;
+            background: #FCFCFC;
+            position: relative;
+            top: 4px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+        .redchecked:before {
+            content: "\2714";
+            font-family: iconfont;
+            color: #ff3333;
+            font-size: 20px;
+            position: absolute;
+            top: -15px;
+            left: 0px;
+        }
+
+    </style>
+
+    <!--顶部导航-->
+
+    <div class="navbar">
+
+        <div class="navbar-inner">
+
+            <div class="left">
+
+                <a href="" class="back">
+
+                    <img src="/assets/img/icon-back.png" alt="">
+
+                </a>
+
+            </div>
+
+            <div class="center sliding" style="text-align: center;width: 100%;">人保部网上报名流程</div>
+
+        </div>
+
+    </div>
+
+    <!--顶部导航-->
+
+    <div class="page-content" style="background: #fff">
+        <div class="bmlc">
+            <img src="/assets/img/renbaobu.png" alt="" style="width:100%">
+        </div>
+
+        <!--报名流程-->
+
+        <div class="bmlc">
+
+            <div class="bmlc-title">人保部网上报名流程</div>
+
+            <div class="bmlc-box">
+
+                <p>
+
+                    <a class="button color-blue" href="">在线报名</a>
+
+                    <img src="/assets/img/school-img/icon-yjt02.png" alt="">
+
+                    <a class="button  color-gray" href="">填写个人信息</a>
+
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">上传照片</a>
+
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">选择考区</a>
+
+                </p>
+
+                <p style="text-align: right;overflow: hidden;height: 19px">
+
+                    <img style="float: right;height: 15px;top:0px;left: -50px" src="/assets/img/school-img/icon-xjt01.png" alt="">
+
+                </p>
+
+
+
+                <p style="text-align: right">
+
+                    <a class="button  color-gray" href="">等待网上审核</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">提交审核</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">选择科目</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">选择类别</a>
+
+                </p>
+
+                <p style="text-align: right;overflow: hidden;height: 19px">
+
+                    <img style="float: left;height:15px;top:0px;right: -30px" src="/assets/img/school-img/icon-xjt01.png" alt="">
+
+                </p>
+
+                <p style="text-align: right">
+
+                    <a class="button  color-gray" href="">审核通过通知</a>
+
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">网上缴费</a>
+
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">完成报名</a>
+
+                    <img src="/assets/img/school-img/icon-yjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">考试时间通知</a>
+
+                </p>
+
+                <p style="text-align: right;overflow: hidden;height: 19px">
+
+                    <img style="float: right;height: 15px;top:0px;left: -50px" src="/assets/img/school-img/icon-xjt01.png" alt="">
+
+                </p>
+
+                <p style="text-align: right">
+
+                    <a class="button  color-gray" href="">申请免费保险</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">单位录取</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">进入人才库</a>
+
+                    <img src="/assets/img/school-img/icon-zjt01.png" alt="">
+
+                    <a class="button  color-gray" href="">下发证书</a>
+
+                </p>
+
+                <p style="text-align: right;overflow: hidden;height: 19px">
+
+                    <img style="float: left;height:15px;top:0px;right: -30px" src="/assets/img/school-img/icon-xjt01.png" alt="">
+
+                </p>
+
+                <p style="text-align: right">
+
+                    <a class="button  color-gray" href="">申请贷款</a>
+
+                </p>
+
+
+            </div>
+
+        </div>
+        <form action="{:addon_url('bureau/ajax/sendaggre')}" method="post" class="store-data ajax-submit form-input">
+
+            <div class="tip" style="text-align:center;line-height: 50px;">
+
+                <label for="is_checked" class="redcheck redchecked"></label>
+                <input type="checkbox" name="read" checked="true" id="read" onchange="MY.showiconfont(this)">
+                <input type="hidden" name="bureau_type" value="3">
+                我已阅读并同意（<a href="{:addon_url('bureau/index/report?bureau_type=3')}">报名须知</a>）
+
+            </div>
+
+            <div class="input-submit">
+
+                <input type="submit" value="确认进入下一步" id="nextsub">
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+

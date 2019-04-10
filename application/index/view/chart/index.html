@@ -1,0 +1,40 @@
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>返回</span></a></div>
+    <div class="center sliding">聊天</div>
+    <!--<div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>-->
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div data-page="chart" class="page no-toolbar toolbar-fixed">
+    <div class="toolbar messagebar" style="
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    -webkit-transition: 0ms;
+    -o-transition: 0ms;
+    transition: 0ms;
+">
+      <div class="toolbar-inner">
+        <form action="" method="post" class="ajax-submit" id="uploadchart">
+          <div style="position: relative;">
+            <i class="icon icon-camera"></i>
+            <input type="file" name="file" onchange="upload3('{:url('api/common/upload')}','uploadchart','#send')" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 111;opacity: 0;">
+          </div>
+        </form>
+        <!--<a href="#" class="link icon-only"><i class="icon icon-camera"></i></a>-->
+        <textarea placeholder="Message" id="send"></textarea><a href="#" class="link send-message">发送</a>
+      </div>
+    </div>
+    <div class="page-content messages-content">
+      <span style="display: none" id="from">{$frominfo}</span>
+      <span style="display: none" id="to">{$touserinfo}</span>
+      <div class="messages">
+          
+      </div>
+    </div>
+  </div>
+</div>

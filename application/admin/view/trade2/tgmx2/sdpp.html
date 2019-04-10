@@ -1,0 +1,154 @@
+
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        
+                        <nav class="navbar navbar-default">
+                            <div class="collapse navbar-collapse">
+                                <form class="navbar-form form-inline" action="" >
+                                    <div class="input-group">
+                                        <p>提供账号：{$rstg['account']} 提供金额：{$rstg['number']}元 已匹配：{$rstg['buy_number']}元 剩余：<span style="color: red" id="sheng">{$rstg['number']-$rstg['buy_number']}</span>元 </p>
+                                        <p>已选择金额:  <span style="color: red" id="price">0</span>元</p>
+
+                                    </div>
+                                    <div class="form-group pull-right">
+                                        <a href="javascript:void(0)" data-id="{$rstg['tgid']}" onclick="gopp(this)" class="btn btn-primary pull-right"><i class="fa fa-eject"></i> 确定匹配</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                         <th class="text-center" style="width: 2px;"></th>
+
+                                        <th class="sorting" tabindex="0">接受ID</th>
+                                        <th class="sorting" tabindex="0">会员账号</th>
+                                        <th class="sorting" tabindex="0">总接受金额</th>
+                                        <th class="sorting" tabindex="0">已匹配金额</th>
+                                        <th class="sorting" tabindex="0">剩余金额</th>
+                                        <th class="sorting" tabindex="0">资金类型</th>
+                                        <th class="sorting" tabindex="0">创建时间</th>
+                                        <th class="sorting" tabindex="0">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {volist name="list" id="vo" key="k"}
+                                        <tr>
+                                            <td><input type="checkbox" name="backs[]"  onclick="OncheckBox(this)"  value="{$vo.xyid}"></td>
+                                            <td>{$vo.xyid}</td>
+                                            <td>{$vo.account}</td>
+                                            <td>{$vo.number}</td>
+                                            <td>{$vo.sale_number}</td>
+                                            <td>{$vo['number'] - $vo['sale_number']}</td>
+                                            <td>{$ptype[$vo['ptype']]}</td>
+                                            <td>{$vo.addtime|date="Y-m-d H:i:s",###}</td>
+                                            <td>
+                                                <form  class="navbar-form form-inline" action="/admin/trade2/tgmx2/sdpp3" method="post">
+                                                    <input class="form-control" id="sale{$vo.xyid}" type="number" name="number" min="0" value="{$vo.pp}" placeholder="请输入匹配金额"/>
+                                                    <input type="hidden" name="xyid" value="{$vo.xyid}"/>
+                                                    <input type="hidden" name="tgid" value="{$rstg['tgid']}"/>
+                                                    <button type="submit" class="btn btn-success">自定义匹配</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+
+                                    {/volist}
+
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<script type="text/javascript">
+
+    function OncheckBox(obj){
+        var sale = '#sale'+$(obj).val();
+
+        if ($(obj).is(':checked')) {
+            // alert($(obj).val());
+            // alert($(sale).val());
+            var now = parseInt($('#price').html())+parseInt($(sale).val());
+
+            $('#price').html(now);
+
+            if(parseInt($('#sheng').html()) == now){
+
+                layer.msg('金额已匹配完，请点确定匹配');
+            }
+
+            if(parseInt($(sale).val()) == 0){
+
+                layer.msg('匹配金额不能为0');
+                $(obj)[0].checked = false;
+
+            }
+
+        } else {
+            var now = parseInt($('#price').html())-parseInt($(sale).val());
+            $('#price').html(now);
+
+        }
+
+    }
+
+
+    function gopp(obj) {
+        var a = [];
+        var b = [];
+        $('input[name*=backs]').each(function (i, o) {
+            if ($(o).is(':checked')) {
+                a.push($(o).val());
+                b.push($('#sale'+$(o).val()).val());
+            }
+        });
+        if (a.length == 0) {
+            layer.alert('请选择要匹配的会员', {icon: 2});
+            return;
+        } else {
+            // $(obj).addClass('disabled');
+            // $(obj).html('匹配进行中...');
+
+            if (parseInt($('#price').html()) > parseInt($('#sheng').html())) {
+                layer.alert('匹配金额不能大于提供金额', {icon: 2});
+                return;
+            }
+
+            console.log(a);
+            console.log(b);
+            console.log($(obj).attr('data-id'));
+            $.ajax({
+                type: 'post',
+                url: "/admin/trade2/tgmx2/sdpp2",
+                datatype: 'json',
+                data: {sale_id: a,sale_price: b, buy_id: $(obj).attr('data-id')},
+                success: function (data) {
+                    console.log(data);
+                    if (data.status == 1) {
+                        $(obj).removeClass('disabled');
+                        layer.alert(data.info, {icon: 1}, function () {
+                            location.href = data.url;
+                        });
+                    } else {
+                        layer.alert(data.info, {icon: 2});
+                    }
+                }
+            })
+        }
+    }
+</script>

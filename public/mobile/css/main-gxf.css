@@ -1,0 +1,665 @@
+.theme-white .button.button-fill, .button.button-fill.color-white {
+     background: #007aff;
+    color: #fff;
+}
+.theme-blue a.back{
+    color: #fff;
+}
+.color-blue .back i.icon {
+     color: #fff;
+}
+.navbar {
+    color: #fff;
+    background: -webkit-linear-gradient(left, #3e77f2 , #43aff6);
+    background: -o-linear-gradient(right, #3e77f2, #43aff6);
+    background: -moz-linear-gradient(right, #3e77f2, #43aff6);
+    background: linear-gradient(to right, #3e77f2 , #43aff6);
+}
+.navbar a{
+    color: #fff;
+}
+.navbar .center img {
+    height: 21px;
+}
+
+.navbar .left img, .navbar .right img {
+    height: 18px;
+}
+/*动态*/
+.gg {
+    background: rgba(0,0,0,.4);
+    height: 32px;
+    line-height: 32px;
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: -32px;
+    z-index: 111;
+    position: relative;
+}
+
+.gg a {
+    display: block;
+    font-size: 13px;
+    color: #fff;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    padding-left: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.gg img {
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/*链接*/
+.link-row ul {
+    overflow: hidden;
+    background: #fff;
+}
+
+.link-row ul li {
+    float: left;
+    width: 25%;
+}
+
+.link-row ul li a {
+    display: block;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.link-row ul li a img {
+    height: 40px;
+    margin: 0 auto;
+}
+.link-row i.iconfont {
+    font-size: 28px;
+    background: #47a2ff;
+    border-radius: 50%;
+    color: aliceblue;
+    padding-bottom: 7px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 11px;
+}
+.link-row li:nth-child(1) i.iconfont {
+    background: #47a2ff;
+
+}
+.link-row li:nth-child(2) i.iconfont {
+    background: #ffca87;
+
+}
+.link-row li:nth-child(3) i.iconfont {
+    background: #81ffa0;
+
+}
+.link-row li:nth-child(4) i.iconfont {
+    background: #ff9b3b;
+
+}
+.link-row li:nth-child(5) i.iconfont {
+    background: #ff8f79;
+
+}
+.link-row li:nth-child(6) i.iconfont {
+    background: #c79cff;
+
+}
+.link-row li:nth-child(7) i.iconfont {
+    background: #6dfff3;
+
+}
+.link-row li:nth-child(8) i.iconfont {
+    background: #ffb721;
+
+}
+.link-row li:nth-child(9) i.iconfont {
+    background: #db9cff;
+
+}
+.link-row li:nth-child(10) i.iconfont {
+    background: #3dffda;
+
+}
+.link-row li:nth-child(11) i.iconfont {
+    background: #ffc2cf;
+
+}
+.link-row li:nth-child(12) i.iconfont {
+    background: #25beff;
+
+}
+
+.link-row ul li a p {
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    color: #000;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+/*新闻动态*/
+.newsList {
+    background: #fff;
+}
+
+.newsList .title img {
+    height: 14px;
+    display: inline-block;
+}
+
+.newsList ul {
+    padding: 15px;
+}
+
+.newsList ul li {
+    border-bottom: 1px solid #efeff4;
+}
+
+.newsList ul li a {
+    display: block;
+    padding: 10px 0;
+    overflow: hidden;
+    color: #434343;
+}
+
+.newsList ul li a img {
+    float: left;
+    width: 26%;
+    height: 60px;
+}
+
+.newsList ul li a .newsDesc {
+    width: 71%;
+    float: right;
+}
+
+.newsList ul li a .newsDesc h3 {
+    font-size: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.newsList ul li a .newsDesc div {
+    font-size: 13px;
+    line-height: 20px;
+    color: #8e8e8e;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.xcVideo .title, .newsList .title,.shMall .title {
+    font-size: 15px;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 15px;
+    margin-left: 0;
+    font-weight: 600;
+    border-bottom: 1px solid #efeff4;
+}
+
+
+
+.xcVideo .title i, .newsList .title i,.shMall .title i{
+    display: inline-block;
+    height: 14px;
+    width: 4px;
+    border-radius: 8px;
+    background: #3285ff;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+.xcVideo .title .more, .newsList .title .more,.shMall .title .more{
+    float: right;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+}
+.xcVideo .title .more img, .newsList .title .more img,.shMall .title .more img{
+    display: inline-block;
+    height: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+
+}
+.shMall{
+    background: #fff;
+    margin-bottom: 7px;
+}
+
+
+.schbox {
+    overflow: hidden;
+    padding: .1rem;
+    line-height: .3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff
+}
+
+.schbox span {
+    float: left;
+    font-size: .14rem;
+    color: #333;
+    width: .8rem;
+    text-align: right;
+    margin-right: .05rem;
+    line-height: .3rem
+}
+
+.schbox input {
+    float: left;
+    width: calc(100% - 1.05rem);
+    border: 1px solid #ccc;
+    line-height: .3rem;
+    text-indent: .1rem;
+    font-size: .14rem;
+    color: #333
+}
+
+.touchcity {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 14px;
+    background: #fff;
+    min-height: 100%;
+    z-index: 1111;
+}
+
+.citybox {
+    padding-top: .6rem
+}
+
+.cityindex {
+    background: #bebebe;
+    line-height: .26rem;
+    font-size: .15rem;
+    color: #fff;
+    font-weight: 400;
+    text-indent: .1rem
+}
+
+.cityper {
+    font-size: .26rem;
+    color: #333;
+    line-height: 0.5rem;
+    margin: 0 .25rem;
+    text-indent: .1rem;
+}
+
+.cityper + .cityper {
+    border-top: 1px solid #dadada
+}
+
+.indexBar {
+    position: fixed;
+    right: 0;
+    top: .8rem;
+    bottom: 0;
+    width: .25rem
+}
+
+.indexBar.active a {
+    background: rgba(0, 0, 0, .3);
+    color: #fff
+}
+
+.indexBar a {
+    display: flex;
+    font-size: .12rem;
+    color: #666;
+    height: 4.4%;
+    justify-content: center;
+    align-items: center
+}
+
+.indexBar a:hover {
+    border: 1px solid #dbdbdb;
+    cursor: pointer
+}
+
+.indexBar a:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px
+}
+
+.indexBar a:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px
+}
+
+.locate {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: .4rem;
+    height: .4rem;
+    background: rgba(0, 0, 0, .3);
+    font-size: .16rem;
+    color: #fff;
+    border-radius: 50%;
+    z-index: 99;
+    text-align: center;
+    line-height: .4rem;
+    display: none
+}
+
+/*弹窗公告*/
+#tcgg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11111;
+    background: rgba(0, 0, 0, .6);
+}
+
+#tcgg .tcgg-content {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+
+    padding: 10px 20px 80px;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 80%;
+    margin: 0 auto;
+    background: url("/assets/img/index-img/tcgg-bg.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+#tcgg .tcgg-content p {
+    line-height: 30px;
+    color: #333;
+    font-size: 15px;
+    text-align: left;
+}
+
+#tcgg .tcgg-content .tcgg-desc {
+    height: 240px;
+    overflow-y: scroll;
+}
+
+#tcgg .tcgg-content p.tcgg-title {
+    font-size: 18px;
+    text-align: center;
+}
+
+#tcgg .tcgg-content p.tcgg-time {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+}
+
+#tcgg .tcgg-content .tcgg-close {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+#tcgg .tcgg-content .tcgg-close img {
+    display: block;
+    height: 77px;
+    margin: 0 auto;
+}
+
+.link-row i.iconfont {
+    font-size: xx-large;
+}
+/*总部公告*/
+.ggList{
+    margin: 7px 0;
+    padding: 0 15px;
+    background: #fff;
+}
+.ggList ul li{
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+.ggList ul li>div{
+    float: left;
+    overflow: hidden;
+}
+.ggList ul li>div h3{
+    color: #46a4ff;
+    font-size: 18px;
+    height: 60px;
+    width: 50px;
+    margin-top: 8px;
+    overflow: hidden;
+    border-right: 2px solid #bfbfbf;
+    box-sizing: border-box;
+    padding-top: 6px;
+}
+.ggList ul li>div img{
+    width: 125px;
+    height: 75px;
+}
+.ggList ul li>div a{
+    display: block;
+}
+.ggList ul li>div p a{
+    display: block;
+    height: 20px;
+    padding-left: 16px;
+    line-height: 20px;
+    color: #656565;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    position: relative;
+
+}
+.ggList ul li>div p a i{
+    position: absolute;
+    top:7px;
+    left: 3px;
+    height: 4px;
+    width: 4px;
+    display: inline-block;
+    border-radius: 3px;
+    background: #656565;
+}
+.pro-show img{
+    width: 100%;
+}
+.pro-show .p-desc{
+    padding-top: 10px;
+}
+.pro-show p{
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.pro-show .p-title{
+    font-size: 15px;
+    color: #444;
+    font-weight: 600;
+
+}
+.pro-show .p-price-m{
+    color: #fd5950;
+    font-size: 13px;
+    font-weight: 600;
+}
+.pro-show .p-price{
+    font-size: 12px;
+    color: #999;
+}
+/*学历提升页面*/
+.bmlc{
+    padding:0px 10px 0;
+    background: #fff;
+}
+.bmlc .bmlc-title{
+    font-size: 16px;
+    line-height: 50px;
+}
+.bmlc .bmlc-box p{
+    overflow: hidden;
+}
+.bmlc .bmlc-box a{
+    display: inline-block;
+    width: 22%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0;
+    font-size: 12px;
+    line-height: 40px;
+
+}
+.bmlc .bmlc-box p a{
+    float: left;
+}
+.bmlc .bmlc-box p img{
+    float: left;
+}
+
+.bmlc .bmlc-box a.color-blue{
+    background: #4a9fff;
+    border: 1px solid #4a9fff;
+    color: #fff;
+}
+.bmlc .bmlc-box a.color-gray{
+    background: #e8e8e8;
+    border: 1px solid #dadada;
+    color: #333;
+}
+.bmlc .bmlc-box  img{
+    display: inline-block;
+    width: 10px;
+    position: relative;
+    top:16px;
+}
+.zxbm{
+    padding:0 20px;
+    background: #fff;
+}
+.zxbm .zxbm-title{
+    font-size: 16px;
+    line-height: 50px;
+}
+.form-input{
+
+
+}
+.form-input .input-group{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.form-input .input-group label{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    width: 30%;
+}
+.form-input .input-group>input{
+    float: left;
+    width: 65%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.form-input .input-group>select{
+    float: left;
+    width: 65%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.form-input .input-filegroup{
+    overflow: hidden;
+    margin-bottom: 10px;
+    height: 150px;
+}
+.form-input .input-filegroup label{
+    float: left;
+    height: 40px;
+    line-height: 20px;
+    text-align: right;
+    width: 30%;
+    position: relative;
+    top:60px;
+}
+.form-input .input-filegroup label span{
+    display: block;
+    text-align: center;
+}
+.form-input .input-filegroup>.file-box{
+    float: left;
+    width: 65%;
+    position: relative;
+}
+.form-input .input-filegroup>.file-box input{
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1111;
+}
+.form-input .input-filegroup>.file-box img{
+    /*position: absolute;*/
+    /*top:0;*/
+    /*left: 0;*/
+    height: 150px;
+    width: 100%;
+    z-index: 11;
+}
+.form-input .tip{
+    margin-top: 10px;
+    font-size: 13px;
+}
+.form-input .input-submit input{
+    display: block;
+    width: 60%;
+    height: 45px;
+    line-height: 45px;
+    background: #4c9cff;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50px;
+    margin: 50px auto;
+}
+ 

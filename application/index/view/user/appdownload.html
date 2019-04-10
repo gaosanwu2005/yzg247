@@ -1,0 +1,78 @@
+<div data-page="appdownload" class="page no-navbar">
+    <style>
+        .logoBox{
+            width: 100% !important;
+        }
+        .logoBox img{
+            width: 95px !important;
+            margin: 105px auto 0;
+            color: #fff;
+            text-align: center;
+        }
+        .logoBox h2{
+            font-size: 23px;
+            text-align: center;
+            margin: 20px auto 30px;
+            color: #fff;
+            /*font-weight: na;*/
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+        .logoBox p{
+            text-align: center;
+            font-size: 17px;
+            width: 90%;
+            margin: 0 auto;
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 25px;
+            margin-bottom: 35px;
+        }
+        .downloadBtn{
+            margin: 75px auto;
+        }
+        .downloadBtn a{
+            display: block;
+            width: 64%;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 40px;
+            text-align: center;
+            background: #197aea;
+            color: #fff;
+            margin: 20px auto;
+            font-size: 15px;
+        }
+        .downloadBtn a img{
+            height: 30px;
+            display: inline-block;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .downloadBtn p{
+            text-align: center;
+            color: #fff;
+            line-height: 30px;
+            font-size: 14px;
+        }
+
+    </style>
+    <div class="page-content" style="background: url('/assets/img/appdownload-bg.png') no-repeat;background-size: 100% 100%">
+
+        <div class="logoBox">
+            <img src="{$site.logo}" alt="logo">
+            <h2>慈善链</h2>
+            <p>基于区块链技术打造慈善事业平台<br>加入慈善链平台，共创美好未来</p>
+        </div>
+        <div class="downloadBtn">
+            <a href="{$site.appurl}" class="external">
+                <img src="/assets/img/icon-apple.png" alt="">IOS版下载
+            </a>
+            <a href="{$site.appurl}" style="background: #07b330" class="external">
+                <img src="/assets/img/icon-android.png" alt="">Android版下载
+            </a>
+            <p>版本V{$site.version}</p>
+        </div>
+
+    </div>
+</div>

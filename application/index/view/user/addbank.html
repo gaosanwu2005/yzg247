@@ -1,0 +1,109 @@
+
+<div data-page="addbank" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">修改银行卡</div>
+            <div class="right">
+                <a href="" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+        <form action="{:url('User/modify')}" method="post" class="ajax-submit">
+            <div class="list-block inset">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">
+                                持卡人
+                            </div>
+                            <div class="item-input">
+                                <input type="text" name="bankusename" placeholder="请输入要修改持卡人姓名">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">
+                                卡号
+                            </div>
+                            <div class="item-input">
+                                <input type="text" name="banknum" placeholder="请输入要修改的卡号">
+                            </div>
+                        </div>
+                    </li>
+                   <!-- <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">
+                                所属银行
+                            </div>
+                            <div class="item-input">
+                                <input type="text" name="bank" placeholder="请输入要修改的银行">
+                            </div>
+                        </div>
+                    </li>-->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">所属银行</div>
+                                <!--<div class="item-input">-->
+                                    <div class="list-block inset">
+                                        <ul style="padding-left: 0;">
+                                            <li>
+                                                <a href="#" class="item-link smart-select" data-open-in="popup">
+                                                    <select name="bank">
+                                                       {volist name="banks" id="vo"}
+                                                            <option value="{$vo.id}">{$vo.bank}</option>
+                                                        {/volist}
+                                                    </select>
+                                                    <div class="item-inner">
+                                                        <div class="item-title" style="display: none;">所属银行</div>
+                                                        <div class="item-after" style="max-width: 100%;"></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">
+                                开户行地址
+                            </div>
+                            <div class="item-input">
+                                <input type="text" name="bankaddress" placeholder="请输入要修改的开户行地址">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">
+                                交易密码
+                            </div>
+                            <div class="item-input">
+                                <input type="password" name="yjpwd" placeholder="请输入您的交易密码">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="content-block">
+                            <button type="submit" class="button button-fill bg-lightblue">确定修改</button>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        <div class="row" style="height: 50px;"></div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

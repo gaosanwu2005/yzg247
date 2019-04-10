@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {include file="common/meta" /}
+
+        <style type="text/css">
+            body {
+                color:#999;
+                background:url('{$background}');
+                background-size:cover;
+            }
+            a {
+                color:#fff;
+            }
+            .login-panel{margin-top:150px;}
+            .login-screen {
+                max-width:400px;
+                padding:0;
+                margin:100px auto 0 auto;
+
+            }
+            .login-screen .well {
+                border-radius: 3px;
+                -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                background: rgba(255,255,255, 0.2);
+            }
+            .login-screen .copyright {
+                text-align: center;
+            }
+            @media(max-width:767px) {
+                .login-screen {
+                    padding:0 20px;
+                }
+            }
+            .profile-img-card {
+                width: 100px;
+                height: 100px;
+                margin: 10px auto;
+                display: block;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+            }
+            .profile-name-card {
+                text-align: center;
+            }
+
+            #login-form {
+                margin-top:20px;
+            }
+            #login-form .input-group {
+                margin-bottom:15px;
+            }
+
+            body {
+                margin: 50px 0;
+                text-align: center;
+            }
+            .inp {
+                border: 1px solid gray;
+                padding: 0 10px;
+                width: 200px;
+                height: 30px;
+                font-size: 18px;
+            }
+
+            #embed-captcha {
+                width: 100% !important;
+                margin: 0 auto;
+            }
+            .show {
+                display: block;
+            }
+            .hide {
+                display: none;
+            }
+            #notice {
+                color: red;
+            }
+
+            .geetest_holder.geetest_wind {
+                position: relative;
+                width: 100% !important;
+                min-width: 260px;
+                height: 44px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="login-wrapper">
+                <div class="login-screen">
+                    <div class="well">
+                        <div class="login-form">
+                            <img id="profile-img" class="profile-img-card" src="__CDN__/assets/img/avatar.png" />
+                            <p id="profile-name" class="profile-name-card"></p>
+
+                            <form action="" method="post" id="login-form">
+                                <div id="errtips" class="hide"></div>
+                                {:token()}
+                                <div class="input-group">
+                                    <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                                    <input type="text" class="form-control" id="pd-form-username" placeholder="{:__('Username')}" name="username" autocomplete="off" value="" data-rule="{:__('Username')}:required" />
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                                    <input type="password" class="form-control" id="pd-form-password" placeholder="{:__('Password')}" name="password" autocomplete="off" value="" data-rule="{:__('Password')}:required;password" />
+                                </div>
+                                {if $config.fastadmin.login_captcha}
+                                <!--<div class="input-group">-->
+                                    <!--<div class="input-group-addon"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></div>-->
+                                    <!--<input type="text" name="captcha" class="form-control" placeholder="{:__('Captcha')}" data-rule="{:__('Captcha')}:required;length(4)" />-->
+                                    <!--<span class="input-group-addon" style="padding:0;border:none;cursor:pointer;">-->
+                                        <!--<img src="{:rtrim('__PUBLIC__', '/')}/captcha" width="100" height="30" onclick="this.src = '{:rtrim('__PUBLIC__', '/')}/captcha?r=' + Math.random();"/>-->
+                                    <!--</span>-->
+                                <!--</div>-->
+                                <div id="embed-captcha"></div>
+                                <p id="wait" class="show">正在加载验证码......</p>
+                                <p id="notice" class="hide">请先完成验证</p>
+                                {/if}
+                                <div class="form-group">
+                                    <label class="inline" for="keeplogin">
+                                        <input type="checkbox" name="keeplogin" id="keeplogin" value="1" />
+                                        {:__('Keep login')}
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">{:__('Sign in')}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--<p class="copyright"><a href="https://www.fastadmin.net">Powered By FastAdmin</a></p>-->
+                </div>
+            </div>
+        </div>
+        {include file="common/script" /}
+        <script src="__CDN__/assets/libs/jquery/dist/jquery.js"></script>
+        <script src="__CDN__/assets/js/gt.js"></script>
+        <script>
+            var handlerEmbed = function (captchaObj) {
+                $("#embed-submit").click(function (e) {
+                    var validate = captchaObj.getValidate();
+                    if (!validate) {
+                        $("#notice")[0].className = "show";
+                        setTimeout(function () {
+                            $("#notice")[0].className = "hide";
+                        }, 2000);
+                        e.preventDefault();
+                    }
+                });
+                // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
+                captchaObj.appendTo("#embed-captcha");
+                captchaObj.onReady(function () {
+                    $("#wait")[0].className = "hide";
+                });
+                // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+            };
+            $.ajax({
+                // 获取id，challenge，success（是否启用failback）
+                url: "/addons/geet/index/start", // 加随机数防止缓存
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    // 使用initGeetest接口
+                    // 参数1：配置参数
+                    // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+                    initGeetest({
+                        gt: data.gt,
+                        challenge: data.challenge,
+                        new_captcha: data.new_captcha,
+                        product: "embed", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                        offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                        // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+                    }, handlerEmbed);
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{volist name="news" id="vo" }
+<li>
+    <a href="{:url('index/Announce/xwmb',array('id'=>$vo['id']))}">
+        <img src="{$vo.image}" alt="">
+        <div class="newsDesc">
+            <h3>{$vo.title}</h3>
+            <div>{$vo.subtitle}</div>
+        </div>
+    </a>
+</li>
+{/volist}

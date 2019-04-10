@@ -1,0 +1,266 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_name" class="form-control" name="row[store_name]" type="text" value="{$row.store_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_name" class="form-control" name="row[user_name]" type="text" value="{$row.user_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-company_name" class="form-control" name="row[company_name]" type="text" value="{$row.company_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_address')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_address" class="form-control" name="row[store_address]" type="text" value="{$row.store_address}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_state')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="storeStateList" item="vo"}
+            <label for="row[store_state]-{$key}"><input id="row[store_state]-{$key}" name="row[store_state]" type="radio" value="{$key}" {in name="key" value="$row.store_state"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_close_info')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_close_info" class="form-control" name="row[store_close_info]" type="text" value="{$row.store_close_info}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_sort" class="form-control" name="row[store_sort]" type="number" value="{$row.store_sort}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[store_time]" type="text" value="{$row.store_time|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_end_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_end_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[store_end_time]" type="text" value="{$row.store_end_time|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Logo_image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-logo_image" class="form-control" size="50" name="row[logo_image]" type="text" value="{$row.logo_image}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-logo_image" class="btn btn-danger plupload" data-input-id="c-logo_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-logo_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-logo_image" class="btn btn-primary fachoose" data-input-id="c-logo_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-logo_image"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-logo_image"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_banner')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_banner" class="form-control" name="row[store_banner]" type="text" value="{$row.store_banner}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_avatar')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-store_avatar" class="form-control" size="50" name="row[store_avatar]" type="text" value="{$row.store_avatar}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-store_avatar" class="btn btn-danger plupload" data-input-id="c-store_avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-store_avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-store_avatar" class="btn btn-primary fachoose" data-input-id="c-store_avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-store_avatar"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-store_avatar"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Seo_keywords')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-seo_keywords" class="form-control" name="row[seo_keywords]" type="text" value="{$row.seo_keywords}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Seo_description')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-seo_description" class="form-control" name="row[seo_description]" type="text" value="{$row.seo_description}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_aliwangwang')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_aliwangwang" class="form-control" name="row[store_aliwangwang]" type="text" value="{$row.store_aliwangwang}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_qq')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_qq" class="form-control" name="row[store_qq]" type="text" value="{$row.store_qq}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_phone" class="form-control" name="row[store_phone]" type="text" value="{$row.store_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_zy')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-store_zy" class="form-control " rows="5" name="row[store_zy]" cols="50">{$row.store_zy}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_recommend')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-store_recommend" class="form-control selectpicker" name="row[store_recommend]">
+                {foreach name="storeRecommendList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.store_recommend"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_credit')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_credit" class="form-control" name="row[store_credit]" type="number" value="{$row.store_credit}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_desccredit')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_desccredit" class="form-control" step="0.01" name="row[store_desccredit]" type="number" value="{$row.store_desccredit}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_servicecredit')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_servicecredit" class="form-control" step="0.01" name="row[store_servicecredit]" type="number" value="{$row.store_servicecredit}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_deliverycredit')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_deliverycredit" class="form-control" step="0.01" name="row[store_deliverycredit]" type="number" value="{$row.store_deliverycredit}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_collect')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_collect" class="form-control" name="row[store_collect]" type="number" value="{$row.store_collect}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_slide')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-store_slide" class="form-control " rows="5" name="row[store_slide]" cols="50">{$row.store_slide}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_presales')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-store_presales" class="form-control " rows="5" name="row[store_presales]" cols="50">{$row.store_presales}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_aftersales')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-store_aftersales" class="form-control " rows="5" name="row[store_aftersales]" cols="50">{$row.store_aftersales}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_workingtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_workingtime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[store_workingtime]" type="text" value="{$row.store_workingtime|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_warning_storage')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_warning_storage" class="form-control" name="row[store_warning_storage]" type="number" value="{$row.store_warning_storage}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_free_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_free_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[store_free_time]" type="text" value="{$row.store_free_time|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ensure')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-ensure" class="form-control selectpicker" name="row[ensure]">
+                {foreach name="ensureList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.ensure"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Deposit')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deposit" class="form-control" step="0.01" name="row[deposit]" type="number" value="{$row.deposit}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Store_money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_money" class="form-control" step="0.01" name="row[store_money]" type="number" value="{$row.store_money}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Pending_money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pending_money" class="form-control" step="0.01" name="row[pending_money]" type="number" value="{$row.pending_money}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Service_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-service_phone" class="form-control" name="row[service_phone]" type="text" value="{$row.service_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Latitude')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-latitude" class="form-control" name="row[latitude]" type="text" value="{$row.latitude}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Longitude')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-longitude" class="form-control" name="row[longitude]" type="text" value="{$row.longitude}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,176 @@
+<div data-page="tradecenter" class="page myMain no-navbar">
+    <!--顶部导航-->
+    <!--<div class="navbar" style=" background-image: url({$site.banner});background-size: contain;">-->
+        <!--<div class="navbar-inner">-->
+            <!--<div class="left">-->
+                <!--&lt;!&ndash;<a href="" class="back"><i class="icon icon-back"></i></a>&ndash;&gt;-->
+                <!--<img src="{$site.logo}" style="padding:2px;border:none;width: 38px;">-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="center sliding" style="text-align: center;width: 100%;">熊猫</div>&ndash;&gt;-->
+            <!--<div class="right">-->
+                <!--<a href="{:url('Announce/index')}" class="link"><i class="iconfont icon-gonggao" style="font-size: x-large;color: black;"></i></a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--顶部导航-->
+    <div class="page-content">
+        <div class="left" style="position: absolute;padding: 18px;Z-INDEX: 9999;">
+            <a href="" class="back"><i class="icon icon-back"></i></a>
+        </div>
+        <style>
+            .swiper-slide {
+                background: #fff;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+            }
+
+            .swiper-slide span {
+                text-align: center;
+                display: block;
+                font-size: 21px;
+            }
+
+            .swiper-container {
+                height: 230px;
+                margin-top: 0;
+            }</style>
+        <div class="swiper-container swiper-vertical">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+                {volist name="site.slides" id="vo"}
+                <div class="swiper-slide"><span><img width="100%" src="{$vo}" alt=""></span></div>
+                {/volist}
+            </div>
+        </div>
+        <style>
+            /*首页八个小图标*/
+            .entry-list {
+                overflow: hidden;
+                padding-top: 10px;
+                background: #FFF;
+                padding-bottom: 10px;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: -15px;
+                z-index: 999;
+                position: inherit;
+            }
+
+            .entry-list ul {
+                width: 100%;
+                overflow: hidden;
+                margin: auto
+            }
+
+            .entry-list a {
+                display: block;
+                width: 25%;
+                overflow: hidden;
+                float: left;
+                text-align: center;
+                margin-top: 5px;
+            }
+
+            .entry-list a span {
+                height: 30px;
+                line-height: 30px;
+                color: #616161;
+                font-family: "微软雅黑";
+                font-size: 14px;
+            }
+
+            .entry-list a img {
+                display: block;
+                width: 65%;
+                margin: auto;
+            }
+
+            .entry-list a i {
+                display: block;
+                margin: auto;
+                font-size: 33px;
+                height: 50px;
+                width: 48px;
+            }
+        </style>
+        <div class="entry-list clearfix">
+            <nav>
+                <ul>
+                    <!--<li>-->
+                    <!--<a href="{:url('Business/index')}">-->
+                    <!--<i class="iconfont icon-caiwuchazhang"></i>-->
+                    <!--<span>财务中心</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <li>
+                        <a href="{:url('trade/index')}">
+                            <!--<img alt="交易中心" src="__PUBLIC__/images/1440439257667525408.png"/>-->
+                            <i class="iconfont icon-jiaoyi"></i>
+                            <span>交易中心</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url('trade/hyrg')}">
+                            <i class="iconfont icon-zhuce"></i>
+                            <span>会员认购</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url('trade/pdzz2')}">
+                            <i class="iconfont icon-weibiaoti5 color-blue"></i>
+                            <span>转出</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:myApp.alert('正在对接中……')">
+                            <i class="iconfont icon-yiyuan"></i>
+                            <span>游戏中心</span>
+                        </a>
+                    </li>
+                    <!--<li>-->
+                    <!--<a href="{:url('User/register')}">-->
+                    <!--<i class="iconfont icon-zhuce"></i>-->
+                    <!--<span>会员注册</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+
+                    <!--<li>-->
+                    <!--<a href="{:url('User/sendlink')}">-->
+                    <!--<i class="iconfont icon-huodongtuiguang"></i>-->
+                    <!--<span>推广链接</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="{:url('User/numteam')}">-->
+                    <!--<i class="iconfont icon-tuandui"></i>-->
+                    <!--<span>我的社区</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="{:url('User/mills')}">-->
+                    <!--<i class="iconfont icon-tuandui"></i>-->
+                    <!--<span>我的矿机</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="{:url('Info/findcoin')}">-->
+                    <!--<i class="iconfont icon-yiyuan1"></i>-->
+                    <!--<span>医疗币查询</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="javascript:myApp.alert('正在对接中……')">-->
+                    <!--<i class="iconfont icon-yiyuan"></i>-->
+                    <!--<span>医院查询</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

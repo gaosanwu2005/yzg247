@@ -1,0 +1,234 @@
+<div data-page="myaccount2" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner" style="background: #fff">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">充币/提币</div>
+            <!--<div class="right">-->
+                <!--<a href="{:url('Edetail/btc_charge')}?type={$type}" class="link" style="font-size: 13px">交易记录</a>-->
+            <!--</div>-->
+            <div class="subnavbar">
+                <div class="buttons-row">
+                    <a href="#tab1" class="button tab-link active">提币</a>
+                    <a href="#tab2" class="button tab-link ">充币</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        #form-group,#form-group1{
+            padding: 10px;
+            background: #fff;
+        }
+        .input-group{
+            position: relative;
+        }
+        .input-group label{
+            font-size: 13px;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+        }
+        .input-group input{
+            display: block;
+            height: 30px;
+            width: 100%;
+            font-size: 14px;
+            padding: 0;
+            border: none;
+            font-family: "Microsoft YaHei", 微软雅黑;
+            border-bottom: 1px solid #ddd;
+        }
+        .input-group select{
+            background: #f5f5f5;
+            height: 35px;
+            width: 100%;
+            font-size: 14px;
+            border: none;
+            padding:0 0 0 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            font-family: "Microsoft YaHei", 微软雅黑;
+        }
+
+        .input-group span{
+            position: absolute;
+            top:48px;
+            right: 5px;
+            color: #999;
+        }
+        .input-group span.sjx {
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 17px;
+            right: 10px;
+        }
+        .input-group span b{
+            color: #333;
+        }
+        .submit-group{
+            margin-top: 25px;
+        }
+        .submit-group input{
+            width: 100%;
+            background: #258be0;
+            height: 40px;
+            border-radius: 5px;
+            color: #fff;
+            font-family: "Microsoft YaHei", 微软雅黑;
+            font-size: 16px;
+        }
+        .tip{
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+        .tipBox{
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-indent: 2em;
+            padding: 5px;
+            line-height: 20px;
+            margin: 20px auto;
+            color: #999;
+
+        }
+        .popover-angle:after{
+            background: transparent;
+        }
+    </style>
+    <div class="page-content">
+
+        <div class="tabs" style="padding-top: 44px">
+            <div id="tab1" class="tab active">
+                <h3 style="padding: 10px;background: #fff;line-height: 20px;font-size: 17px;font-family: 'Microsoft YaHei'">提币 {$site['walltype'][$type]}  <a style="font-size: 13px;float: right;font-weight: normal" href="{:url('Edetail/btc_tixian')}?type={$type}" class="link" >交易记录</a></h3>
+
+                <form id="form-group" action="{:url('api/trade/lmc2etc')}" method="post" class="ajax-submit">
+                    <input type="hidden" name="type" value="{$type}">
+                    <div class="input-group">
+                        <label>数量</label>
+                        <input type="text" value="" name="number" id="number" placeholder="请输入您要交易的数量" onchange="MY.fee(this,{$site.service},'#fee','#received','#wall','#up')">
+                        <span>
+
+                   {$site['walltype'][$type]} | <a onclick="MY.all('#wall','#number',{$site.service})"><b>全部</b></a>
+                    </span>
+                    </div>
+
+                    <div class="tip">可用 <span id="wall">{$hyrs[$type]}</span>{$site['walltype'][$type]}</div>
+                    <div class="input-group">
+                        <label>提币地址</label>
+                        <input type="text" value="{$hyrs['itoken']}" name="userwallet" placeholder="输入或长按粘贴地址">
+                    </div>
+                    <div class="input-group">
+                        <label>手续费</label>
+                        <input type="text" value="0.0000" id="fee" placeholder="" readonly="readonly">
+                        <span>
+                    <b>{$site['walltype'][$type]}</b>
+                </span>
+                    </div>
+                    <div class="input-group">
+                        <label>手机号</label>
+                        <input type="text" id="tbphone" name="phone" value="{$hyrs.mobile}" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>验证码</label>
+                        <input type="text" value="" name="captcha">
+                        <input class="item-after yzm" style="position: absolute;top: 37px; right: 5px;color: #999;width: auto;border-bottom: none;" type="button"  onclick="yzm($$('#tbphone').val(),'tb',0)" value="获取验证码"/>
+                        <!--<span  class="item-after " onclick="yzm($$('#tbphone').val(),'tb',0)">发送动态码</span>-->
+                        <!--<span  class="item-after open-popover" data-popover=".popover-about">发送动态码</span>-->
+                    </div>
+                    <p style="color: #b6bec3;font-size: 15px">交易成功后到账数量 <span id="received" style="float: right;color: #333">0.0000 {$site['walltype'][$type]}</span></p>
+
+                    <div class="tipBox">
+                        温馨提示：为保证双方权益，每日9:00 - 11:00会员可进行提币操作，30分钟内完成。
+                        <!--提示语：LMC兑换ETH及其他主流币，要求10的整数倍起兑（算力达到10G）扣{$site.service}%LMC。时间限制（10 : 00 : 00）-->
+                    </div>
+
+
+                    <div class="submit-group">
+                        <button type="submit" id="up" class="button button-fill">确认交易 </button>
+                    </div>
+
+                </form> 
+
+            </div>
+
+            <div id="tab2" class="tab">
+                <h3 style="padding: 10px;background: #fff;line-height: 20px;font-size: 17px;font-family: 'Microsoft YaHei'">充币 {$site['walltype'][$type]}  <a style="font-size: 13px;float: right;font-weight: normal" href="{:url('Edetail/btc_charge')}?type={$type}" class="link" >交易记录</a></h3>
+
+                <form id="form-group1" action="{:url('api/trade/etc2lmc')}" method="post" class="ajax-submit">
+                    <input type="hidden" name="type" value="{$type}">
+
+                    <div class="wallet"style="background: #fff;padding: 20px;text-align: center">
+                        <div>
+                            <img src="{$site.ptoken}" alt="" style="width: 130px;height: 130px;margin: 0px auto;border-radius: 5px;border: 1px solid #ddd;">
+                            <p style="font-size: 15px;line-height: 30px">充币地址</p>
+                            <input type="text" style="border: none;text-align: center;width: 100%;font-size:15px;line-height: 30px" value="{$site.gfwallet}">
+                            <div class="copyinput" style="
+    width: 73%;
+    left: 14%;
+    margin: 15px auto;
+    text-align: center;
+">
+                                <a class="button button-round button-fill" onclick="MY.copywww('{$site.gfwallet}')" >复制</a>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="type" value="{$type}">
+                    <div class="input-group">
+                        <label>数量</label>
+                        <input type="text" value="" name="number" id="number1" placeholder="请输入您要交易的数量" onchange="MY.fee(this,{$site.chargefee},'#fee1','#received1','#wall1','#up1')">
+                        <span> <b>{$site['walltype'][$type]}</b></span>
+                    </div>
+                    <div class="input-group">
+                        <label>手续费</label>
+                        <input type="text" value="0.0000" id="fee1" placeholder="" readonly="readonly">
+                        <span>
+                    <b>{$site['walltype'][$type]}</b>
+                     </span>
+                    </div>
+                    <span id="wall1" style="display: none">1000000000000</span>
+                    <div class="input-group">
+                        <label>手机号</label>
+                        <input type="text" id="cbphone" name="phone" value="{$hyrs.mobile}" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>验证码</label>
+                        <input type="text" value="" name="captcha">
+                        <input class="item-after yzm" style="position: absolute;top: 37px; right: 5px;color: #999;width: auto;border-bottom: none;" type="button"  onclick="yzm($$('#cbphone').val(),'tb',0)" value="获取验证码"/>
+                        <!--<span  class="item-after open-popover" data-popover=".popover-about">发送动态码</span>-->
+                    </div>
+                    <p style="color: #b6bec3;font-size: 15px">交易成功后到账数量 <span id="received1" style="float: right;color: #333">0.0000 {$site['walltype'][$type]}</span></p>
+                    <div class="input-group">
+                        <div class="filebox">
+                            <input type="file" name="payimage" onchange="MY.showimg(this,'payimg')" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 111;opacity: 0;">
+                            <img id="payimg" src="/assets/img/usercenter/20181129105540.png" style="width: 100%;">
+                        </div>
+                        <span class="sjx"></span>
+                    </div>
+
+                    <div class="tipBox">
+                        温馨提示：为保证双方权益，每日{$site.tgopen} - {$site.tgclose}会员可进行充币操作，30分钟内完成。
+                        <!--提示语：LMC兑换ETH及其他主流币，要求10的整数倍起兑（算力达到10G）扣{$site.service}%LMC。时间限制（10 : 00 : 00）-->
+                    </div>
+                    <div class="submit-group">
+                        <button type="submit" id="up1" class="button button-fill">确认交易 </button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

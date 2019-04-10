@@ -1,0 +1,47 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">联系人</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+    </div>
+</div>
+<div class="pages navbar-through">
+    <div data-page="contacts" class="page">
+        <div class="page-content contacts-content">
+            <div class="list-block contacts-block  media-list">
+                <div class="list-group">
+                    <ul>
+                        <!--<li class="list-group-title">A</li>-->
+                        {volist name="users" id="vo" empty="暂时没有数据" }
+                        <li>
+                            {notempty name="vo.avatar"}
+                            <a href="{:url('chart/index')}?img={$vo.avatar}&id={$vo.id}&username={$vo.username}" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <img src="{$vo['avatar']}" width="35" style="border-radius: 50%;">
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">{$vo.username}</div>
+                                    </div>
+                                </div>
+                            </a>
+                            {else/}
+                            <a href="{:url('chart/index')}?img={$site.logo}&id={$vo.id}&username={$vo.username}" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <img src="{$site.logo}" width="35" style="border-radius: 50%;">
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">{$vo.username}</div>
+                                    </div>
+                                </div>
+                            </a>
+                            {/notempty}
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

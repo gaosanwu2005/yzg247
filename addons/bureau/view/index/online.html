@@ -1,0 +1,279 @@
+<div data-page="xuelitisheng" class="page form">
+
+    <style>
+
+        .navbar {
+
+            color: #fff;
+
+            background: -webkit-linear-gradient(left, #3e77f2 , #43aff6);
+
+            background: -o-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: -moz-linear-gradient(right, #3e77f2, #43aff6);
+
+            background: linear-gradient(to right, #3e77f2 , #43aff6);
+
+        }
+
+        .redcheck {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ccc;
+            background: #FCFCFC;
+            position: relative;
+            top: 4px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+        .redchecked:before {
+            content: "\2714";
+            font-family: iconfont;
+            color: #ff3333;
+            font-size: 20px;
+            position: absolute;
+            top: -5px;
+            left: 0px;
+        }
+
+    </style>
+
+    <!--顶部导航-->
+
+    <div class="navbar">
+
+        <div class="navbar-inner">
+
+            <div class="left">
+
+                <a href="" class="back">
+
+                    <img src="/assets/img/icon-back.png" alt="">
+
+                </a>
+
+            </div>
+
+            <div class="center sliding" style="text-align: center;width: 100%;">在线报名</div>
+
+        </div>
+
+    </div>
+
+    <!--顶部导航-->
+
+    <div class="page-content" style="background: #fff">
+
+        <!--报名流程-->
+
+        <div class="bmlc">
+
+            <div class="bmlc-title">在线报名</div>
+
+        </div>
+
+
+
+        <!---->
+
+        <div class="zxbm">
+
+            <form action="{:addon_url('bureau/ajax/sendinfo')}" method="post" class="store-data ajax-submit form-input">
+
+                <div class="input-group">
+
+                    <label>考生姓名：</label>
+
+                    <input type="text" name='realname' value="{$info.realname}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>性别：</label>
+
+                    <select name='sex'>
+
+                        <option value="男" {eq name="info.sex" value="男"}selected = "selected"{/eq}>男</option>
+
+                        <option value="女" {eq name="info.sex" value="女"}selected = "selected"{/eq}>女</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>民族：</label>
+
+                    <input type="text" name='national' value="{$info.national}">
+
+                </div>
+                {if $bureau_type eq 2 || $bureau_type eq 3}
+                <div class="input-group">
+
+                    <label>政治面貌：</label>
+
+                    <input type="text" name='politics' value="{$info.politics}">
+
+                </div>
+                {/if}
+
+                <div class="input-group">
+
+                    <label>证件类型：</label>
+
+                    <select name='type'>
+
+                        <option value="居民身份证" {eq name="info.idtype" value="1"}selected = "selected"{/eq}>居民身份证</option>
+
+                        <option value="护照" {eq name="info.idtype" value="2"}selected = "selected"{/eq}>护照</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>证件号码：</label>
+
+                    <input type="text" name='idcard' value="{$info.idcard}" id="idcard" onblur="MY.extractionBirthday(this,'birthday');">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>出生日期：</label>
+
+                    <input type="text" name='birthday' value="{$info.birthday}" id="birthday">
+
+                </div>
+
+                {if $bureau_type eq 2 || $bureau_type eq 3}
+                <div class="input-group">
+
+                    <label>文化程度：</label>
+
+                    <input type="text" name='education' value="{$info.education}">
+
+                </div>
+                {/if}
+
+                <div class="input-group">
+
+                    <label>电子邮箱：</label>
+
+                    <input type="text" name='email' value="{$info.email}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>备用电子邮箱：</label>
+
+                    <input type="text" name='email2' value="{$info.email2}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>户口所在地：</label>
+
+                    <input type="text" name='residence' value="{$info.residence}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>复习资料邮寄地址：</label>
+
+                    <input type="text" name='address' value="{$info.address}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>手机号码：</label>
+
+                    <input type="text" name='mobile' value="{$info.mobile}">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>备用号码：</label>
+
+                    <input type="text" name='mobile2' value="{$info.mobile2}">
+
+                </div>
+
+                <div class="input-filegroup">
+
+                    <label>本人证件照：<span>(必须照相馆拍照，2寸白底高清电子版)</span></label>
+
+                    <div class="file-box">
+
+                        <input  type="file" name="headimg"  onchange="MY.showimg(this,'headimg')" accept="image/*" capture="camera">
+
+
+
+                        <img {notempty name="info.headimg"}src="{$info.headimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="headimg">
+
+                    </div>
+
+                </div>
+
+                <div class="input-filegroup">
+
+                    <label>本人身份证：<span>(必须扫描件)</span></label>
+
+                    <div class="file-box">
+
+                        <input type="file" name="idcardimg" onchange="MY.showimg(this,'idcardimg')" accept="image/*" capture="camera">
+
+                        <img {notempty name="info.idcardimg"}src="{$info.idcardimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="idcardimg">
+
+                    </div>
+
+                </div>
+
+                {if $bureau_type eq 2 || $bureau_type eq 3}
+
+                <div class="input-filegroup">
+
+                    <label>本人学历照：<span>（拍照或扫描）</span></label>
+
+                    <div class="file-box">
+
+                        <input type="file" name="graduationimg" onchange="MY.showimg(this,'graduationimg')" accept="image/*" capture="camera">
+
+                        <img {notempty name="info.graduationimg"}src="{$info.graduationimg}"{else/}src="/assets/img/school-img/self-zjz.png"{/notempty} alt="" id="graduationimg">
+
+                    </div>
+
+                </div>
+                {/if}
+
+                <input type="hidden" name='bureau_type' value="{$bureau_type}">
+
+                <div class="tip">
+                    <label for="is_checked" class="redcheck redchecked"></label>
+                    <input type="checkbox" name="read" checked="true" id="read" onchange="MY.showiconfont(this)">
+                    除了本报名网站发送的提示邮件（短信、电话）以外，我同意接收来自报名和考试组织方（包括其采用的第三方服务平台）的关于考试相关活动的邮件、短信或电话通知
+                </div>
+
+                <div class="input-submit">
+
+                    <input type="submit" value="确认保存" id="nextsub">
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+

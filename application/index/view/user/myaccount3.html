@@ -1,0 +1,158 @@
+<div data-page="myaccount3" class="page finance ">
+    <style>
+
+        /*总资产*/
+        .total-assets{
+            padding: 20px 0;
+            text-align: center;
+            background: url(/assets/img/buycenter-bg.png) no-repeat;
+            background-size: 100% 100%;
+            /*background: #007aff;*/
+            letter-spacing: 1px;
+            color: #FFF;
+        }
+        .total-assets p{
+            line-height: 30px;
+            font-size: 15px;
+            color: #fff;
+        }
+        .total-assets b{
+            font-weight: normal;
+            font-size: 12px;
+        }
+        .accountList ul{
+            padding: 10px;
+        }
+        .accountList ul li{
+            background: #fff;
+            border-radius: 5px;
+            border: 1px solid #DDd;
+            margin-bottom: 10px;
+        }
+        .accountList ul li a{
+            display: block;
+            width: 100%;
+            padding: 5px 0;
+        }
+        .accountList ul li a .coinTitle{
+            padding: 0 10px;
+            color: #007aff;
+            font-weight: 600;
+            line-height: 30px;
+        }
+        .accountList ul li a .coinTitle i{
+            float: right;
+            font-size: 8px;
+            font-weight: normal;
+            color: #ab3535 !important;
+            position: relative;
+            top: 5px;
+            width: 9px;
+            height: 15px;
+        }
+        .accountList ul li a>.num{
+            overflow: hidden;
+        }
+        .accountList ul li a>.num>div{
+            float: left;
+            width: 50%;
+            text-align: left;
+            padding:0 10px;
+            box-sizing: border-box;
+        }
+
+        .accountList ul li a>.num>div:nth-of-type(2){
+            text-align: right;
+        }
+        .accountList ul li a>.num>div span{
+            color: #999;
+            font-size: 12px;
+        }
+        .accountList ul li a>.num>div p{
+            color: #000;
+            font-size: 15px;
+            line-height: 30px;
+        }
+        .tip{
+            padding: 0 15px;
+            line-height: 25px;
+            font-size: 12px;
+            background: #fff;
+            padding-bottom: 20px;
+        }
+        .tip p{
+            padding-left: 15px;
+            color: #919090;
+        }
+        .tip p img{
+            display: inline-block;
+            height: 13px;
+            margin-right: 4px;
+        }
+    </style>
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">授信资产</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+
+
+        <div class="accountList">
+            <ul>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=wall7" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['wall7']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['wall7']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freeze7']}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Edetail/bonus')}?type=v1" class="item-link item-content">
+                        <p class="coinTitle">{$site['walltype']['v1']}<i class="icon icon-forward" style=""></i></p>
+                        <div class="num">
+                            <div>
+                                <span>可用</span>
+                                <p>{$hyrs['v1']}</p>
+                            </div>
+                            <div>
+                                <span>冻结</span>
+                                <p>{$hyrs['freezev1']}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li> 
+
+            </ul>
+        </div>
+        <div class="tip">
+            <p style="padding-left: 0px">
+                <img src="/assets/img/trade/icon-tip.png" alt="">温馨提示：
+            </p>
+            <p>1.授信额度可售出LMC数量。</p>
+            <p>2.授信额度账户不可超过8000枚。</p>
+            <p>3.平台定期对会员进行综合评估，调整授信额度。</p>
+            <p>4.买1可获得1.7，累加到授信额度。</p>
+            <p>5.注册实名认证成为志愿者可获得10额度，下级购买矿机，推荐人奖励10%授信额度</p>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

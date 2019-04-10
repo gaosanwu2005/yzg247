@@ -1,0 +1,283 @@
+<hard><meta http-equiv="refresh" content="5;url=http://222.wtl-cc.com/index/user/coinexchange.html"></hard>
+<div data-page="coinexchange" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner" style="background: #fff">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">币币闪兑</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .coinNum ul{
+            overflow: hidden;
+            /*background: #4389ec;*/
+            background: #fff;
+            padding: 10px 0;
+            margin-top: 5px;
+        }
+        .coinNum ul li{
+            float: left;
+            width: 33.33%;
+            line-height: 25px;
+            text-align: center;
+        }
+        .coinNum ul li .coinName{
+            font-size: 15px;
+            line-height: 25px;
+            color: #333;
+        }
+        .coinNum ul li .num{
+            color: #fff;
+        }
+        .coinNum ul li .num p{
+            font-size: 18px;
+            color: #333;
+        }
+        .coinNum ul li .num span{
+            font-size: 12px;
+        }
+        .coinNum ul li .cny{
+            font-size: 13px;
+            color: #ada9a6;
+        }
+        .coinList .p-title{
+            overflow:hidden;
+            height: 50px;
+            line-height: 50px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+        }
+        .coinList .p-title span{
+            float: left;
+            width: 33.33%;
+            font-size: 13px;
+            color: #999;
+            text-align: center;
+        }
+        .coinList ul{
+            padding: 0 10px;
+            background: #faf7f4;
+        }
+        .coinList ul li{
+            overflow: hidden;
+            border-bottom: 1px solid #eaeaea;
+            padding: 12px 0;
+        }
+        .coinList ul li>a{
+            display: block;
+            width: 100%;
+        }
+        .coinList ul li>a>div{
+            float: left;
+            width: 32.5%;
+            text-align:center;
+            color: #2e4354;
+            line-height: 25px;
+        }
+        .coinList ul li>a>div:nth-of-type(1){
+            width: 35%;
+        }
+        /*.coinList ul li>a>div:nth-of-type(1){*/
+            /*width: 10%;*/
+        /*}*/
+        .coinList ul li>a>div:nth-of-type(1) img{
+            margin-top: 10px;
+            height: 30px;
+        }
+        .coinList ul li>a>div:nth-of-type(2){
+            padding: 12.5px 0;
+        }
+        .coinList ul li>a>div:nth-of-type(3){
+            padding: 19px 0;
+        }
+        .coinList ul li>a>div h3{
+            font-size: 15px;
+            line-height: 25px;
+            font-weight: 600;
+        }
+        .coinList ul li>a>div span{
+            color: #ada9a6;
+        }
+        .coinList ul li>a>div p{
+            color: #ada9a6;
+            font-size: 13px;
+            line-height: 25px;
+        }
+        .coinList ul li>a>div em{
+            background: #41ba56;
+            color: #fff;
+            display: inline-block;
+            width: 90px;
+            border-radius: 3px;
+            line-height: 35px;
+        }
+    </style>
+    <div class="page-content">
+
+        <div class="coinNum">
+            <ul>
+                <li>
+                    <p class="coinName">BTC/USDT</p>
+                    <div class="num" style="color: red">
+
+                        <p {if $btc.changePercentage lt 0}style="color: green;"{else}style="color: red;"{/if}>{$btc.usdt}</p>
+                        <span {if $btc.changePercentage lt 0}style="color: green;"{/if}>{if $btc.changePercentage gt 0}+{/if}{$btc.changePercentage}%</span>
+                    </div>
+                    <p class="cny">≈ {$btc.price}CNY</p>
+                </li>
+                <li>
+                    <p class="coinName">ETH/USDT</p>
+                    <div class="num" style="color: red">
+                        <p {if $eth.changePercentage lt 0}style="color: green;"{else}style="color: red;"{/if}>{$eth.usdt}</p>
+                        <span {if $eth.changePercentage lt 0}style="color: green;"{/if}>{if $eth.changePercentage gt 0}+{/if}{$eth.changePercentage}%</span>
+                    </div>
+                    <p class="cny">≈ {$eth.price}CNY</p>
+                </li>
+                <li>
+                    <p class="coinName">LMC/USDT</p>
+                    <div class="num" style="color: red">
+                        <p {if $lmc.changePercentage lt 0}style="color: green;"{else}style="color: red;"{/if}>{$lmc.usdt}</p>
+                        <span {if $lmc.changePercentage lt 0}style="color: green;"{/if}>{$lmc.changePercentage}%</span>
+                    </div>
+                    <p class="cny">≈ {$lmc.price}CNY</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="coinList">
+            <p class="p-title">
+                <span>名称</span>
+                <span>最新价</span>
+                <span>涨跌幅</span>
+            </p>
+            <ul>
+
+                <li>
+                    <a href="{:url('user/coinexchange2',array('type'=>'wall3'))}">
+                        <!--<div>-->
+                            <!--<img src="/assets/img/coin-btc.png" alt="">-->
+                        <!--</div>-->
+                        <div>
+                            <h3>BTC <span>/LMC</span></h3>
+                            <p>24H量</p>
+                            <p>{$btc.amount}</p>
+                        </div>
+                        <div>
+                            <h3>{$btc.num}</h3>
+                            <p>￥{$btc.price}</p>
+                        </div>
+                        <div>
+                            <em {if $btc.changePercentage gt 0}style="background: red;with:100px;"{/if}>{if $btc.changePercentage gt 0}+{/if}{$btc.changePercentage}%</em>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/coinexchange2',array('type'=>'wall4'))}">
+                        <!--<div>-->
+                            <!--<img src="/assets/img/coin-eth.png" alt="">-->
+                        <!--</div>-->
+                        <div>
+                            <h3>ETH <span>/LMC</span></h3>
+                            <p>24H量</p>
+                            <p>{$eth.amount}</p>
+                        </div>
+                        <div>
+                            <h3>{$eth.num}</h3>
+                            <p>￥{$eth.price}</p>
+                        </div>
+                        <div>
+                            <em {if $eth.changePercentage gt 0}style="background: red;with:100px"{/if}>{if $eth.changePercentage gt 0}+{/if}{$eth.changePercentage}%</em>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/coinexchange2',array('type'=>'wall5'))}">
+                        <!--<div>-->
+                            <!--<img src="/assets/img/coin-ltc.png" alt="">-->
+                        <!--</div>-->
+                        <div>
+                            <h3>LTC <span>/LMC</span></h3>
+                            <p>24H量</p>
+                            <p>{$ltc.amount}</p>
+                        </div>
+                        <div>
+                            <h3>{$ltc.num}</h3>
+                            <p>￥{$ltc.price}</p>
+                        </div>
+                        <div>
+                            <em {if $ltc.changePercentage gt 0}style="background: red;with:100px"{/if}>{if $ltc.changePercentage gt 0}+{/if}{$ltc.changePercentage}%</em>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('user/coinexchange2',array('type'=>'wall6'))}">
+                        <!--<div>-->
+                            <!--<img src="/assets/img/coin-eos.png" alt="">-->
+                        <!--</div>-->
+                        <div>
+                            <h3>EOS <span>/LMC</span></h3>
+                            <p>24H量</p>
+                            <p>{$eos.amount}</p>
+                        </div>
+                        <div>
+                            <h3>{$eos.num}</h3>
+                            <p>￥{$eos.price}</p>
+                        </div>
+                        <div>
+                            <em {if $eos.changePercentage gt 0}style="background: red;with:100px"{/if}>{if $eos.changePercentage gt 0}+{/if}{$eos.changePercentage}%</em>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <!--<div>-->
+                            <!--<img src="/assets/img/coin-eth.png" alt="">-->
+                        <!--</div>-->
+                        <div>
+                            <h3>ETC <span>/LMC</span></h3>
+                            <p>24H量 </p>
+                            <p>{$etc.amount}</p>
+                        </div>
+                        <div>
+                            <h3>{$etc.num}</h3>
+                            <p>￥{$etc.price}</p>
+                        </div>
+                        <div>
+                            <em >对接中</em>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <!--<div>-->
+                            <!--<img src="/assets/img/coin-xrp.png" alt="">-->
+                        <!--</div>-->
+                        <div>
+                            <h3>XRP <span>/LMC</span></h3>
+                            <p>24H量</p>
+                            <p>{$xrp.amount}</p>
+                        </div>
+                        <div>
+                            <h3>{$xrp.num}</h3>
+                            <p>￥{$xrp.price}</p>
+                        </div>
+                        <div>
+                            <em >对接中</em>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+</div>

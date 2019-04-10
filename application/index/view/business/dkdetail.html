@@ -1,0 +1,100 @@
+<div data-page="dkdetail" class="page">
+	<!--顶部导航-->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="" class="back"><i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding" style="text-align: center;width: 100%;">虚拟币订单详情</div>
+			<div class="right">
+				<a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--顶部导航-->
+	<div class="page-content ddxq">
+		<div class="list-block inset">
+			<ul>
+				<li class=" item-content">
+					<div class="item-inner">
+						<div class="item-title">买家会员账号：</div>
+						<div class="item-after">{$rsuser['username']}</div>
+					</div>
+				</li>
+				<li class=" item-content">
+					<div class="item-inner">
+						<div class="item-title">买家真实姓名：</div>
+						<div class="item-after">{$rsuser['realname']}</div>
+					</div>
+				</li>
+				<li class=" item-content">
+					<div class="item-inner">
+						<div class="item-title">买家手机号：</div>
+						<div class="item-after">{$rsuser['mobile']}</div>
+					</div>
+				</li>
+			</ul>
+			<div class="row" style="height: 10px;"></div>
+			<ul>
+				<li class=" item-content">
+					<div class="item-inner">
+						<div class="item-title">本单匹配金额：</div>
+						<div class="item-after">￥{$rspp['total']*$site['usd2cny']}</div>
+					</div>
+				</li>
+				<li class=" item-content">
+					<div class="item-inner">
+						<div class="item-title">本单匹配时间：</div>
+						<div class="item-after">{$rspp['addtime']|date="Y-m-d H:i:s",###}</div>
+					</div>
+				</li>
+				<!--<li class=" item-content">-->
+					<!--<div class="item-inner">-->
+						<!--<div class="item-title">推荐人帐号：</div>-->
+						<!--<div class="item-after">{$rsuser['tjuser']}({$tjuser['mobile']})</div>-->
+					<!--</div>-->
+				<!--</li>-->
+				<li class=" item-content">
+					<div class="item-inner">
+						<div class="item-title">状态</div>
+						<div class="item-after">
+							{$rspp['status_text']}
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="row" style="height: 10px;"></div>
+
+				<ul>
+					{eq name="rspp.status" value="1"}
+					<li>
+						<a href="{:url('Business/payinfo')}?ppid={$rspp['ppid']}" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">打款凭证</div>
+								<div class="item-after"><img src="{$rspp['pimg']}" alt="打款凭证" style="height: 30px;"></div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:myApp.confirm('您确定要确认收款吗?',function(){MY.ajax('{:url('api/business/confirm')}',{ppid:{$rspp['ppid']}})})" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">确认收款</div>
+								<div class="item-after">
+									点击立即收款
+								</div>
+							</div>
+						</a>
+					</li>
+					{/eq}
+				</ul>
+
+		</div>
+
+
+		<div class="row" style="height: 50px;"></div>
+		
+	</div>
+	<!--底部开始-->
+	{include file="common/footnav"/}
+	<!--底部结束-->
+</div>

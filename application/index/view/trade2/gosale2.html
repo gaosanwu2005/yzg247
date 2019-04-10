@@ -1,0 +1,105 @@
+<div data-page="gosale" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">获得帮助</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content  infinite-scroll infinite-scroll-bottom" style="background:  white;">
+        <div style="width: 90%;margin-left: auto;margin-right: auto;margin-top: 24px;margin-bottom: -35px;">
+            <div class="buttons-row">
+                <a href="#tab2" class="button tab-link active">{$site['walltype']['wall3']}提现</a>
+                <a href="#tab3" class="button tab-link">{$site['walltype']['wall6']}提现</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div id="tab2" class="tab active">
+                    <form action="{:url('api/trade2/gosale')}" method="post" class="ajax-submit">
+                        <div class="content-block-title" style="margin-top: 57px;">{$site['walltype']['wall3']}余额: {$hyrs['wall3'] ? $hyrs['wall3'] : 0}</div>
+                        <div class="list-block ">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">交易金额</div>
+                                            <div class="item-input">
+                                                <input type="text" name="price" placeholder="请输入交易金额">
+                                                {:token()}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+
+                                    <input type="hidden" name="ptype" value="wall3">
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">交易密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password2" placeholder="请输入交易密码">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="submit" class="button button-fill button-round">转出</button>
+                        </div>
+                    </form>
+            </div>
+            <div id="tab3" class="tab">
+                    <form action="{:url('api/trade2/gosale')}" method="post" class="ajax-submit">
+                        <div class="content-block-title" style="margin-top: 57px;">{$site['walltype']['wall6']}余额: {$hyrs['wall6'] ? $hyrs['wall6'] : 0}</div>
+                        <div class="list-block ">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">交易金额</div>
+                                            <div class="item-input">
+                                                <input type="text" name="price" placeholder="请输入交易金额">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <input type="hidden" name="ptype" value="wall6">
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">交易密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password2" placeholder="请输入交易密码">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="submit" class="button button-fill button-round">转出</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

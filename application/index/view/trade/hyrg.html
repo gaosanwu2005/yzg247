@@ -1,0 +1,550 @@
+<div data-page="hyrg" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">购买令牌</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+
+    <style>
+        .list-block{
+            margin: 0;
+        }
+        /*动态*/
+        .gg{
+            background: rgba(0,0,0,.2);
+            height: 30px;
+            line-height: 30px;
+            padding: 0 15px;
+            margin: 0px auto;
+        }
+        .gg a{
+            font-size: 13px;
+            color: #fff;
+            line-height: 30px;
+            height: 30px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .gg img{
+            height: 14px;
+            display: inline-block;
+            position: absolute;
+            top:8px;
+            left: 0;
+            margin-right: 0px;
+        }
+        .gg marquee{
+            line-height: 30px;
+        }
+        .tlf{
+            padding:  15px;
+            line-height: 30px;
+            background: #Fff;
+        }
+        .tlf .timer{
+            padding: 0 10px 0 0;
+            background: #e0dddd;
+            border-radius: 30px;
+            line-height: 30px;
+            height: 30px;
+        }
+        .tlf .timer .wenzi{
+            display: inline-block;
+            padding: 0 45px 0 10px;
+            border-radius: 30px 0 0 30px;
+            background: #007aff;
+            font-size: 15px;
+            color: #fff;
+
+        }
+        .tlf .timer .time{
+            float: right;
+        }
+         .tip{
+             padding: 0 15px;
+            line-height: 25px;
+            font-size: 12px;
+             background: #fff;
+             padding-bottom: 20px;
+        }
+        .tip p{
+            padding-left: 15px;
+            color: #919090;
+        }
+        .tip p img{
+            display: inline-block;
+            height: 13px;
+            margin-right: 4px;
+        }
+        .tlf button{
+            display: block;
+            width: 150px;
+            padding: 7px 10px;
+            background: #007aff;
+            border: none;
+            border-radius: 5px;
+            color: #Fff;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+        .buyListTable{
+            width: 100%;
+            background: #fff;
+            padding: 10px 0;
+        }
+        .buyListTable table{
+            width: 100%;
+            margin: 0px auto;
+            text-align: center;
+
+
+        }
+        .buyListTable table th{
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+        }
+        .buyListTable table td{
+            font-size: 13px;
+            color: #666;
+        }
+        .buyListTable tr{
+            line-height: 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        /*.buyListTable tr td:last-child{*/
+            /*color: orange;*/
+        /*}*/
+        .buyForm{
+            width: 100%;
+            background: #fff;
+            /*margin: 10px 0;*/
+            padding: 10px 0 20px;
+
+        }
+        .list-block .item-inner:after{
+            background-color: transparent;
+        }
+        .buyForm li{
+            border-bottom: 1px solid #ededed;
+        }
+        .tip span{
+            font-size: 12px !important;
+        }
+        #particles {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 11;
+        }
+    </style>
+
+    <style>
+        .djsBox{
+            width: 100%;
+            height: 100%;
+            /*background: rgba(0,122,255,.8);*/
+            background: url("/assets/img/hyrg-bg.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .content .clock{
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+            border-radius: 100%;
+            background: rgba(255,255,255,0.15);
+            position: relative;
+        }
+
+        .content .clock:before{
+            z-index: 3;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            content: "";
+            background: rgba(255,255,255,0);
+            border-radius: 100%;
+            box-shadow: 0px 0px 24px 1px rgba(7, 7, 7, 0.15);
+        }
+        .clock .text{
+            position: relative;
+            width: 100%;
+            font-family: 'Asap';
+            font-weight: normal;
+            letter-spacing: 0;
+            margin-top: 0.5em;
+            display: block;
+            text-transform: uppercase;
+            color: #fff;
+            text-align: center;
+        }
+        .clock .block:last-child .digit:after{
+            display: none;
+        }
+        .clock .elem-center{
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            width: 100%;
+            top: 0;
+            margin-top: 50%;
+            height: 50%;
+            bottom: 0;
+        }
+        .clock .elem-center .digit{
+            position: relative;
+            font-size: 45px;
+            margin-top: -0.5em;
+            letter-spacing: -0.03em;
+            line-height: 1em;
+            font-family: 'Asap';
+            font-weight: bold;
+            width: 100%;
+            color: #fff;
+            display: block;
+        }
+        .clock .elem-center .text{
+            position: absolute;
+            bottom: 58%;
+            font-size: 15px;
+            margin-top: 0;
+        }
+        .clock .elem-center .text.top{
+            bottom: 112%;
+            font-size: 20px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+        .clock .elem-center .text.top img{
+            height: 60px;
+            display: inline-block;
+            margin-bottom: 20px;
+            vertical-align: middle;
+        }
+        .clock .elem-right,
+        .clock .elem-left{
+            position: absolute;
+            width: 70px;
+            top: 50%;
+            bottom: 0;
+            display: block;
+        }
+        .clock .elem-left{
+            left: 30px;
+        }
+        .clock .elem-right{
+            right: 30px;
+        }
+        .clock .elem-right .text,
+        .clock .elem-left .text{
+            position: absolute;
+            bottom: 58%;
+            font-size: 15px;
+            margin-top: 0;
+        }
+        .clock .elem-right .digit,
+        .clock .elem-left .digit{
+            position: relative;
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: -0.03em;
+            margin-top: -0.5em;
+            line-height: 1em;
+            font-family: 'Asap';
+            font-weight: normal;
+            width: 100%;
+            color: #fff;
+            display: block;
+        }
+        .clock .second{
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            bottom: 15px;
+            right: 15px;
+            border: 0px solid #fff;
+            border-radius: 100%;
+            z-index: 2;
+            -webkit-box-shadow: inset 0px 0px 0px 2px #fff;
+            -moz-box-shadow: inset 0px 0px 0px 2px #fff;
+            box-shadow: inset 0px 0px 0px 2px #fff;
+        }
+        input::-webkit-input-placeholder{
+            color:#c2c2c2;
+        }
+        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+            color:#c2c2c2;
+        }
+        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+            color:#c2c2c2;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+            color:#c2c2c2;
+        }
+
+        .form-row{
+            background: #fff;
+            padding: 0 15px 20px;
+        }
+        .form-row .input-row{
+            border-bottom: 1px solid #eaeaea;
+            margin-bottom: 20px;
+        }
+        .form-row .input-row label{
+            display: block;
+            line-height: 30px;
+            font-size: 14px;
+            color: #292929;
+        }
+        .form-row .input-row input{
+            width: 100%;
+            height: 30px;
+            font-size: 13px;
+            border: none;
+            padding: 0;
+            font-family: "Microsoft YaHei";
+        }
+        .input-box{
+            position: relative;
+        }
+        .input-box a{
+            position: absolute;
+            top:7px;
+            right: 0;
+            color: #55ba3c;
+        }
+        .input-box select{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 35px;
+            font-size: 14px;
+            font-family: "Microsoft YaHei";
+            padding: 4px 13px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 4px;
+        }
+        .form-row .input-row input[type="submit"]{
+            width: 86%;
+            background: #55ba3c;
+            color: #fff;
+            margin: 0 auto;
+            margin-top: 30px;
+            height: 40px;
+            font-size: 17px;
+            border-radius: 50px;
+        }
+        .paytypeList{
+            overflow: hidden;
+        }
+        .paytypeList li{
+            position: relative;
+            width: 48%;
+            float: left;
+            padding: 10px 0;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .paytypeList li.active{
+            border: 1px solid #55ba3c;
+        }
+        .paytypeList li img{
+            height: 30px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 7px;
+        }
+        .paytypeList li img.selected{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 18px;
+            margin-right: 0;
+            display: none;
+        }
+        .paytypeList li.active img.selected{
+            display: block;
+        }
+
+
+
+    </style>
+    <div class="page-content">
+        <input type="hidden" value="{$open}" id="djsShow">
+        {eq name="open" value="1"}
+
+        <img src="/assets/img/trade/hyrg-aqlp.png" alt="" style="width: 100%">
+
+        <div style="padding: 15px;background-color: #Fff">
+            <img src="/assets/img/trade/hyrg-gfbz.png" alt="" style="width: 100%;border-radius: 5px">
+        </div>
+
+        <!--头像，今日单价，限购总量-->
+
+        <!--<div class="list-block media-list" style="background: url('/assets/img/buycenter-bg.png') no-repeat;background-size: 100% 100%;">-->
+            <!--<ul style="background: transparent;color: #fff">-->
+                <!--<li style="padding: 20px 0">-->
+                    <!--<a href="#" class="item-link item-content">-->
+                        <!--<div class="item-media">-->
+
+                            <!--{notempty name="hyrs.avatar"}-->
+                            <!--<img src="{$hyrs['avatar']}" width="80">-->
+                            <!---->
+                            <!--{else/}-->
+                            <!--<img src="{$site.logo}" width="80">-->
+
+                            <!--{/notempty}-->
+                        <!--</div>-->
+                        <!--<div class="item-inner" style="padding-top: 30px">-->
+                            <!--<div class="item-subtitle">今日单价：<span>{$site.fxprice}元/枚</span></div>-->
+                            <!--<div class="item-subtitle">限购总量：{$site.fxnum}枚</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<div class="gg">-->
+                        <!--<a href="">-->
+                            <!--<img src="/assets/img/usercenter1-gg.png" alt="">-->
+                            <!--<marquee behavior="" direction="">-->
+                                <!--{volist name="list" id="vo" }-->
+                                <!--恭喜{:substr($vo['nickname'],0,7)}****获得{$vo.price}个安全码&#12288;&#12288;-->
+                                <!--{/volist}-->
+                            <!--</marquee>-->
+
+
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+
+        <!--<div class="tip">提示：{$site.rgrule}</div>-->
+        {else/}
+
+        <div class="djsBox">
+            <div style="width: 100%;height: 100px"></div>
+            <div class="section" id="s-when">
+                <section class="content">
+                    <div class="clock clock-countdown">
+                        <div class="site-config"
+                             data-date="{$opentime}"
+                             data-date-timezone="+0"
+                        ></div>
+
+                        <div class="elem-left">
+                            <div class="digit hours">00</div>
+                            <div class="text">小时</div>
+                        </div>
+                        <div class="elem-center">
+
+                    <span class="text top">
+                        <!--<img src="{$site.logo}?t={:time()}" alt="logo">-->
+                        慈善链
+                        <!--<img class="img" alt="Logo" src="picture/logo_large.png">-->
+                    </span>
+                            <div class="digit days">000</div>
+                            <div class="text">天</div>
+                        </div>
+                        <div class=" elem-right">
+                            <div class="digit minutes">00</div>
+                            <div class="text">分钟</div>
+                        </div>
+
+                        <!-- second knob here -->
+                        <div class="second">
+                            <input class="knob container"
+                                   id="second-knob"
+                                   data-width="250"
+                                   data-height="250"
+                                   data-displayInput=false
+                                   data-fgColor="#fff"
+                                   data-bgColor="rgba(255,255,255,0)"
+                                   data-thickness=".07"
+                                   value="0"
+                                   data-displayPrevious=true
+                                   data-max="6000"
+                            />
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        {/eq}
+
+        {eq name="open" value="1"}
+        <div class="buyForm" style="">
+            <form action="{:url('api/trade/pay')}" method="post" class="form-row ajax-submit">
+
+                <div class="input-row">
+                    <label>购买数量</label>
+                    <div class="input-box">
+                        <input type="text" name="wall3" placeholder="请输入购买数量" value="299" readonly>
+                        <a>| <span>{$site.fxprice}</span>元/个</a>
+                    </div>
+                </div>
+                <div class="input-row" style="border-bottom: none">
+                    <label>请选择支付方式</label>
+                    <input id="paytype" type="hidden" name="paytype" value="Y001" >
+                    <ul class="paytypeList">
+                        <li class="active" data-paytype="Y001">
+                            <img src="/assets/img/trade/icon-weixin.png" alt="">
+                            微信
+                            <img class="selected" src="/assets/img/trade/icon-select-green.png" alt="">
+                        </li>
+                        <!--alipayh5 -->
+                        <li  style="float: right" data-paytype="Y102">
+                            <img src="/assets/img/trade/icon-zhifubao.png" alt="">
+                            支付宝
+                            <img class="selected" src="/assets/img/trade/icon-select-green.png" alt="">
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="input-row" style="text-align: center;border-bottom: none">
+                    <input type="submit" value="立即购买">
+                </div>
+
+            </form>
+            <div class="tip">
+                <p style="padding-left: 0px">
+                    <img src="/assets/img/trade/icon-tip.png" alt="">温馨提示：
+                </p>
+                <p>1.授信额度可售出LMC数量。</p>
+                <p>2.授信额度账户不可超过8000枚。</p>
+                <p>3.平台定期对会员进行综合评估，调整授信额度。</p>
+                <p>4.买1可获得1.7，累加到授信额度。</p>
+                <p>5.注册实名认证成为志愿者可获得10额度，下级购买矿机，推荐人奖励10%授信额度。</p>
+            </div>
+
+        </div>
+        {/eq}
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

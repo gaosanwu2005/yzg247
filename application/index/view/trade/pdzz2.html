@@ -1,0 +1,72 @@
+<div data-page="zb" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">虚拟币转出</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+
+        <div class="content-block">
+            <form action="{:url('api/trade/pdzz')}" method="post" class="ajax-submit">
+                <div class="content-block-title" style="margin-top: 57px;">可用{$site['walltype']['wall2']}: {$hyrs['wall2'] ? $hyrs['wall2'] : 0}</div>
+                <div class="list-block inset">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">转出钱包</div>
+                                    <div class="item-input">
+                                        <input type="text" id="myAccount" name="toaccount" onchange="MY.yzAccount('{:url('api/user/getrname')}',{username:$$('#myAccount').val()},'#yzAccount')" placeholder="请输入转出钱包">
+                                        <span id="yzAccount" class="color-red" style="float: right;margin-top: -34px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <!--联创币-->
+                            <input type="hidden" name="ptype" value="wall2">
+
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">转出金额</div>
+                                    <div class="item-input">
+                                        <input type="text" name="price" placeholder="请输入转出币数">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">交易密码</div>
+                                    <div class="item-input">
+                                        <input type="password" name="password">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="content-block">
+
+                            </div>
+                        </li>
+                    </ul>
+                    <button type="submit" class="button button-fill button-round">转出</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

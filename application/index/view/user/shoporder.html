@@ -1,0 +1,55 @@
+<div data-page="shoporder" class="page ">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">店铺订单</div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content" style="background: white;">
+        <div class="list-block media-list">
+            <ul>
+                {volist name="list" id="vo" empty="暂时没有数据" }
+                <li>
+                    <div class="content-block-title" style="margin-top: 40px;">订单编号：1</div>
+                    <div class="item-content">
+                        <a href="{:url('Mobile/Goods/goodsInfo',array('id'=>$vo['goods_id']))}" class="item-link">
+                            <div class="item-media"><img src="{$vo.image}" width="80"></div>
+                        </a>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">{:substr($vo.goods_name,0,6)}</div>
+                                <div class="item-after"> {$order_status[$vo['order_status']]}</div>
+                            </div>
+                            <div class="item-subtitle">
+                                ￥{$vo.goods_price}
+                            </div>
+                            <div class="item-text">
+                                X{$vo.goods_num}
+                                {neq name="vo.spec_key" value="0"}
+                                {$vo.spec_key_name}
+                                {/neq}
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <div style="display: flex;float: right;margin-top: -40px;" >
+                    {if condition="($vo['order_status'] == 1)"}
+                     <a href="{:url('user/sendlink4')}?order_id={$vo['order_id']}"  class="button">操作发货</a>
+                    {else/}
+                    <a href="{:url('user/sendlink4')}?order_id={$vo['order_id']}"  class="button">查看订单</a>
+                    {/if}
+
+                </div>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

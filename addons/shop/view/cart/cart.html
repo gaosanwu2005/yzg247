@@ -1,0 +1,100 @@
+<div data-page="cart" class="page ">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">购物车</div>
+        </div>
+    </div>
+    <style>
+        .list-block .item-inner:after{
+            height: 0;
+        }
+        .numjj .button {
+            height: 25px;
+            line-height: 25px;
+            border: none;
+            color: #666;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 0;
+            background: #efefef;
+            border-width: 0 !important;
+        }
+    </style>
+    <!--顶部导航-->
+    <div class="page-content">
+        <div class="list-block media-list" style="margin: 0">
+            <ul id="cartList">
+                {volist name="list" id="shop" empty="暂时没有数据" }
+                <div>
+                    <label class="label-checkbox item-content" style="border-top: 5px solid #f7f7f8;">
+
+                        <!--<input class="shopselect" type="checkbox" name="c_shop" value="{$key}"  {if condition="($shopchose[$key] == 1)"}-->
+                        <!--checked="checked"-->
+                        <!--{/if}  >-->
+
+                        <input class="shopselect" type="checkbox" name="c_shop" value="{$key}"  {if condition="($shopchose[$key] == 1)"} checked="checked" {/if}  onchange="SHOP.choseshop(this)" />
+
+
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner">
+                            店铺: {$shopname[$key]}
+                        </div>
+                    </label>
+                    {volist name="shop" id="vo" empty="暂时没有数据" }
+                    <li style="overflow: hidden;background-color: #fff">
+                        <label class="label-checkbox item-content" style="width: 15%;float: left;position:absolute;top:50%;left:8%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);
+
+
+">
+
+                            <input type="checkbox" name="c_goods" value="{$vo['goods_id']}" {eq name="vo.selected" value="1"}checked="checked"{/eq}  onchange="SHOP.chosecart(this)">
+                            <div class="item-media">
+
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner" style="padding: 0">
+
+                            </div>
+                        </label>
+                        <div class="item-content" style="width: 85%;float: right;overflow: hidden">
+                            <a href="{:url('Mobile/Goods/goodsInfo',array('id'=>$vo['goods_id']))}" class="item-link">
+                                <div class="item-media"><img src="{$vo.image}" width="80"></div>
+                            </a>
+                            <div class="item-inner" style="padding-left: 10px">
+                                <div class="item-title-row">
+                                    <div class="item-title">{:substr($vo.goods_name,0,6)}</div>
+                                    <div class="item-after"><a onclick="SHOP.delcart('{$vo['goods_id']}')" class="iconfont icon-jiufuqianbaoicon05"></a></div>
+                                </div>
+                                <div class="item-subtitle">￥{$vo.goods_price}</div>
+                                <div class="item-title"> X{$vo.goods_num}</div>
+                                <div class="item-title-row buttons-row numjj" style="width: 50%;float: right;">
+                                    <a onclick="SHOP.downcart('{$vo['goods_id']}')" class="button" style="width: 32%;">-</a>
+                                    <a href="#" class="button " style="width: 34%;margin: 0 1%">{$vo.goods_num}</a>
+                                    <a onclick="SHOP.upcart('{$vo['goods_id']}')" class="button" style="width: 32%;">+</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+
+                {/volist}
+                </div>
+                {/volist}
+            </ul>
+        </div> 
+    </div>
+
+    <div class="toolbar tabbar tabbar-labels" style="background: white;">
+        <div class="toolbar-inner" >
+            <div style="width: 100%;">
+                <a href="{:addon_url('shop/cart/cart2')}" class="button button-round button-fill color-orange">合计（{$total}）结算</a>
+            </div>
+         </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<div data-page="openshop" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">入驻商家</div>
+            <div class="right">
+                <a href="{:url('index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content " style="background: white;">
+        <style>
+            .entry-list ul {
+                width: 100%;
+                overflow: hidden;
+                margin: auto
+            }
+            .entry-list a {
+                display: block;
+                text-align: center;
+            }
+            .entry-list a span {
+                height: 30px;
+                line-height: 30px;
+                color: #616161;
+                font-family: "微软雅黑";
+                font-size: 14px;
+            }
+            .entry-list a img {
+                display: block;
+                width: 65%;
+                margin: auto;
+            }
+            .entry-list a i {
+                display: block;
+                margin: auto;
+                font-size: 33px;
+                height: 50px;
+                width: 48px;
+            }
+
+            .list-block .item-content {
+                padding-left: 0px;
+            }
+        </style>
+
+        <form action="{:url('api/user/openshop')}" method="post" class="ajax-submit">
+
+            {eq name="hyrs.shop_open" value="2"}
+            <div class="list-block">
+                <div style="padding:0 15px;">
+                    <span >已提交申请，审核中……</span>
+                </div>
+            </div>
+            {/eq}
+            {eq name="hyrs.shop_open" value="1"}
+            <div class="list-block">
+                <div style="padding:0 15px;">
+
+                    <span ><b>店铺名称:{$hyrs.shopname} </b> </span>
+                    <p>恭喜您申请成功,现在可以发布自己的商品啦</p>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="row entry-list">
+                    <div class="col-33"><a href="{:url('user/uploadgoods')}" ><i class="iconfont icon-shangchuan">  </i>去发布商品</a></div>
+                    <div class="col-33"><a href="{:url('user/shoporder')}"  ><i class="iconfont icon-dingdan">  </i>店铺订单</a></div>
+                    <div class="col-33"><a href="{:url('user/shopgoods')}"  ><i class="iconfont icon-shangpinkucuncangkudunhuojiya">  </i>店铺商品管理</a></div>
+                </div>
+
+                <!--<p style="margin-top: 10px;"><a href="{:url('user/realshop')}" class="button button-round button-fill">实体店铺申请</a></p>-->
+            </div>
+            {/eq}
+            {eq name="hyrs.shop_open" value="0"}
+            <!-- 代理级别 -->
+            <div class="list-block ">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner" style="margin-left: 0;">
+                                <div class="item-title label">店铺名称</div>
+                                <div class="item-input">
+                                    <input type="text" name="shopname" autocomplete="off" placeholder="请输入店铺名">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <a href="#" class="item-link smart-select" data-open-in="popup"  data-searchbar="false" data-back-on-select="true">
+                        <!-- select -->
+                        <select name="shopcate">
+                            {volist name="cat" id="vo"}
+                            <option value="{$vo.name}" >{$vo.name}</option>
+                            {/volist}
+                        </select>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <!-- Select label -->
+                                <div class="item-title">经营类别</div>
+                                <!-- Selected value, not required -->
+                                <div class="item-after">手机数码</div>
+                            </div>
+                        </div>
+                    </a>
+
+                </ul>
+            </div>
+
+            <div class="list-block">
+                <div style="padding:0 15px;">
+                    <button type="submit" class="button button-round button-fill">提交申请</button>
+                </div>
+            </div>
+            {/eq}
+
+        </form>
+    </div>
+</div>
+

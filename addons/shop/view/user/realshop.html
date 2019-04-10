@@ -1,0 +1,246 @@
+<div data-page="realshop" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">实体商家</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .identify img{
+            width: 100%;
+        }
+        .notice{
+            height: 40px;
+            line-height: 40px;
+            padding: 0 15px;
+            overflow: hidden;
+        }
+        .notice span{
+            float: left;
+        }
+        .notice span img{
+            height: 15px;
+            display: inline-block;
+            margin-right: 5px;
+            position: relative;
+            top: 2px;
+        }
+        #identify-form{
+            padding:10px 0px 0;
+            background: #fff;
+        }
+        #identify-form .tip{
+            color: #999;
+            line-height: 20px;
+            padding: 0 15px;
+        }
+        #identify-form .tip img{
+            height: 13px;
+            display: inline-block;
+            margin-right: 3px;
+        }
+        .file-group{
+            overflow: hidden;
+            padding: 15px 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .file-group>div{
+            float: left;
+            width: 46%;
+            margin: 0 2%;
+        }
+        .file-group>div img{
+            width: 100%;
+            height: 100px;
+            margin: 0 auto;
+            display: inline-block;
+        }
+        .filebox{
+            position: relative;
+        }
+        .filebox input{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 111;
+            opacity: 0;
+        }
+        .input-group{
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .input-group input{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 10px;
+            font-size: 15px;
+            font-family: "Microsoft YaHei";
+        }
+        .submit-group{
+            background: #F0F0F0;
+            text-align: center;
+            padding: 25px 0;
+        }
+        .submit-group input{
+            width: 94%;
+            height: 40px;
+            line-height: 40px;
+            background: #4f93f4;
+            border-radius: 30px;
+            margin: 0 auto;
+            color: #fff;
+            font-size: 16px;
+            font-family: "Microsoft YaHei";
+        }
+        .list-block .item-title.label{
+            font-size: 15px;
+        }
+        .list-block .item-input input{
+            font-size: 15px;
+        }
+    </style>
+    <div class="page-content">
+
+        <div class="identify">
+            <img src="/assets/img/usercenter/identify.png" alt="">
+        </div>
+        <form action="{:url('api/User/realshop')}" method="post" class="ajax-submit">
+            <div class="list-block" style="margin: 5px auto;background: #fff">
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">店铺头像:</div>
+                            <div class="item-input">
+                                <div class="filebox">
+                                    <input type="file" name="shopimg" onchange="MY.showimg(this,'shopimg')" >
+                                    <img id="shopimg" src="{$site.logo}" alt="" style="width: 77px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">商家名称:</div>
+                            <div class="item-input">
+                                <input type="text" name="shopname" placeholder="请输入您的商家名称" value="{$hyrs['shopname']}">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <a href="#" class="item-link smart-select" data-open-in="popup"  data-searchbar="false" data-back-on-select="true">
+                    <!-- select -->
+                    <select name="shopcate">
+                        {volist name="cat" id="vo"}
+                        <option value="{$vo.name}" >{$vo.name}</option>
+                        {/volist}
+                    </select>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <!-- Select label -->
+                            <div class="item-title">经营类别</div>
+                            <!-- Selected value, not required -->
+                            <div class="item-after">手机数码</div>
+                        </div>
+                    </div>
+                </a>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">真实姓名:</div>
+                            <div class="item-input">
+                                <input type="text" name="realname" placeholder="请输入您的真实姓名" value="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">身份证号:</div>
+                            <div class="item-input">
+                                <input type="text" name="idcard" placeholder="请输入您的身份证号码" value="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </div>
+            <div class="file-group">
+                <div class="filebox">
+                    <input type="file" name="idcard_1" onchange="MY.showimg(this,'idcard_1')" >
+                    <img id="idcard_1" src="/assets/img/usercenter/identift-zheng.png" alt="">
+                </div>
+                <div class="filebox">
+                    <input  type="file" name="idcard_2" onchange="MY.showimg(this,'idcard_2')" >
+                    <img id="idcard_2" src="/assets/img/usercenter/identify-shou.png" alt="">
+                </div>
+            </div>
+
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">上传营业执照:</div>
+                        <div  >
+                            <div style="
+    overflow: hidden;
+    padding: 15px 10px;
+    border-bottom: 1px solid #f0f0f0;
+" >
+                            <div class="filebox">
+                                <input type="file" name="business" onchange="MY.showimg(this,'business')" >
+                                <img id="business" src="/assets/img/usercenter/321605569699889285.png"  style="width: 100%;">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">上传实体店铺照片:</div>
+                        <div  >
+                            <div style="
+    overflow: hidden;
+    padding: 15px 10px;
+    border-bottom: 1px solid #f0f0f0;
+" >
+                                <div class="filebox">
+                                    <input type="file" name="business2" onchange="MY.showimg(this,'business2')" >
+                                    <img id="business2" src="/assets/img/usercenter/470119391014716458.png" style="width: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <div class="tip">
+                <img src="/assets/img/usercenter/icon-lamp.png" alt="">
+                温馨提示：请上传原始比例的身份证正反面，请勿剪裁涂改，保证身份信息清晰显示，否则无法通过审核。
+            </div>
+            <div class="tip" style="color:#333;height:40px;line-height:40px;background: #f0f0f0">以上信息仅供此次认证使用，将严格保密</div>
+
+            <div class="submit-group">
+                
+                <button type="submit" class="button button-fill button-round ">提交</button>
+            </div>
+
+        </form>
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

@@ -1,0 +1,18 @@
+{volist name="salelist" id="vo" }
+<li class=" item-content">
+
+    <div class="item-media"><img src="{$vo.avatar}" width="80"></div>
+    <div class="item-inner">
+        <div class="item-title-row">
+            <div class="item-title">交易金额</div>
+            <div class="item-after">{$vo.num}</div>
+        </div>
+        <div class="item-subtitle">{$vo.account}</div>
+        <div class="item-subtitle">信用： <span style="display: inline-block;width: 75px;"><i
+                style=" background: url(/assets/img/star7.png) -{$vo['star']*(-15)+150}px 0 no-repeat;height: 12px;width: 100%; display: block;"></i></span></div>
+        <div class="item-text" style="display: flex;">实付金额：{$vo.num*0.85} <a onclick="MY.buy({$vo.xyid},{$vo.num})" class="button" style="width: 59px;right: 2px;top: 2px;position: absolute;">买入</a></div>
+
+    </div>
+
+</li>
+{/volist}

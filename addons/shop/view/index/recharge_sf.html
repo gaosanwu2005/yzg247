@@ -1,0 +1,223 @@
+<div data-page="recharge-sf" class="page form">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">水费充值</div>
+            <div class="right">
+
+            </div>
+
+        </div>
+    </div>
+    <!--顶部导航-->
+    <style>
+        .form-row {
+            background: #fff;
+            padding: 5px;
+        }
+
+        .radioBox {
+            padding: 20px 15px 15px;
+            background: url("/assets/img/recharge-sf-bg.png") no-repeat;
+            background-size: 100%;
+            margin-bottom: 7px;
+        }
+
+        .radioBox p {
+            position: relative;
+            color: #fff;
+            font-size: 13px;
+            line-height: 24px;
+            height: 25px;
+        }
+
+        .radioBox p:nth-of-type(1) {
+            margin-bottom: 10px;
+        }
+
+        .radioBox p input {
+            width: 20px;
+            height: 20px;
+            /*border: 1px solid #333;*/
+            position: absolute;
+            top: 5px;
+            left: 0;
+            opacity: 0;
+            z-index: 111;
+        }
+
+        .radioBox p span {
+            z-index: 11;
+            font-size: 25px;
+            position: relative;
+        }
+
+        .radioBox p input[type="radio"] + span::before {
+            content: "\a0";
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 18px;
+            width: 1em;
+            height: 1em;
+            margin-right: .4em;
+            border-radius: 50%;
+            border: 1px solid #007aff;
+            text-indent: .15em;
+            line-height: 1;
+            position: relative;
+            top: -2px;
+            /*background: #fff;*/
+        }
+
+        .radioBox p input[type="radio"]:checked + span::before {
+            background-color: #007aff;
+            background-clip: content-box;
+            padding: .2em;
+            position: relative;
+            top: -1px;
+        }
+
+        .form-row .input-group {
+            padding: 5px 10px;
+        }
+
+        .form-row .input-group input {
+            height: 35px;
+            width: 100%;
+            padding-left: 5px;
+            box-sizing: border-box;
+            border: 1px solid #eaeaea;
+            border-radius: 3px;
+            font-size: 15px;
+            font-family: "Microsoft YaHei";
+        }
+
+        .form-row .input-group input[type="submit"] {
+            background: #0f7bd7;
+            border: 1px solid #0f7bd7;
+            color: #fff;
+            width: 96%;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .button {
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .tipBox {
+            background: #fff;
+            padding: 0 5% 20px;
+        }
+
+        .tipBox p {
+            font-size: 12px;
+            color: #999;
+            line-height: 25px;
+        }
+
+        .tipBox p:nth-of-type(1) {
+            font-size: 14px;
+        }
+
+        .recharge-list {
+            background: #fff;
+            padding: 10px;
+        }
+
+        .recharge-list li {
+            line-height: 30px;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #eaeaea;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .recharge-list li span {
+            float: right;
+            font-size: 15px;
+        }
+    </style>
+    <div class="page-content">
+
+        <form action="/api/recharge/water" method="post" class="form-row ajax-submit">
+            <div class="radioBox">
+                <p>
+                    <input type="radio" name="prevalue" value="100">
+                    <span>100</span>
+                </p>
+                <p>所需LMC:{:lmc(100)}</p>
+                <p>手续费:{:lmc(100)*$site['shopczfee']*0.01}</p>
+            </div>
+            <div class="radioBox">
+                <p>
+                    <input type="radio" name="prevalue" value="50">
+                    <span>50</span>
+                </p>
+                <p>所需LMC:{:lmc(50)}</p>
+                <p>手续费:{:lmc(50)*$site['shopczfee']*0.01}</p>
+            </div>
+
+
+            <!--<div class="subnavbar">-->
+            <div class="buttons-row">
+                <a href="#tab1" class="button tab-link active">水费充值</a>
+                <a href="#tab2" class="button tab-link ">充值记录</a>
+            </div>
+            <!--</div>-->
+            <div class="tabs">
+                <div id="tab1" class="tab active">
+                    <div class="input-group">
+                        <input type="text" placeholder="城市" name="city">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="缴费单位" name="institutions">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="用户编号" name="usersn">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="真实姓名" name="username">
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" value="立即充值">
+                    </div>
+
+                    <div class="tipBox">
+                        <p>温馨提示 :</p>
+                        <p>1.水费缴纳提示，需要算力100G、信用值30分。</p>
+                        <p>2.等待充值成功，30分钟内。</p>
+                        <p>3.每日账户仅限充值一次。</p>
+                        <p>4.充值时间：工作日10:00-17:00。</p>
+                        <p>5.手续费10%</p>
+                    </div>
+
+                </div>
+
+                <div id="tab2" class="tab">
+                    <ul class="recharge-list">
+                        {volist name="recharge_list" id="v"}
+                        <li>
+                            <p>
+                                充值金额
+                                <span>{$v.price}</span>
+                            </p>
+                            <p>
+                                充值时间
+                                <span>{$v.addtime|date="Y-m-d H:i:s", ###}</span>
+                            </p>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>

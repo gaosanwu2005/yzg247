@@ -1,0 +1,43 @@
+<div data-page="sendlist" class="page ">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">留言记录</div>
+            <div class="right">
+                <a href="{:url('Index/index')}" class="link"> <i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content pplb">
+       {volist name="list" id="vo"}
+        <div class="content-block-title">{$vo.addtime|date="Y-m-d H:i",###}</div>
+        <!-- Inset content block -->
+        <div class="content-block inset">
+            <div class="content-block-inner">
+                <p>反馈标题：{$vo.title}</p>
+                <p>反馈内容：{$vo.content}</p>
+
+                {if condition="$vo['isreply'] eq 1"}
+
+                    <p>管理员 &nbsp;--&nbsp;回复内容: {$vo['reply']|html_entity_decode} </p>
+
+                    {else/}
+                    <a class="email-title link">
+                        管理员 &nbsp;<small>-&nbsp;未回复</small>
+                        <i class="mdi-image-navigate-next"></i>
+                    </a>
+                {/if}
+
+
+            </div>
+        </div>
+        {/volist}
+        <div class="row" style="height: 50px;"></div>
+    </div> 
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

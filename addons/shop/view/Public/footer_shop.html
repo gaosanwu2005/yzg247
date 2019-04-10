@@ -1,0 +1,44 @@
+
+<!--公共底部导航-->
+<style>
+	.toolbar-inner a li {
+		font-size: 18px;
+	}
+</style>
+<div class="toolbar tabbar tabbar-labels">
+	<div class="toolbar-inner">
+		<a href="{:url('index/index/index1')}" class=" link active">
+			<i class="iconfont icon-shouye"></i>
+			<span class="tabbar-label">首页</span>
+		</a>
+		<a href="{:addon_url('shop/goods/category')}" class=" link ">
+			<i class="iconfont icon-liebiao"></i>
+			<span class="tabbar-label">分类</span>
+		</a>
+
+		<a href="{:url('index/Message/sendlist')}" class=" link ">
+			<i class="iconfont icon-fankui">  </i>
+			<span class="tabbar-label">消息</span>
+		</a>
+		<!--<a href="{:url('index/trade/center')}" class="link active">-->
+			<!--<i class="iconfont icon-jiaoyi">-->
+				<!--&lt;!&ndash;<span class="badge bg-red">3</span>&ndash;&gt;-->
+			<!--</i>-->
+			<!--<span class="tabbar-label">交易</span>-->
+		<!--</a>-->
+		<!--<a href="{:url('mobile/index/shop')}" class=" link active">-->
+			<!--<i class="iconfont icon-fankui">  </i>-->
+			<!--<span class="tabbar-label">商城</span>-->
+		<!--</a>-->
+
+		<a href="{:addon_url('shop/Cart/cart')}" class="link ">
+			<i class="iconfont icon-daohanggouwuche"></i>
+			<span class="tabbar-label">购物车</span>
+		</a>
+
+		<a href="{:url('index/user/center')}" class=" link ">
+			<i class="iconfont icon-geren"></i>
+			<span class="tabbar-label">个人中心</span>
+		</a>
+	</div>
+</div>

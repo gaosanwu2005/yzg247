@@ -1,0 +1,64 @@
+<div data-page="category" class="page">
+    <!--顶部导航-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="" class="back"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding" style="text-align: center;width: 100%;">商品分类</div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="page-content">
+
+        <!-- m_header end -->
+
+        <section class="m_mall_box m_layout">
+            <!--m_category_left-->
+            <div class="m_mall_left">
+                <ul class="tabs">
+                    <li><a href="javascript:;" class="current">热门推荐</a></li>
+                    {volist name="treeStr" id="vo"}
+                    <li><a href="javascript:;" class="" data-name="{$vo.description}">{$vo.name}</a></li>
+                    {/volist}
+                </ul>
+            </div>
+            <div class="m_mall_right">
+                <div class="m_mall_con">
+
+                    <!--mall_banner-->
+                    <div class="mall_banner">
+                        <a href="#"><img src="/assets/img/mall-fenlei.jpg" width="" height=""></a>
+                    </div>
+                    <!--mall_banner end-->
+
+
+                    <div class="productList">
+                        {volist name="treeStr" id="vo"}
+                        {notempty name="vo.children"}
+                            {volist name="vo.children" id="v"}
+                            <!--products-->
+                            <div class=" products {$vo.description}" onclick="SHOP.find3('{$v.id}')">
+                                <div class="products_left">
+                                    <a href="#"> <img src="{$v.image}" alt="" width="" height=""></a>
+                                </div>
+                                <div class="products_right">
+                                    <h6>
+                                        <a href="#">{$v.name}</a>
+                                    </h6>
+                                </div>
+                            </div>
+                            {/volist}
+                        {/notempty}
+
+                        {/volist}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--底部开始-->
+    {include file="Public/footer_shop"/}
+    <!--底部结束-->
+</div>

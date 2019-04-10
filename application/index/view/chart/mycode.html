@@ -1,0 +1,55 @@
+<div data-page="mycode" class="page myMain">
+    <!--顶部导航-->
+    <div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="" class="back"><i class="icon icon-back"></i></a>
+        </div>
+        <div class="center sliding" style="text-align: center;width: 100%;">我的二维码</div>
+        <div class="right">
+            <a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>
+        </div>
+    </div>
+    </div>
+    <!--顶部导航-->
+
+    <div class="page-content">
+        <style>
+            .pf-comment {
+                width: 75px;
+                display: inline-block;
+            }
+            .item-media i {
+                font-size: x-large;
+            }
+        </style>
+        <div class="row"> 
+            <div class="col-100 top"
+                 style="">
+                <div class="rz">
+                    <a href="{:url('Message/send2')}" style=" background:  no-repeat;">
+                        {notempty name="hyrs.avatar"}<img src="{$hyrs['avatar']}" style="padding:2px;border:none;margin-top: 33px;margin-right: auto;margin-left: auto;width: 87px;height: 87px" alt="用户名" class="headImg">
+                        {else/}
+                        <img src="{$site.logo}" style="padding:2px;border:none;margin-top: 33px;margin-right: auto;margin-left: auto;width: 87px;" alt="用户名" class="headImg">
+                        {/notempty}
+                    </a>
+                </div>
+                <div class="rz" style="color: #fff">ID:{$hyrs['username']}<br>等级：{$hyrs['level_text']}</div>
+                <div style="top: 258px;position:  absolute;width: 100%;">
+                </div>
+            </div>
+
+        </div>
+        <div class="wallet"style="background: #fff;padding: 20px;text-align: center">
+                <div>
+                    <img src="/api/user/sendlink?link={:url('index/index/addfriend',['tgno'=>$hyrs['tgno']],'html',true)}" alt="" style="width: 130px;height: 130px;margin: 0px auto;border-radius: 5px;border: 1px solid #ddd;">
+                    <p style="font-size: 15px;line-height: 30px">我的二维码</p>
+
+                </div>
+        </div>
+    </div>
+
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>

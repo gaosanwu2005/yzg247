@@ -1,0 +1,82 @@
+<include file="common/head" />
+<body>
+	<include file="common/top" />
+	<!-- 主体开始 -->
+	<div id="main">
+		<div class="wrapper">
+			<!-- 导航开始 -->
+			<include file="common/nav" />
+			<!-- 导航结束 -->
+			<!-- 内容开始 -->
+			<section id="content">
+				<!-- 面包屑导航开始 -->
+				<div id="breadcrumbs-wrapper" class=" grey lighten-3">
+							<div class="container">
+								<div class="row">
+									<div class="col s12 m12 l12">
+										<h5 class="breadcrumbs-title">奖金统计</h5>
+										<ol class="breadcrumb">
+				                    <li><a href="{:url('Index/index')}" >首页</a></li>
+				                    <li>财务中心</li>
+				                    <li class="active">奖金统计</li>
+				                </ol>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+		<!-- 面包屑导航结束 -->
+		       <div class="row">
+				<div class="col s12">
+				   <div id="flight-card" class="card">
+						<div class="card-header blue accent-4">
+							<div class="card-title">
+								<h6 class="flight-card-title">奖金统计</h6>			
+							</div>
+						</div>					
+						<div class="card-content white">
+						  <div class="col s12 table-list">
+									<table class="bordered">
+										<thead>
+											<tr>
+												<th>时间</th>
+												<volist name="caiwuarr" id="vo"}
+												<th>{$vo}</th>
+												{/volist}
+												<th>总计</th>
+											</tr>
+										</thead>
+										<tbody>
+											<foreach name="list" item="vo" key="k">
+											<tr role="row">
+												<td>{$vo.rtime}</td>
+												<volist name="caiwuarr" id="va">
+												<td>{$vo.jj_$key}</td>
+												{/volist}
+												<td>{$vo.allprice}</td>
+											</tr>
+											</foreach>
+											<tr role="row" style="color: red;">
+												<td>奖金总计</td>
+												<volist name="tongji" id="vb">
+												<td>{$vb}</td>
+												{/volist}
+											</tr>
+										</tbody>
+									</table>
+								<div class="row">
+									<div class="col-sm-6 text-left"></div>
+									<div class="col-sm-6 text-right">{$page}</div>
+							 </div>
+	                      </div>						
+						</div>
+					</div>
+			    </div>
+			   </div>
+	</section>  
+	<!-- 内容结束 -->
+</div>
+</div>
+<!-- 主体结束 -->
+<!-- 底部开始 -->
+<include file="common/footer" />
+<include file="common/foot" />

@@ -1,0 +1,240 @@
+
+	<div data-page="login" class="page login no-navbar">
+		<style>
+			input::placeholder{
+				color: #;
+				font-size: 12px;
+			}
+			.item-media{
+				color:black;
+
+			}
+			.geetest_holder.geetest_wind{
+				width:auto!important
+			}
+			input::-webkit-input-placeholder{
+				color:#fff;
+			}
+			input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+				color:#fff;
+			}
+			input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+				color:#fff;
+			}
+			input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+				color:#fff;
+			}
+			.login-form ul{
+				padding: 0;
+			}
+			.login-form ul li{
+				background: rgba(255,255,255,.3);
+				border-radius: 43px;
+				border: none;
+				/*border-bottom: 1px solid #fff;*/
+				padding-left: 0 !important;
+				color: #fff;
+				position: relative;
+				margin-bottom: 10px;
+			}
+			.login-form ul li .item-media{
+				padding: 0;
+				height: 43px;
+				border-right: 1px solid #fff;
+				width: 80px;
+				color: #fff;
+			}
+			.login-form ul li img{
+				height: 20px;
+				display: block;
+				margin: 0 auto;
+			}
+			.login-form ul li .item-input input{
+				padding-left: 10px;
+				box-sizing: border-box;
+				font-size: 13px;
+			}
+			.yzm{
+				background: #cdd8e5;
+				color: #0a70af !important;
+				font-size: 14px;
+				letter-spacing: 1px;
+				/* padding: 5px 5px 5px; */
+				border-radius: 4px;
+				height: 35px;
+				max-height: 35px !important;
+				line-height: 35px;
+				padding: 0 5px;
+				margin-right: 10px;
+			}
+			.submitBtn{
+				height: 45px;
+				/* line-height: 45; */
+				color: #fff;
+				background: #007aff;
+				margin-top: 20px;
+				font-size: 17px;
+				border-radius: 45px;
+			}
+
+			#particles {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				position: absolute;
+				top:0;
+				left: 0;
+				z-index: -1;
+			}
+			select{
+				color: #fff !important;
+			}
+			select option{
+				color: #333 !important;
+			}
+			.geetest_holder.geetest_wind .geetest_radar_btn {
+				/*left: 0;*/
+				/*background-image: linear-gradient(180deg, #ffffff 0%,#f3f3f3 100%);*/
+				border-radius: 40px;
+			}
+		</style>
+		<div class="page-content">
+
+			<div id="particles">
+
+			</div>
+			<div id="Stats-output" style="display: none">
+			</div>
+
+			<div id="WebGL-output" style="position:  absolute;"></div>
+			<div class="logoBox" style="margin: 0 auto;margin-top: 30px">
+				<img src="{$site.logo}" alt="logo">
+			</div>
+			<h2 class="login-title" style="margin-top: 10px;">{$site.name}</h2>
+			<div class="content-block" style="margin-top: 0;max-width: 400px;margin: auto;padding: 0px 15px 0">
+				<form id="loginform" action="{:url('api/user/login')}" method="post" class="login-form store-data ajax-submit">
+					<input type="text"  value="123" readonly style="display: none;">
+					<div class="list-block inset">
+						<ul style="background:transparent">
+							<li class="item-content">
+								<div class="item-media" >
+									<img src="/assets/img/icon-form-gj.png" alt="">
+								</div>
+								<div class="item-input">
+
+									<select name="country" id="country" style="padding-left: 10px;font-size: 13px">
+										{foreach name="country" item="vo" key="k"}
+										<option value="{$vo.country}">{$vo.country} +{$vo.mobile_prefix}</option>
+										{/foreach}
+
+									</select>
+
+
+
+
+									<!--<input placeholder="请输入您的会员编号" type="text" name="username">-->
+								</div>
+							</li>
+
+
+							<li class="item-content">
+								<div class="item-media" >
+									<img src="/assets/img/icon-form-zh.png" alt="">
+								</div>
+								<div class="item-input">
+									<input name="username" type="text" id="lgphone" placeholder="账号" style="color:#fff ;">
+								</div>
+							</li>
+							<li class="item-content">
+
+								<div class="item-media">
+									<img src="/assets/img/icon-form-mm.png" alt="">
+								</div>
+								<div class="item-input" style="margin: 0;">
+
+									<input name="password" type="password" style="color: #fff" placeholder="请输入您的密码">
+								</div>
+
+
+							</li>
+							<!--<li class="item-content">-->
+
+								<!--<div class="item-media">-->
+									<!--<img src="/assets/img/icon-form-yzm.png" alt="">-->
+								<!--</div>-->
+								<!--<div class="item-input" style="margin: 0;">-->
+									<!--<input name="captcha" type="text" style="color: #fff" placeholder="请输入您的验证码" value=""  >-->
+								<!--</div>-->
+
+								<!--<input class="item-after yzm" type="button"  onclick="yzm($$('#lgphone').val(),'login',4)" value="获取验证码"/>-->
+								<!--<div class="item-after yzm" >-->
+									<!--&lt;!&ndash;<div class="item-after open-popover yzm" data-popover=".popover-about"  >&ndash;&gt;-->
+									<!--<a onclick="MY.ajax('{:url('api/sms/send')}',{mobile:$$('#lgphone').val(),event:'login',type:4});">获取验证码</a>-->
+
+								<!--</div>-->
+
+
+							<!--</li>-->
+							<li class="item-content" style="background: transparent;border-bottom: none">
+								<div style="width:100%" id="embed-captcha"></div>
+							</li>
+							<li class="item-content" style="background:transparent;padding-left: 0;color: #fff;position: relative;border-bottom: none">
+								<button  type="submit" class="button submitBtn">登录</button>
+							</li>
+
+
+
+							<!--<li class="item-content"  style="padding-left: 0;color: #fff;position: relative;">-->
+								<!--<div class="item-media"  style="padding: 0;font-size:13px;padding-left: 5px;width: 60px;">-->
+									<!--验证码 :-->
+								<!--</div>-->
+								<!--<div class="item-input" style="position: relative;">-->
+									<!--<input name="captcha" type="text" placeholder="请输入验证码"  style="padding-left: 0;color: ;">-->
+									<!--<img src="{:captcha_src()}"  onclick="this.src = '{:captcha_src()}?r=' + Math.random();" style="position: absolute;right: 0;top: 0;width: 100px;height: 35px;"/>-->
+							 	<!--</div>-->
+								<!--<div style="height: 5px;width: 100%;position: absolute;bottom: 7px;border: 1px solid #fff;border-top: 0;"></div>-->
+
+								<!--<p id="wait" class="show">正在加载验证码......</p>-->
+								<!--<p id="notice" class="hide">请先完成验证</p>-->
+							<!--</li>-->
+						</ul>
+
+
+
+
+						<div class="row" style="position: relative;height: 35px;text-align: right;line-height: 35px;display: block;color:;width:100%;margin: 0 auto;font-size: 13px;color: #fff;">
+							<a  href="{:url('user/appdownload')}"  style="float: left;color: #fff;height: 35px;line-height: 35px">
+								<img src="/assets/img/icon-app.png" style="height: 35px;display: inline-block;color: #fff;vertical-align: middle">
+								<span >APP下载</span>
+							</a>
+							<a href="{:url('user/getpwd')}" style="margin-left:5px;float: right;position: relative;color: #fff;height: 35px;line-height: 35px">| 忘记密码</a>
+							<a href="{:url('user/reg')}" style="width: 65px;float: right;color: orange;position: relative;height: 35px;line-height: 35px">立即注册</a>
+
+
+
+						</div>
+						
+						
+					</div>
+				</form>
+			</div>
+			<!--<div class="popover popover-about" id="popover">-->
+				<!--<div class="popover-angle"></div>-->
+				<!--<div class="popover-inner">-->
+					<!--<form action="" method="post" class="ajax-submit">-->
+						<!--<div class="content-block">-->
+							<!--<div class="item-media"  style="padding: 0;font-size:13px;padding-left: 5px;width: 100%;font-size:16px;text-align:center;margin-top:-20px;margin-bottom:10px">-->
+								<!--验证码-->
+							<!--</div>-->
+							<!--<div class="item-input" style="position: relative;">-->
+								<!--<input name="captcha" id="captcha" type="text" placeholder="请输入验证码"  style="padding:6px;color: ;">-->
+								<!--<img src="{:captcha_src()}"  onclick="this.src = '{:captcha_src()}?r=' + Math.random();" style="position: absolute;right: 0;top: 0;width: 100px;height: 35px;"/>-->
+							<!--</div>-->
+
+							<!--<button onclick="MY.ajax('{:url('api/sms/send')}',{mobile:$$('#phone').val(),captcha:$$('#captcha').val(),event:'login'});" class="button button-fill button-round bg-green" style="width:40%;margin:15px auto">确定</button>-->
+						<!--</div>-->
+					<!--</form>-->
+				<!--</div>-->
+			<!--</div>-->
+		</div>
+	</div>

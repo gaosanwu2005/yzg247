@@ -1,0 +1,138 @@
+<div data-page="sendlink" class="page no-navbar">
+    <!--顶部导航-->
+    <!--<div class="navbar">-->
+        <!--<div class="navbar-inner">-->
+            <!--<div class="left">-->
+                <!--<a href="" class="back"><i class="icon icon-back"></i></a>-->
+            <!--</div>-->
+            <!--<div class="center sliding" style="text-align: center;width: 100%;">推广链接</div>-->
+            <!--<div class="right">-->
+                <!--<a href="#" class="link icon-only open-panel" data-panel="right"> <i class="fa fa-bullhorn"></i></a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--顶部导航-->
+    <style>
+        .copyinput {
+            width: 80%;
+            height: 36px;
+            line-height: 36px;
+            background: #F5F7FA;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-size: 0;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .copyinput input {
+            display: inline-block;
+            width: 100%;
+            height: 34px;
+            border: 0;
+            font-size: 14px;
+            color: #42455F;
+            text-indent: 5px;
+            border: none;
+            background: #F5F6FA;
+        }
+
+        .copyinput span {
+            display: inline-block;
+            width: 23%;
+            color: #4A5FE2;
+            background: #CFDEFC;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .logo{
+            padding: 20px;
+            text-align: center;
+        }
+        .logo img{
+           width: 110px;
+            margin: 0 auto 10px;
+        }
+        .logo h2{
+            letter-spacing: 2px;
+            font-size: 18px;
+            color: #fff;
+            font-weight: normal;
+        }
+        .box-body{
+            width: 80%;
+            background: rgba(0, 122, 255, 0.26);
+            margin: 0 auto;
+            border-radius: 10px;
+            padding-bottom: 20px;
+                margin-top: 78px;
+        }
+        .desc{
+            text-align: center;
+            /*font-family: "宋体";*/
+        }
+        .desc h3{
+            color: rgb(27,39,141);
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            line-height: 30px;
+            margin-top: 20px;
+        }
+        .desc p{
+            letter-spacing: 1px;
+            color: rgb(27,39,141);
+            font-size: 15px;
+            font-weight: 600;
+
+            line-height: 25px;
+        }
+        .copy{
+            text-align: center;
+            width: 158px;
+            margin: 0 auto;
+            height: 35px;
+            line-height: 35px;
+            background: #007aff;
+            color: #fff;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <div class="page-content member" style="background: url({$site.tgimg});background-size: 100% 100%;">
+        <!-- <script src="/public/js/layer/layer.js"></script> -->
+        
+        <div class="box-body white" style="height: auto; overflow: hidden;">
+            <div class="logo">
+                <img src="{$site.logo}?t={:time()}" alt="logo">
+                <h2>{$site.name}</h2>
+            </div>
+            <div class="desc">
+                <!-- <h3>【全球慈善来袭】</h3>
+                <p>无论你身在何处，我们用心对待！</p>
+                <p>无论你是否拥有，我们用心制造！</p>
+                <p>无论你经历与否，我们一起辉煌！</p> -->
+            </div>
+            <div style="margin:15px auto;width: 158px;text-align: center;">
+                <img src="/api/user/sendlink?link={$mylink}" width="100%" style="border-radius: 5px;border: 1px solid #ddd"/>
+            </div>
+
+            <div onclick="MY.copywww('{$mylink}')" class="copy box-title blue white-text" style="text-align: center;">
+                一键复制
+            </div>
+            <div class="copyinput">
+                <input type="text" onclick="MY.copywww('{$mylink}')" value="{$mylink}" readonly="readonly" id="tlink">
+            </div>
+
+        </div>
+
+
+    </div>
+    <!--底部开始-->
+    {include file="common/footnav"/}
+    <!--底部结束-->
+</div>
+
+

@@ -1,0 +1,99 @@
+
+
+<div data-page="newinfo" class="page">
+
+    <!--顶部导航-->
+
+    <div class="navbar">
+
+        <div class="navbar-inner">
+
+            <div class="left">
+
+                <a href="" class="back">
+
+                    <img src="/assets/img/icon-back.png" alt="">
+
+                </a>
+
+            </div>
+
+            <div class="center sliding" style="text-align: center;width: 100%;">{if $bureau_type eq 1}安监局网上报名协议{elseif $bureau_type eq 2}质监局网上报名协议{else}人保部网上报名协议{/if}</div>
+
+        </div>
+
+    </div>
+
+    <style>
+
+        .content-block p img{
+
+            width: 100%;
+
+            float: left;
+
+        }
+
+    </style>
+
+    <!--顶部导航-->
+
+    <div class="page-content" style="background: white;">
+
+        <div class="content-block">
+
+            <h1 style="font-size: 16px;text-align: center;line-height: 25px">{if $bureau_type eq 1}安监局网上报名协议{elseif $bureau_type eq 2}质监局网上报名协议{else}人保部网上报名协议{/if}</h1>
+
+            <p style="font-size: 13px;line-height: 25px;">
+                1.	本报名平台的所有权归辉瑞教育有限公司所有，考试必须完全同意本协议条款，方可进行网上报名。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                2.	考试本人已认真阅读并同意遵守本网站提供的报名流程及报名须知。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                3.	考生本人保证报名时的个人信息资料真实、正确，并将对个人信息不真实或不正确而导致无法参加考试以及其他直接或间接的后果负责。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                4.	考生本人理解并同意，在报名过程中出现不可抗力所引起的无法正常报名的情况，本网站不承担任何直接或间接的责任。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                5.	考生本人理解并同意，网上支付系统由支付平台所有并运营，在付费过程中由于支付平台网上系统问题导致的任何异常情况，本平台不承担直接或间接责任。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                6.	考生本人理解并同意，已完成报名缴费则无法退费。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                7.	考生本人理解并同意，在报名成功后，因本平台出现问题影响考生本人参加考试，本平台可能提供的补偿仅限于帮助安排重新报名或全额退还报名费，不承担任何其他连带责任。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                8.	考生本人理解并同意，考试最终参加考试的地点和时间以考试领取的准考证上注明的考点和时间为准。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                9.	报名程序如有任何变化，请以本平台公告为准。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                10.	遵守{if $bureau_type eq 1}安监局{elseif $bureau_type eq 2}质监局{else}人保部{/if}报名规定，不弄虚作假，不伪造、使用假证明、假证书。如有违反，自愿按规定接受处理。
+            </p>
+            <p style="font-size: 13px;line-height: 25px;">
+                11.	服从考场工作人员和监考教师管理，自觉遵守考场纪律，考试诚实守信，补违规，不作弊。
+            </p>
+
+
+        </div>
+
+        <div class="form-input">
+
+            <div class="input-submit">
+
+                    <a href="{:addon_url('bureau/index/online2?bureau_type='.$bureau_type)}"><input type="submit" style="width: 40%; display: inline; margin-left: 30px;" name="agree" value="同意"></a>
+                    <a href="{:addon_url('bureau/index/online?bureau_type='.$bureau_type)}"><input type="submit" style="width: 40%; display: inline;" name="disagree" value="不同意"></a>
+                    <input type="hidden" name="bureau_type" value="{$bureau_type}">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

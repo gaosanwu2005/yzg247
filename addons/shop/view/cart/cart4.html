@@ -1,0 +1,58 @@
+<include file="Public/header" />
+<div id="app">
+    <header>
+        <span class="iconfont icon-back back"></span>
+        <p>支付</p>
+        <span></span>
+    </header>
+    <section id="recharge" >
+        <form action="{:U('Mobile/Payment/getCode')}" method="post" name="cart4_form" id="cart4_form">
+            <div class="recharge-box">
+
+                <h4 class="successtijiao">订单已经提交成功！</h4>
+                <ul class="ct-list">
+                    <li>请您在<span>{$pay_date}</span>前完成支付，否则订单将自动取消！ </li>
+                    <li >订单号：<em>{$order['order_sn']}</em></li>
+                    <li>支付金额：<em>￥{$order['order_amount']}元</em></li>
+                </ul>
+            </div>
+
+
+            <div class="type">
+                <div class="type-tit">选择支付方式：</div>
+                <div class="type-select">
+                    <label class="cell-item">
+                        <span class="cell-left"><i class="iconfont icon-zhifubao2"></i> 支付宝支付</span>
+                        <label class="cell-right">
+                            <input type="radio" value="pay_code=alipayMobile" name="pay_radio" checked/>
+                            <i class="cell-checkbox-icon"></i>
+                        </label>
+                    </label>
+                    <label class="cell-item">
+                        <span class="cell-left"><i class="iconfont icon-weixin"></i> 微信支付</span>
+                        <label class="cell-right">
+                            <input type="radio" value="pay_code=weixin" name="pay_radio"/>
+                            <i class="cell-checkbox-icon"></i>
+                        </label>
+                    </label>
+                    <input type="hidden" name="order_id" value="{$order['order_id']}" />
+                </div>
+            </div>
+            <div class="recharge-box">
+                <div class="recharge-tit">支付金额</div>
+                <div class="recharge-row">
+                    <i>￥</i>
+                    <input type="number" name="price" step="0.01" min="0" value="{$order['order_amount']}" readonly>
+                </div>
+                <button class="recharge-btn" onClick="pay()">确认支付</button>
+            </div>
+        </form>
+    </section>
+    <script>
+        function pay(){
+            $('#cart4_form').submit();
+        }
+    </script>
+</div>
+<include file="Public/footer_nav"/>
+

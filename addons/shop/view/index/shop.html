@@ -1,0 +1,357 @@
+<div data-page="shop" class="page">
+    <div class="popover popover-menu-right">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list-block">
+                <ul>
+                    <li><a href="{:url('user/scancode')}" class="list-button item-link">扫一扫</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="popover popover-menu-left">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list-block">
+                <ul>
+                    <li><a href="{:url('user/scancode')}" class="list-button item-link">扫一扫</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+    <div class="navbar" >
+        <div class="navbar-inner">
+            <div class="left">
+                <!-- <span class="cityname" style="font-size: 15px;margin-left: 5px;margin-right: 5px"></span>
+                <img id="citySelected" style="height: 8px" src="/assets/img/index-img/icon/icocn-down.png" alt=""> -->
+            <a href="#" data-popover=".popover-menu-right" class="open-popover link">
+                <i class="iconfont icon-icon-test color-white"></i>
+            </a>
+            </div>
+            <div class="center">
+                <!--<img src="/assets/img/index-img/logo.png" alt="">-->
+                <a href="{:addon_url('shop/goods/search')}">
+                <div class="searchBox" style="position: relative;width: 200px">
+                    <input type="text" style="width: 100%;background: #fff;height: 30px;border-radius: 20px;font-size: 14px;text-align: center;font-family: 微软雅黑" placeholder="在万千种商品搜索">
+                    <img style="position: absolute;left: 21px;top: 15px;height: 15px;" src="/assets/img/index-img/icon/icon-esarch.png" alt="">
+                </div>
+                </a>
+            </div>
+            <div class="right">
+                <a href="{:url('index/User/sendlink')}">
+                    <i class="iconfont icon-huodongtuiguang color-white"></i>
+                </a>
+                 
+            </div>
+        </div>
+    </div>
+    <!--顶部导航-->
+
+    <style>
+
+    </style>
+    <div class="page-content  infinite-scroll infinite-scroll-bottom">
+         
+            <section id="index">
+                <div class="scroll-box">
+                    <!-- 轮播图 -->
+                    <style>
+                        .swiper-slide {
+                            background: #fff;
+                            box-sizing: border-box;
+                            /*border: 1px solid #ccc;*/
+                        }
+
+                        .swiper-slide span {
+                            text-align: center;
+                            display: block;
+                            font-size: 21px;
+                        }
+                        .link-row i.iconfont {
+                            font-size: 28px;
+                            background: #47a2ff;
+                            border-radius: 50%;
+                            color: aliceblue;
+                            padding-bottom: 7px;
+                            padding-left: 13px;
+                            padding-right: 13px;
+                            padding-top: 11px;
+                        }
+
+                    </style>
+                    <div class="swiper-container swiper-vertical">
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-wrapper">
+                            {volist name="site.shopslides" id="vo"}
+                            <div class="swiper-slide"><span><img width="100%" src="{$vo}" alt=""></span></div>
+                            {/volist}
+                        </div>
+                    </div>
+
+                    <!--动态-->
+                    <div class="gg">
+                        <a href="">
+                            <img src="/assets/img/index-img/icon/icon-gg.png" alt="">
+                            <marquee behavior="" direction="">
+                                {$site.dongtai}
+                            </marquee>
+                        </a>
+
+                    </div>
+ 
+                    <!--链接-->
+                    <div class="link-row">
+                        <ul>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-jifenduihuan"></i>
+                                    <p>积分兑换</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-shenghuojiaofei1"></i>
+                                    <p>日常缴费</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-shangpin"></i>
+                                    <p>优质商品</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-shenghuo"></i>
+                                    <p>同城生活</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-huochepiao"></i>
+                                    <p>火车票</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-canyin"></i>
+                                    <p>餐饮</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-dianying"></i>
+                                    <p>电影</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-jiudian1"></i>
+                                    <p>酒店住宿</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-fangchan"></i>
+                                    <p>房产</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-baoxianguanli"></i>
+                                    <p>保险</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-youhuiquan"></i>
+                                    <p>优惠券</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="kaifa">
+                                    <i class="iconfont icon-more"></i>
+                                    <p>更多</p>
+                                </a>
+                            </li>
+                            <!--<li>-->
+                                <!--<a href="{:addon_url('shop/index/recharge_hf')}" onclick="">-->
+                                    <!--<img src="/assets/img/mall-icon/mall-hfcz.png" alt="">-->
+                                    <!--<p>话费充值</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="{:addon_url('shop/index/recharge_ll')}" onclick="">-->
+                                    <!--<img src="/assets/img/mall-icon/mall-llcz.png" alt="">-->
+                                    <!--<p>流量充值</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="{:addon_url('shop/index/recharge_yk')}" onclick="">-->
+                                    <!--<img src="/assets/img/mall-icon/mall-ykcz.png" alt="">-->
+                                    <!--<p>油卡充值</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="{:addon_url('shop/index/recharge_sf')}">-->
+                        <!---->
+                                    <!--<img src="/assets/img/mall-icon/mall-sfjn.png" alt="">-->
+                                    <!--<p>水费缴纳</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="{:addon_url('shop/index/recharge_df')}">-->
+                                    <!--<img src="/assets/img/mall-icon/mall-dfjn.png" alt="">-->
+                                    <!--<p>电费缴纳</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href=" {:addon_url('shop/index/recharge_rq')}">-->
+                                    <!--<img src="/assets/img/mall-icon/mall-rqjn.png" alt="">-->
+                                    <!--<p>燃气缴纳</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="{:addon_url('shop/index/appcenter')}">-->
+                                    <!--<img src="/assets/img/mall-icon/mall-yyzx.png" alt="">-->
+                                    <!--<p>应用中心</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                        <!---->
+                            <!--<li>-->
+                                <!--<a href="{:addon_url('shop/user/openshop')}">-->
+                                    <!--<img src="/assets/img/mall-icon/mall-sjrz.png" alt="">-->
+                                    <!--<p>商家入驻</p>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                        
+                        </ul>
+                    </div>
+                  
+                    <!--生活商城-->
+                    <div class="shMall">
+                        <div class="title">
+                            <i></i>佳家生活商城
+                            <a href="" class="more">查看更多
+                                <img  src="/assets/img/index-img/icon/icon-more.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-container swiper-vertical">
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <span>
+                                        <img width="100%" src="/assets/img/index-img/mall-banner.png" alt="">
+                                    </span>
+                                </div>
+                                <div class="swiper-slide">
+                                    <span>
+                                        <img width="100%" src="/assets/img/index-img/mall-banner.png" alt="">
+                                    </span>
+                                </div>
+                                <div class="swiper-slide">
+                                    <span>
+                                        <img width="100%" src="/assets/img/index-img/mall-banner.png" alt="">
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="pro-show" style="padding: 15px 10px 10px">
+                            <div  data-space-between="10" data-slides-per-view="3" class="swiper-container swiper-init demo-swiper">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+
+                                   
+                                    {volist name="favourite_goods" id="v"}
+                                    <div class="swiper-slide">
+                                        <a href="{:addon_url('shop/Goods/goodsInfo',array('id'=>$v['goods_id']))}">
+                                            <img src="{$v.image}" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">{:substr($v.goods_name,0,12)}</p>
+                                            <p class="p-price-m"> 积分:{$v.shop_price}</p>
+                                            <p class="p-price">
+                                                <s>积分:{$v['shop_price']*1.2}</s>
+                                            </p>
+                                        </div>
+                                    </div> 
+                                    {/volist}
+                                    <!-- <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro02.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">粉美人</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro03.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">川菜小龙虾</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro01.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">巷里小院串串</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro02.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">粉美人</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="">
+                                            <img src="/assets/img/index-img/pro03.png" alt="">
+                                        </a>
+                                        <div class="p-desc">
+                                            <p class="p-title">川菜小龙虾</p>
+                                            <p class="p-price-m">秒杀价 ￥3900</p>
+                                            <p class="p-price">
+                                                <s >￥ 3900</s>
+                                            </p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+     
+                </div>
+            </section>
+        
+    </div>
+    <!--底部开始-->
+    {include file="Public/footer_shop"/}
+    <!--底部结束-->
+</div>
